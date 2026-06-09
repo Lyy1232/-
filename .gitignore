@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.claude/
+.obsidian/
+*.log
+*.pid
+.DS_Store

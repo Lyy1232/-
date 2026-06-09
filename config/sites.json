@@ -1,0 +1,46 @@
+[
+  {
+    "name": "赤城",
+    "province": "河北",
+    "lat": 40.91,
+    "lon": 115.83,
+    "tech": "风电+光伏电解",
+    "capacity": 20000,
+    "cost_low": 16.5,
+    "cost_avg": 18.5,
+    "cost_high": 21.0
+  },
+  {
+    "name": "宁东",
+    "province": "宁夏",
+    "lat": 38.15,
+    "lon": 106.57,
+    "tech": "煤制氢+CCS",
+    "capacity": 12000,
+    "cost_low": 22.0,
+    "cost_avg": 25.5,
+    "cost_high": 29.0
+  },
+  {
+    "name": "沧州",
+    "province": "河北",
+    "lat": 38.30,
+    "lon": 116.84,
+    "tech": "工业副产氢",
+    "capacity": 8000,
+    "cost_low": 12.0,
+    "cost_avg": 15.0,
+    "cost_high": 18.0
+  },
+  {
+    "name": "如东",
+    "province": "江苏",
+    "lat": 32.33,
+    "lon": 121.18,
+    "tech": "风电+光伏电解",
+    "capacity": 15000,
+    "cost_low": 20.0,
+    "cost_avg": 23.0,
+    "cost_high": 26.0
+  }
+]
