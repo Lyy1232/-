@@ -55,8 +55,9 @@ def render():
         st.markdown("---")
         st.subheader("📋 平台功能模块")
         modules = [
-            ("🗺️", "基地地图", "Folium 交互地图 · 四大基地标注 · 200km辐射圈 · 成本区间展示", "已完成"),
-            ("📊", "数据管理", "Excel 批量导入 · 在线编辑 · 数据校验 · 版本记录", "已完成"),
+            ("🗺️", "基地地图", "Folium 交互地图 · 四大基地标注 · 竞品标注 · 200km辐射圈 · 成本对比", "已完成"),
+            ("⛽", "加氢站网络", "20站覆盖 · 200km覆盖分析 · 城市群分类 · 市场机会识别", "已完成"),
+            ("📊", "数据管理", "Excel 批量导入/导出 · 在线编辑 · 数据校验", "已完成"),
             ("🔗", "供需匹配（P3）", "产地→需求区最优匹配 · 运输成本计算 · 到站价格推导", "待开发"),
             ("💲", "定价决策（P3）", "区域氢价对标 · 成本优势热力图 · 毛利测算", "待开发"),
             ("📈", "市场监测（P4）", "政策跟踪 · 竞品分析 · FCV销量趋势 · 周报自动生成", "待开发"),
@@ -81,6 +82,9 @@ def render():
         st.subheader("🚀 快速入口")
         if st.button("🗺️ 基地地图 →", width="stretch", type="primary"):
             st.session_state.page = "map"
+            st.rerun()
+        if st.button("⛽ 加氢站网络 →", width="stretch"):
+            st.session_state.page = "stations"
             st.rerun()
         if st.button("📊 数据管理 →", width="stretch"):
             st.session_state.page = "data"

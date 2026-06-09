@@ -35,6 +35,7 @@ with st.sidebar:
     pages = [
         ("home", "🏠", "首页总览", "Home"),
         ("map", "🗺️", "基地地图", "Map"),
+        ("stations", "⛽", "加氢站网络", "Stations"),
         ("data", "📊", "数据管理", "Data"),
     ]
     current_page = st.session_state.page
@@ -52,7 +53,7 @@ with st.sidebar:
     st.caption("**开发阶段**")
     phases = [
         ("P1 搭框架", True),
-        ("P2 供需端搭建", False),
+        ("P2 供需端搭建", True),
         ("P3 成本计算+供需调控", False),
         ("P4 优化补充", False),
     ]
@@ -79,6 +80,9 @@ with st.sidebar:
 if st.session_state.page == "map":
     from pages import production_map
     production_map.render()
+elif st.session_state.page == "stations":
+    from pages import station_network
+    station_network.render()
 elif st.session_state.page == "data":
     from pages import data_input
     data_input.render()

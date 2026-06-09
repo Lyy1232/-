@@ -7,10 +7,12 @@ import pandas as pd
 from folium import Circle, Popup, Tooltip
 from folium.plugins import Fullscreen, MeasureControl
 from streamlit_folium import st_folium
-from utils.data_loader import load_sites
+from utils.data_loader import load_sites, load_competitors
 from utils.geo_utils import haversine_km
 from utils.ui import render_header
 from config.constants import TECH_COLORS, TECH_ZH, TILE_OPTIONS, DEFAULT_COLOR, ECONOMIC_RADIUS_KM
+
+COMPETITOR_STATUS_COLORS = {"已投产": "#ef4444", "在建": "#f59e0b", "规划": "#94a3b8"}
 
 
 def _fmt_site_popup(site: dict, color: str) -> str:
@@ -46,8 +48,9 @@ def _get_folium_icon(tech: str) -> tuple[str, str]:
 
 def build_map(sites: list[dict], show_radius: bool = True,
               selected_site: dict | None = None,
-              tile_key: str = "高德地图（推荐）") -> folium.Map:
-    """Build Folium map with site markers, radius circles, legend, and measurement tool."""
+              tile_key: str = "高德地图（推荐）",
+              show_competitors: bool = False, competitors: list[dict] | None = None) -> folium.Map:
+    """Build Folium map with site markers, radius circles, competitor markers, legend, and measurement tool."""
 
     tile_cfg = TILE_OPTIONS.get(tile_key, TILE_OPTIONS["高德地图（推荐）"])
     tiles = tile_cfg["url"]
@@ -102,6 +105,31 @@ def build_map(sites: list[dict], show_radius: bool = True,
                 html=f'<div style="font-size:{"12px" if is_sel else "11px"};font-weight:{label_weight};color:#0f172a;background:rgba(255,255,255,0.9);padding:2px 7px;border-radius:3px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,0.1);border-left:3px solid {label_color}">{site["name"]}<br><span style="font-size:8px;color:#64748b">{TECH_ZH.get(tech, tech)} · ¥{site["cost_avg"]}</span></div>'
             ),
         ).add_to(m)
+
+    # Competitor markers
+    if show_competitors and competitors:
+        for comp in competitors:
+            c_lat, c_lon = comp["lat"], comp["lon"]
+            comp_color = COMPETITOR_STATUS_COLORS.get(comp.get("status", ""), "#94a3b8")
+            comp_popup = f"""
+            <div style="font-family:-apple-system,sans-serif;min-width:180px">
+              <h4 style="margin:0 0 2px;color:{comp_color};font-size:14px">⚠️ {comp['name']}</h4>
+              <p style="margin:2px 0;font-size:11px;color:#64748b">{comp.get('province','')} · {comp.get('tech','')}</p>
+              <hr style="margin:6px 0;border-color:#e5e7eb">
+              <table style="font-size:11px;width:100%;line-height:1.6">
+                <tr><td style="color:#64748b">产能</td><td><b>{comp.get('capacity',0):,} t/y</b></td></tr>
+                <tr><td style="color:#64748b">估成本</td><td><b>¥{comp.get('cost_est',0)}/kg</b></td></tr>
+                <tr><td style="color:#64748b">状态</td><td style="color:{comp_color}"><b>{comp.get('status','')}</b></td></tr>
+              </table>
+              <p style="font-size:10px;color:#94a3b8;margin-top:4px">{comp.get('notes','')}</p>
+            </div>"""
+            folium.Marker(
+                location=[c_lat, c_lon],
+                icon=folium.Icon(color="red" if comp.get("status") == "已投产" else "orange" if comp.get("status") == "在建" else "gray",
+                                 icon="exclamation-triangle" if comp.get("status") == "已投产" else "clock-o" if comp.get("status") == "在建" else "question", prefix="fa"),
+                popup=folium.Popup(comp_popup, max_width=280),
+                tooltip=folium.Tooltip(f"⚠️ {comp['name']} · {comp.get('status','')} · ¥{comp.get('cost_est',0)}/kg"),
+            ).add_to(m)
 
     # Legend overlay
     legend_rows = ""
@@ -220,6 +248,7 @@ def render():
     render_header()
 
     sites = load_sites()
+    competitors = load_competitors()
     if not sites:
         st.warning("⚠️ 未加载到基地数据，请先在「数据管理」中录入基地信息。")
         if st.button("📊 前往数据管理", type="primary"):
@@ -236,26 +265,28 @@ def render():
         st.session_state.map_tile_key = "高德地图（推荐）"
 
     # ── Control bar ──
-    c1, c2, c3, c4 = st.columns([2, 1, 1, 1])
+    c1, c2, c3, c4, c5 = st.columns([1.5, 1, 1, 0.8, 1.2])
     with c1:
         st.session_state.map_show_radius = st.checkbox(
             f"显示 {ECONOMIC_RADIUS_KM}km 辐射圈", value=st.session_state.map_show_radius
         )
     with c2:
+        show_comp = st.checkbox("显示竞品", value=st.session_state.get("map_show_competitors", False))
+        st.session_state.map_show_competitors = show_comp
+    with c3:
         tile_keys = list(TILE_OPTIONS.keys())
         cur_tile = tile_keys.index(st.session_state.map_tile_key) if st.session_state.map_tile_key in tile_keys else 0
         st.session_state.map_tile_key = st.selectbox("地图底图", tile_keys, index=cur_tile)
-    with c3:
+    with c4:
         site_names = ["全部基地"] + [s["name"] for s in sites]
         st.session_state.map_selected_idx = st.selectbox(
             "聚焦基地", range(len(site_names)),
             index=st.session_state.map_selected_idx,
             format_func=lambda i: site_names[i],
         )
-    with c4:
+    with c5:
         ts = sites[0].get("updated_at", "")[:10] if sites and sites[0].get("updated_at") else "—"
-        st.caption(f"💡 点击标记查看详情")
-        st.caption(f"📅 更新: {ts}")
+        st.caption(f"💡 点击标记查看详情 | 📅 更新: {ts}")
 
     selected_site = sites[st.session_state.map_selected_idx - 1] if st.session_state.map_selected_idx > 0 else None
 
@@ -267,6 +298,7 @@ def render():
             m = build_map(
                 sites, show_radius=st.session_state.map_show_radius,
                 selected_site=selected_site, tile_key=st.session_state.map_tile_key,
+                show_competitors=show_comp, competitors=competitors,
             )
         st_folium(m, width="100%", height=580, returned_objects=[])
 
@@ -284,6 +316,56 @@ def render():
     st.markdown("---")
     st.subheader("📊 成本对比分析")
     st.plotly_chart(_cost_comparison_chart(sites), width="stretch")
+
+    # Cost comparison: Guohua vs Competitors
+    if competitors:
+        st.markdown("---")
+        st.subheader("⚔️ 成本对标：国华 vs 竞品")
+        comp_rows = []
+        for site in sites:
+            comp_rows.append({
+                "类型": "🏭 国华基地", "名称": site["name"], "省份": site["province"],
+                "技术路线": TECH_ZH.get(site["tech"], site["tech"]),
+                "产能(t/y)": site["capacity"], "成本(¥/kg)": site["cost_avg"], "状态": "运营中",
+            })
+        for comp in competitors:
+            comp_rows.append({
+                "类型": "⚠️ 竞品", "名称": comp["name"], "省份": comp.get("province", ""),
+                "技术路线": comp.get("tech", ""),
+                "产能(t/y)": comp.get("capacity", 0), "成本(¥/kg)": comp.get("cost_est", 0),
+                "状态": comp.get("status", ""),
+            })
+        df_comp = pd.DataFrame(comp_rows).sort_values("成本(¥/kg)")
+        st.dataframe(df_comp, width="stretch", hide_index=True,
+                     column_config={"成本(¥/kg)": st.column_config.NumberColumn(format="¥%.1f")})
+
+        # Comparison scatter
+        fig2 = go.Figure()
+        fig2.add_trace(go.Scatter(
+            x=[s["cost_avg"] for s in sites],
+            y=[s["capacity"] for s in sites],
+            mode="markers+text",
+            text=[s["name"] for s in sites],
+            textposition="top center",
+            marker=dict(size=18, color="#00d4aa", symbol="diamond", line=dict(color="#0f172a", width=1)),
+            name="国华基地",
+        ))
+        fig2.add_trace(go.Scatter(
+            x=[c["cost_est"] for c in competitors],
+            y=[c.get("capacity", 0) for c in competitors],
+            mode="markers+text",
+            text=[c["name"] for c in competitors],
+            textposition="top center",
+            marker=dict(size=14, color="#ef4444", symbol="x-thin", line=dict(color="#ef4444", width=1.5)),
+            name="竞品",
+        ))
+        fig2.update_layout(
+            title="成本 vs 产能 竞争格局", height=380,
+            xaxis_title="成本 (¥/kg)", yaxis_title="产能 (t/y)",
+            plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
+            legend=dict(orientation="h", y=1.12),
+        )
+        st.plotly_chart(fig2, width="stretch")
 
     # ── Coverage summary ──
     st.markdown("---")

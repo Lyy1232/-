@@ -7,6 +7,8 @@ from config.constants import VALIDATION, VALID_TECH_ROUTES
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SITES_FILE = PROJECT_ROOT / "config" / "sites.json"
+COMPETITORS_FILE = PROJECT_ROOT / "config" / "competitors.json"
+STATIONS_FILE = PROJECT_ROOT / "config" / "stations.json"
 
 
 @st.cache_data(ttl=30)
@@ -94,3 +96,55 @@ def get_updated_time() -> str:
         return ts or "未记录"
     except Exception:
         return "无法读取"
+
+
+@st.cache_data(ttl=60)
+def load_competitors() -> list[dict]:
+    """Load competitor data from JSON with cache."""
+    try:
+        with open(COMPETITORS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return []
+
+
+@st.cache_data(ttl=60)
+def load_stations() -> list[dict]:
+    """Load hydrogen station data from JSON with cache."""
+    try:
+        with open(STATIONS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return []
+
+
+def get_station_stats(stations: list[dict]) -> dict:
+    """Compute aggregate statistics for stations."""
+    if not stations:
+        return {"count": 0, "total_capacity": 0, "total_throughput": 0, "avg_load": 0, "guohua_count": 0}
+    total_cap = sum(s.get("daily_capacity_kg", 0) for s in stations)
+    total_through = sum(s.get("actual_throughput_kg", 0) for s in stations)
+    guohua = sum(1 for s in stations if s.get("is_guohua", False))
+    avg_load = (total_through / total_cap * 100) if total_cap > 0 else 0
+    return {
+        "count": len(stations),
+        "total_capacity": total_cap,
+        "total_throughput": total_through,
+        "avg_load": round(avg_load, 1),
+        "guohua_count": guohua,
+    }
+
+
+def get_cluster_stats(stations: list[dict]) -> list[dict]:
+    """Aggregate stations by city cluster."""
+    clusters = {}
+    for s in stations:
+        c = s.get("city_cluster", "其他")
+        if c not in clusters:
+            clusters[c] = {"name": c, "count": 0, "capacity": 0, "throughput": 0, "guohua": 0, "operational": 0}
+        clusters[c]["count"] += 1
+        clusters[c]["capacity"] += s.get("daily_capacity_kg", 0)
+        clusters[c]["throughput"] += s.get("actual_throughput_kg", 0)
+        clusters[c]["guohua"] += 1 if s.get("is_guohua") else 0
+        clusters[c]["operational"] += 1 if s.get("status") == "运营中" else 0
+    return sorted(clusters.values(), key=lambda x: x["count"], reverse=True)
