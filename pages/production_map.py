@@ -1,8 +1,11 @@
-"""P1 核心：生产基地地图 — Folium 交互地图 + 四基地标注 + 200km 辐射圈"""
+"""P1 核心：生产基地地图 — Folium 交互地图 + 四基地标注 + 200km 辐射圈 + 成本对比"""
 import streamlit as st
 import folium
-from folium import Circle, Popup
-from folium.plugins import Fullscreen
+import plotly.express as px
+import plotly.graph_objects as go
+import pandas as pd
+from folium import Circle, Popup, Tooltip
+from folium.plugins import Fullscreen, MeasureControl
 from streamlit_folium import st_folium
 from utils.data_loader import load_sites
 from utils.geo_utils import haversine_km
@@ -11,7 +14,6 @@ from config.constants import TECH_COLORS, TECH_ZH, TILE_OPTIONS, DEFAULT_COLOR, 
 
 
 def _fmt_site_popup(site: dict, color: str) -> str:
-    """Build HTML popup for a production site marker."""
     tech_zh = TECH_ZH.get(site["tech"], site["tech"])
     cert = site.get("cert_status", "—")
     util = site.get("utilization", "—")
@@ -33,7 +35,6 @@ def _fmt_site_popup(site: dict, color: str) -> str:
 
 
 def _get_folium_icon(tech: str) -> tuple[str, str]:
-    """Map tech route to Folium icon (color, icon_name)."""
     if "电解" in tech:
         return "darkgreen", "industry"
     if "CCS" in tech:
@@ -44,22 +45,16 @@ def _get_folium_icon(tech: str) -> tuple[str, str]:
 
 
 def build_map(sites: list[dict], show_radius: bool = True,
-              selected_site: dict | None = None, tile_key: str = "高德地图（推荐）") -> folium.Map:
-    """Build Folium map with site markers, 200km radius circles, and legend."""
+              selected_site: dict | None = None,
+              tile_key: str = "高德地图（推荐）") -> folium.Map:
+    """Build Folium map with site markers, radius circles, legend, and measurement tool."""
 
     tile_cfg = TILE_OPTIONS.get(tile_key, TILE_OPTIONS["高德地图（推荐）"])
-
-    # Build tile layer
-    if "subdomains" in tile_cfg:
-        tiles = tile_cfg["url"]
-        attr = tile_cfg.get("attr", "")
-    else:
-        tiles = tile_cfg["url"]
-        attr = tile_cfg.get("attr", tiles)
-
+    tiles = tile_cfg["url"]
+    attr = tile_cfg.get("attr", "")
     center_lat = selected_site["lat"] if selected_site else 37.5
     center_lon = selected_site["lon"] if selected_site else 110.0
-    zoom = 8 if selected_site else 5
+    zoom = 9 if selected_site else 5
 
     m = folium.Map(
         location=[center_lat, center_lon],
@@ -69,6 +64,7 @@ def build_map(sites: list[dict], show_radius: bool = True,
         control_scale=True,
     )
     Fullscreen().add_to(m)
+    MeasureControl(position="topleft", primary_length_unit="kilometers").add_to(m)
 
     for site in sites:
         lat, lon = site["lat"], site["lon"]
@@ -76,7 +72,6 @@ def build_map(sites: list[dict], show_radius: bool = True,
         color = TECH_COLORS.get(tech, DEFAULT_COLOR)
         is_sel = selected_site and selected_site["name"] == site["name"]
 
-        # 200km radius
         if show_radius:
             Circle(
                 location=[lat, lon],
@@ -84,43 +79,47 @@ def build_map(sites: list[dict], show_radius: bool = True,
                 color=color,
                 fill=True,
                 fill_color=color,
-                fill_opacity=0.07 if is_sel else 0.04,
-                weight=2 if is_sel else 1,
-                opacity=0.6 if is_sel else 0.25,
-                dash_array=None if is_sel else "6 5",
-                popup=folium.Popup(f"<b>{site['name']}</b> {ECONOMIC_RADIUS_KM}km 经济辐射圈", max_width=200),
+                fill_opacity=0.08 if is_sel else 0.04,
+                weight=2.5 if is_sel else 1,
+                opacity=0.6 if is_sel else 0.2,
+                dash_array=None if is_sel else "8 6",
             ).add_to(m)
 
-        # Marker
         icon_color, icon_name = _get_folium_icon(tech)
         folium.Marker(
             location=[lat, lon],
             popup=Popup(_fmt_site_popup(site, color), max_width=300),
+            tooltip=Tooltip(f"{site['name']} · {TECH_ZH.get(tech, tech)} · ¥{site['cost_avg']}/kg"),
             icon=folium.Icon(color=icon_color, icon=icon_name, prefix="fa"),
         ).add_to(m)
 
-        # Text label
+        # Label
+        label_color = color if is_sel else "#475569"
+        label_weight = "700" if is_sel else "600"
         folium.map.Marker(
-            location=[lat + 0.10, lon],
+            location=[lat + 0.12, lon],
             icon=folium.DivIcon(
-                html=f'<div style="font-size:11px;font-weight:700;color:#0f172a;background:rgba(255,255,255,0.88);padding:2px 7px;border-radius:3px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.08);border-left:3px solid {color}">{site["name"]}<br><span style="font-size:8px;color:#64748b">{TECH_ZH.get(tech, tech)} · ¥{site["cost_avg"]}/kg</span></div>'
+                html=f'<div style="font-size:{"12px" if is_sel else "11px"};font-weight:{label_weight};color:#0f172a;background:rgba(255,255,255,0.9);padding:2px 7px;border-radius:3px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,0.1);border-left:3px solid {label_color}">{site["name"]}<br><span style="font-size:8px;color:#64748b">{TECH_ZH.get(tech, tech)} · ¥{site["cost_avg"]}</span></div>'
             ),
         ).add_to(m)
 
-    # Legend
-    legend_html = '<div style="position:fixed;bottom:22px;right:22px;z-index:9999;background:rgba(255,255,255,0.92);padding:10px 14px;border-radius:8px;font-size:11px;box-shadow:0 2px 12px rgba(0,0,0,0.08);line-height:1.8">'
-    legend_html += '<b style="font-size:12px">图例</b><br>'
+    # Legend overlay
+    legend_rows = ""
     for tech, color in TECH_COLORS.items():
-        legend_html += f'<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:{color};margin-right:4px"></span> {TECH_ZH.get(tech, tech)}<br>'
-    legend_html += f'<span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid #94a3b8;margin-right:4px"></span> {ECONOMIC_RADIUS_KM}km 辐射圈'
-    legend_html += '</div>'
+        legend_rows += f'<tr><td><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:{color}"></span></td><td style="font-size:11px;color:#334155">{TECH_ZH.get(tech, tech)}</td></tr>'
+    legend_html = f"""
+    <div style="position:fixed;bottom:20px;right:20px;z-index:9999;background:rgba(255,255,255,0.94);padding:10px 14px;border-radius:8px;box-shadow:0 2px 14px rgba(0,0,0,0.08);line-height:1.7">
+      <b style="font-size:12px;color:#0f172a">图例</b>
+      <table style="margin-top:4px">{legend_rows}
+        <tr><td><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:2px solid #94a3b8"></span></td><td style="font-size:11px;color:#334155">{ECONOMIC_RADIUS_KM}km 辐射圈</td></tr>
+      </table>
+    </div>"""
     m.get_root().html.add_child(folium.Element(legend_html))
 
     return m
 
 
 def _build_site_card(site: dict) -> str:
-    """Build HTML for a site info card."""
     tech = site["tech"]
     color = TECH_COLORS.get(tech, DEFAULT_COLOR)
     tech_zh = TECH_ZH.get(tech, tech)
@@ -130,10 +129,10 @@ def _build_site_card(site: dict) -> str:
     <div class="site-card" style="margin-bottom:10px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
         <span style="width:10px;height:10px;border-radius:50%;background:{color};display:inline-block;flex-shrink:0"></span>
-        <strong style="color:#0f172a;font-size:15px">{site['name']}</strong>
-        <span style="color:#64748b;font-size:11px">{site['province']}</span>
+        <strong style="color:#0f172a;font-size:14px">{site['name']}</strong>
+        <span style="color:#64748b;font-size:10px">{site['province']}</span>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;font-size:12px;color:#475569">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;font-size:11px;color:#475569">
         <div>技术: <b>{tech_zh}</b></div>
         <div>产能: <b>{site['capacity']:,} t/y</b></div>
         <div>成本: <b style="color:{color}">¥{site['cost_avg']}/kg</b></div>
@@ -143,16 +142,92 @@ def _build_site_card(site: dict) -> str:
     </div>"""
 
 
+def _cost_comparison_chart(sites: list[dict]):
+    """Build a Plotly grouped bar chart comparing costs across sites."""
+    df = pd.DataFrame(sites)
+    df["tech_zh"] = df["tech"].map(TECH_ZH)
+    df["color"] = df["tech"].map(TECH_COLORS).fillna(DEFAULT_COLOR)
+    df = df.sort_values("cost_avg")
+
+    fig = go.Figure()
+    # Cost range bar
+    for _, row in df.iterrows():
+        fig.add_trace(go.Bar(
+            name=row["name"],
+            x=[row["name"]],
+            y=[row["cost_high"] - row["cost_low"]],
+            base=[row["cost_low"]],
+            marker_color=row["color"],
+            marker_opacity=0.35,
+            width=0.5,
+            text=f"¥{row['cost_low']}–¥{row['cost_high']}",
+            textposition="outside",
+            textfont=dict(size=10, color="#64748b"),
+            hovertemplate=f"<b>{row['name']}</b><br>成本区间: ¥{row['cost_low']}–¥{row['cost_high']}/kg<br>平均: ¥{row['cost_avg']}/kg<extra></extra>",
+            showlegend=False,
+        ))
+
+    # Avg cost marker
+    fig.add_trace(go.Scatter(
+        x=df["name"],
+        y=df["cost_avg"],
+        mode="markers+text",
+        marker=dict(symbol="diamond", size=14, color="white", line=dict(color="#0f172a", width=2)),
+        text=[f"¥{v}" for v in df["cost_avg"]],
+        textposition="middle left",
+        textfont=dict(size=11, color="#0f172a", family="sans-serif"),
+        name="平均成本",
+        hovertemplate="%{text}/kg<extra></extra>",
+    ))
+
+    fig.update_layout(
+        title=dict(text="基地生产成本对比", font=dict(size=16, color="#0f172a")),
+        xaxis=dict(title=None, tickfont=dict(size=12)),
+        yaxis=dict(title="¥/kg", tickfont=dict(size=11), gridcolor="rgba(0,0,0,0.06)"),
+        height=320,
+        margin=dict(l=10, r=10, t=40, b=10),
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02),
+    )
+    return fig
+
+
+def _distance_calculator(sites: list[dict]):
+    """Interactive distance calculator between two sites."""
+    st.markdown("**📏 距离测量**")
+    c1, c2, c3 = st.columns([1, 1, 2])
+    site_names = [s["name"] for s in sites]
+    with c1:
+        a_idx = st.selectbox("起点", range(len(sites)), format_func=lambda i: site_names[i], key="dist_a")
+    with c2:
+        b_idx = st.selectbox("终点", range(len(sites)), format_func=lambda i: site_names[i],
+                             index=min(1, len(sites)-1), key="dist_b")
+    with c3:
+        if a_idx != b_idx:
+            d = haversine_km(sites[a_idx]["lat"], sites[a_idx]["lon"],
+                             sites[b_idx]["lat"], sites[b_idx]["lon"])
+            in_range = d <= ECONOMIC_RADIUS_KM
+            emoji = "✅" if in_range else "⚠️"
+            msg = f"{emoji} **{d:.0f} km** — {'在' if in_range else '超出'}经济辐射半径 ({ECONOMIC_RADIUS_KM}km)"
+            st.info(msg)
+        else:
+            st.caption("请选择不同基地")
+
+
 def render():
     lang = st.session_state.get("lang", "zh")
     render_header()
 
     sites = load_sites()
     if not sites:
-        st.warning("未加载到基地数据，请先在数据管理中录入。")
+        st.warning("⚠️ 未加载到基地数据，请先在「数据管理」中录入基地信息。")
+        if st.button("📊 前往数据管理", type="primary"):
+            st.session_state.page = "data"
+            st.rerun()
         return
 
-    # ── Session state init ──
+    # Session state
     if "map_selected_idx" not in st.session_state:
         st.session_state.map_selected_idx = 0
     if "map_show_radius" not in st.session_state:
@@ -160,60 +235,67 @@ def render():
     if "map_tile_key" not in st.session_state:
         st.session_state.map_tile_key = "高德地图（推荐）"
 
-    # ── Top control bar ──
+    # ── Control bar ──
     c1, c2, c3, c4 = st.columns([2, 1, 1, 1])
     with c1:
         st.session_state.map_show_radius = st.checkbox(
-            f"显示 {ECONOMIC_RADIUS_KM}km 辐射圈",
-            value=st.session_state.map_show_radius,
+            f"显示 {ECONOMIC_RADIUS_KM}km 辐射圈", value=st.session_state.map_show_radius
         )
     with c2:
         tile_keys = list(TILE_OPTIONS.keys())
-        current_tile_idx = tile_keys.index(st.session_state.map_tile_key) if st.session_state.map_tile_key in tile_keys else 0
-        st.session_state.map_tile_key = st.selectbox(
-            "地图底图", tile_keys, index=current_tile_idx,
-        )
+        cur_tile = tile_keys.index(st.session_state.map_tile_key) if st.session_state.map_tile_key in tile_keys else 0
+        st.session_state.map_tile_key = st.selectbox("地图底图", tile_keys, index=cur_tile)
     with c3:
         site_names = ["全部基地"] + [s["name"] for s in sites]
-        new_idx = st.selectbox(
+        st.session_state.map_selected_idx = st.selectbox(
             "聚焦基地", range(len(site_names)),
             index=st.session_state.map_selected_idx,
             format_func=lambda i: site_names[i],
         )
-        st.session_state.map_selected_idx = new_idx
     with c4:
-        st.caption("💡 点击标记查看详情")
-        st.caption(f"📅 数据更新: {sites[0].get('updated_at', '—')[:16] if sites else '—'}")
+        ts = sites[0].get("updated_at", "")[:10] if sites and sites[0].get("updated_at") else "—"
+        st.caption(f"💡 点击标记查看详情")
+        st.caption(f"📅 更新: {ts}")
 
     selected_site = sites[st.session_state.map_selected_idx - 1] if st.session_state.map_selected_idx > 0 else None
 
-    # ── Main layout: map (65%) | side cards (35%) ──
+    # ── Map + Sidebar ──
     map_col, info_col = st.columns([0.65, 0.35])
 
     with map_col:
         with st.spinner("加载地图..."):
             m = build_map(
-                sites,
-                show_radius=st.session_state.map_show_radius,
-                selected_site=selected_site,
-                tile_key=st.session_state.map_tile_key,
+                sites, show_radius=st.session_state.map_show_radius,
+                selected_site=selected_site, tile_key=st.session_state.map_tile_key,
             )
         st_folium(m, width="100%", height=580, returned_objects=[])
 
     with info_col:
         st.markdown("**📋 基地详情**")
         if selected_site:
-            st.info(f"📍 当前聚焦: **{selected_site['name']}**")
+            st.info(f"📍 聚焦: **{selected_site['name']}** · {TECH_ZH.get(selected_site['tech'], selected_site['tech'])}")
         for site in sites:
             st.markdown(_build_site_card(site), unsafe_allow_html=True)
 
         st.markdown("---")
-        st.markdown("**📏 覆盖统计**")
-        for site in sites:
-            lat, lon = site["lat"], site["lon"]
-            nearby = [s for s in sites if s["name"] != site["name"]
-                      and haversine_km(lat, lon, s["lat"], s["lon"]) <= ECONOMIC_RADIUS_KM]
+        _distance_calculator(sites)
+
+    # ── Cost comparison chart ──
+    st.markdown("---")
+    st.subheader("📊 成本对比分析")
+    st.plotly_chart(_cost_comparison_chart(sites), width="stretch")
+
+    # ── Coverage summary ──
+    st.markdown("---")
+    st.subheader("📏 覆盖分析")
+    cov_cols = st.columns(len(sites))
+    for col, site in zip(cov_cols, sites):
+        lat, lon = site["lat"], site["lon"]
+        nearby = [s for s in sites if s["name"] != site["name"]
+                  and haversine_km(lat, lon, s["lat"], s["lon"]) <= ECONOMIC_RADIUS_KM]
+        with col:
+            st.metric(site["name"], f"{len(nearby)} 相邻基地", delta="独立覆盖" if not nearby else None)
             if nearby:
-                st.caption(f"🔗 {site['name']} ↔ {', '.join(s['name'] for s in nearby)} ({ECONOMIC_RADIUS_KM}km内)")
-            else:
-                st.caption(f"📍 {site['name']}: 独立覆盖区")
+                for ns in nearby:
+                    d = haversine_km(lat, lon, ns["lat"], ns["lon"])
+                    st.caption(f"↔ {ns['name']} ({d:.0f}km)")
