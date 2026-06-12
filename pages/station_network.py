@@ -1,4 +1,5 @@
 """加氢站网络分析 — Platts风格"""
+import json
 import streamlit as st
 import folium
 import plotly.express as px
@@ -16,7 +17,16 @@ CLUSTER_COLORS = {"京津冀": "#00a99d", "长三角": "#2563eb", "珠三角": "
                   "山东半岛": "#7c3aed", "成渝": "#ef4444", "中原城市群": "#fb923c"}
 
 
-def _build_coverage_map(sites, stations, selected_site=None):
+@st.cache_resource(show_spinner=False)
+def _cached_station_map(sites_json: str, stations_json: str, selected_name: str):
+    """Cached station map — only rebuilds when params change."""
+    sites = json.loads(sites_json)
+    stations = json.loads(stations_json)
+    selected_site = next((s for s in sites if s["name"] == selected_name), None) if selected_name else None
+    return _build_coverage_map_impl(sites, stations, selected_site)
+
+
+def _build_coverage_map_impl(sites, stations, selected_site=None):
     clat = selected_site["lat"] if selected_site else 39.0
     clon = selected_site["lon"] if selected_site else 116.0
     m = folium.Map(location=[clat, clon], zoom_start=8 if selected_site else 6,
@@ -72,7 +82,10 @@ def _build_coverage_map(sites, stations, selected_site=None):
     return m
 
 
-def _coverage_table(sites, stations):
+@st.cache_data(show_spinner=False, ttl=300)
+def _coverage_table(sites_json: str, stations_json: str):
+    sites = json.loads(sites_json)
+    stations = json.loads(stations_json)
     rows = []
     for site in sites:
         covered = [(s, haversine_km(s["lat"], s["lon"], site["lat"], site["lon"]))
@@ -87,7 +100,10 @@ def _coverage_table(sites, stations):
     return pd.DataFrame(rows)
 
 
-def _demand_gap(sites, stations):
+@st.cache_data(show_spinner=False, ttl=300)
+def _demand_gap(sites_json: str, stations_json: str):
+    sites = json.loads(sites_json)
+    stations = json.loads(stations_json)
     opps = []
     for s in stations:
         if s.get("is_guohua") or s.get("status") != "运营中": continue
@@ -145,12 +161,16 @@ def render():
         sel = next((s for s in sites if s["name"] == focus), None) if focus != "全部" else None
         filtered = [s for s in stations if not cl_sel or s.get("city_cluster","") in cl_sel]
         with st.spinner("加载地图..."):
-            m = _build_coverage_map(sites, filtered, sel)
+            m = _cached_station_map(
+                json.dumps(sites, ensure_ascii=False, sort_keys=True),
+                json.dumps(filtered, ensure_ascii=False, sort_keys=True),
+                sel["name"] if sel else "",
+            )
         st_folium(m, width="100%", height=540, returned_objects=[])
 
     with tab2:
         st.subheader(f"各基地 {ECONOMIC_RADIUS_KM}km 覆盖分析")
-        df_cov = _coverage_table(sites, stations)
+        df_cov = _coverage_table(json.dumps(sites, ensure_ascii=False, sort_keys=True), json.dumps(stations, ensure_ascii=False, sort_keys=True))
         st.dataframe(df_cov, width="stretch", hide_index=True)
         fig = px.bar(df_cov, x="基地", y="覆盖站数", color="基地",
                      color_discrete_sequence=["#00a99d", "#2563eb", "#d97706", "#7c3aed"],
@@ -162,7 +182,7 @@ def render():
     with tab3:
         st.subheader("🎯 潜在市场机会")
         st.caption(f"辐射圈内 · 运营中 · 非国华供氢 · 可替代的加氢站")
-        df_opp = _demand_gap(sites, stations)
+        df_opp = _demand_gap(json.dumps(sites, ensure_ascii=False, sort_keys=True), json.dumps(stations, ensure_ascii=False, sort_keys=True))
         if df_opp.empty:
             st.info("当前所有辐射圈内运营站已由国华供氢。")
         else:

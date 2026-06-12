@@ -32,8 +32,20 @@ def _fmt_site_popup(site: dict, color: str) -> str:
     </div>"""
 
 
-def build_map(sites, show_radius=True, selected_site=None, tile_key="高德地图（推荐）",
-              show_competitors=False, competitors=None):
+import json
+
+@st.cache_resource(show_spinner=False)
+def _cached_build_map(sites_json: str, show_radius: bool, selected_name: str,
+                      tile_key: str, show_competitors: bool, competitors_json: str):
+    """Cached Folium map builder — only rebuilds when params change."""
+    sites = json.loads(sites_json)
+    competitors = json.loads(competitors_json) if competitors_json else []
+    selected_site = next((s for s in sites if s["name"] == selected_name), None) if selected_name else None
+    return _build_map_impl(sites, show_radius, selected_site, tile_key, show_competitors, competitors)
+
+
+def _build_map_impl(sites, show_radius=True, selected_site=None, tile_key="高德地图（推荐）",
+                    show_competitors=False, competitors=None):
     tile_cfg = TILE_OPTIONS.get(tile_key, TILE_OPTIONS["高德地图（推荐）"])
     tiles, attr = tile_cfg["url"], tile_cfg.get("attr", "")
     clat = selected_site["lat"] if selected_site else 37.5
@@ -101,7 +113,9 @@ def build_map(sites, show_radius=True, selected_site=None, tile_key="高德地�
     return m
 
 
-def _cost_comparison_chart(sites):
+@st.cache_data(show_spinner=False, ttl=300)
+def _cost_comparison_chart(sites_json: str):
+    sites = json.loads(sites_json)
     df = pd.DataFrame(sites)
     df["tech_zh"] = df["tech"].map(TECH_ZH)
     df = df.sort_values("cost_avg")
@@ -160,7 +174,14 @@ def render():
     map_col, info_col = st.columns([0.64, 0.36])
     with map_col:
         with st.spinner("加载地图..."):
-            m = build_map(sites, st.session_state.map_show_radius, sel, st.session_state.map_tile_key, show_comp, competitors)
+            m = _cached_build_map(
+                json.dumps(sites, ensure_ascii=False, sort_keys=True),
+                st.session_state.map_show_radius,
+                sel["name"] if sel else "",
+                st.session_state.map_tile_key,
+                show_comp,
+                json.dumps(competitors, ensure_ascii=False, sort_keys=True) if competitors else "",
+            )
         st_folium(m, width="100%", height=560, returned_objects=[])
 
     with info_col:
@@ -187,7 +208,7 @@ def render():
 
     st.markdown("---")
     st.subheader("📊 成本对比分析")
-    st.plotly_chart(_cost_comparison_chart(sites), width="stretch")
+    st.plotly_chart(_cost_comparison_chart(json.dumps(sites, ensure_ascii=False, sort_keys=True)), width="stretch")
 
     if competitors:
         st.markdown("---")

@@ -11,7 +11,7 @@ COMPETITORS_FILE = PROJECT_ROOT / "config" / "competitors.json"
 STATIONS_FILE = PROJECT_ROOT / "config" / "stations.json"
 
 
-@st.cache_data(ttl=30)
+@st.cache_data(ttl=300)
 def load_sites() -> list[dict]:
     """Load production sites from JSON with cache (30s TTL)."""
     try:
