@@ -176,7 +176,12 @@ def render():
                      color_discrete_sequence=["#00a99d", "#2563eb", "#d97706", "#7c3aed"],
                      text="覆盖站数", title=f"各基地辐射圈内加氢站数量")
         fig.update_traces(textposition="outside", textfont=dict(size=13, color="#1e293b"))
-        fig.update_layout(height=280, showlegend=False, plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)")
+        fig.update_layout(
+        height=280, showlegend=False,
+        plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
+        font_family="-apple-system, BlinkMacSystemFont, PingFang SC, sans-serif",
+        xaxis=dict(tickfont=dict(size=11, color="#64748b")), yaxis=dict(tickfont=dict(size=10, color="#64748b"), gridcolor="rgba(0,0,0,0.04)"),
+    )
         st.plotly_chart(fig, width="stretch")
 
     with tab3:
@@ -210,8 +215,14 @@ def render():
         fig = go.Figure()
         fig.add_trace(go.Bar(name="日能力(kg)", x=df_cl["name"], y=df_cl["capacity"], marker_color="#00a99d", marker_opacity=0.5))
         fig.add_trace(go.Bar(name="实际加注(kg)", x=df_cl["name"], y=df_cl["throughput"], marker_color="#1e293b"))
-        fig.update_layout(barmode="group", height=300, title="各城市群加氢能力 vs 实际加注量",
-                          plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)", legend=dict(orientation="h", y=1.12))
+        fig.update_layout(
+        barmode="group", height=300,
+        title=dict(text="各城市群加氢能力 vs 实际加注量", font=dict(size=15, color="#0f172a")),
+        plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
+        font_family="-apple-system, BlinkMacSystemFont, PingFang SC, sans-serif",
+        xaxis=dict(tickfont=dict(size=11, color="#64748b")), yaxis=dict(tickfont=dict(size=10, color="#64748b"), gridcolor="rgba(0,0,0,0.04)"),
+        legend=dict(orientation="h", y=1.12, font=dict(size=11, color="#64748b")),
+    )
         st.plotly_chart(fig, width="stretch")
 
         st.markdown("---")

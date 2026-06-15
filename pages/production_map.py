@@ -131,9 +131,14 @@ def _cost_comparison_chart(sites_json: str):
                              marker=dict(symbol="diamond", size=12, color="#fff", line=dict(color="#1e293b", width=2)),
                              text=[f"¥{v}" for v in df["cost_avg"]], textposition="middle left",
                              textfont=dict(size=11, color="#1e293b"), name="平均", hovertemplate="%{text}/kg<extra></extra>"))
-    fig.update_layout(height=300, margin=dict(l=10, r=10, t=30, b=10),
-                      plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
-                      legend=dict(orientation="h", y=1.1), xaxis=dict(tickfont=dict(size=11)), yaxis=dict(title="¥/kg", gridcolor="rgba(0,0,0,0.05)"))
+    fig.update_layout(
+        height=280, margin=dict(l=10, r=10, t=30, b=10),
+        plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
+        font_family="-apple-system, BlinkMacSystemFont, PingFang SC, sans-serif",
+        legend=dict(orientation="h", y=1.1, font=dict(size=11, color="#64748b")),
+        xaxis=dict(tickfont=dict(size=11, color="#64748b"), gridcolor="rgba(0,0,0,0)"),
+        yaxis=dict(title="¥/kg", titlefont=dict(size=10, color="#94a3b8"), tickfont=dict(size=10, color="#64748b"), gridcolor="rgba(0,0,0,0.04)"),
+    )
     return fig
 
 
@@ -185,7 +190,7 @@ def render():
         st_folium(m, width="100%", height=560, returned_objects=[])
 
     with info_col:
-        st.markdown('<p style="font-size:10px;color:var(--text-4);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;margin-bottom:4px">基地详情</p>', unsafe_allow_html=True)
+        st.markdown('<p style="font-size:10px;color:var(--slate-400);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;margin-bottom:4px">基地详情</p>', unsafe_allow_html=True)
         if sel:
             st.info(f"📍 聚焦: **{sel['name']}** · {TECH_ZH.get(sel['tech'], sel['tech'])}")
         for site in sites:
@@ -194,11 +199,11 @@ def render():
             util = site.get("utilization", "—")
             st.markdown(f"""
             <div class="info-card" style="border-left-color:{color}">
-              <div class="ic-title">{site['name']} <span style="font-size:10px;color:var(--text-4);font-weight:400">{site['province']}</span></div>
+              <div class="ic-title">{site['name']} <span style="font-size:10px;color:var(--slate-400);font-weight:400">{site['province']}</span></div>
               <div class="ic-row"><span>产能 <b>{site['capacity']:,}t</b></span><span>成本 <b style="color:{color}">¥{site['cost_avg']}</b></span><span>利用率 <b>{util}%</b></span></div>
             </div>""", unsafe_allow_html=True)
 
-        st.markdown('<p style="font-size:10px;color:var(--text-4);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;margin:12px 0 4px">距离测量</p>', unsafe_allow_html=True)
+        st.markdown('<p style="font-size:10px;color:var(--slate-400);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;margin:12px 0 4px">距离测量</p>', unsafe_allow_html=True)
         sn = [s["name"] for s in sites]
         da = st.selectbox("起点", range(len(sites)), format_func=lambda i: sn[i], key="da")
         db = st.selectbox("终点", range(len(sites)), format_func=lambda i: sn[i], index=min(1, len(sites)-1), key="db")
@@ -236,6 +241,12 @@ def render():
                                    mode="markers+text", text=[c["name"] for c in competitors], textposition="top center",
                                    marker=dict(size=12, color="#ef4444", symbol="x-thin", line=dict(color="#ef4444", width=1.5)),
                                    name="竞品"))
-        fig2.update_layout(title="成本 vs 产能 竞争格局", height=350, xaxis_title="成本 (¥/kg)", yaxis_title="产能 (t/y)",
-                           plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)", legend=dict(orientation="h", y=1.1))
+        fig2.update_layout(
+        title=dict(text="成本 vs 产能 竞争格局", font=dict(size=15, color="#0f172a")),
+        height=340, xaxis=dict(title="成本 (¥/kg)", gridcolor="rgba(0,0,0,0.04)", titlefont=dict(size=10, color="#94a3b8")),
+        yaxis=dict(title="产能 (t/y)", gridcolor="rgba(0,0,0,0.04)", titlefont=dict(size=10, color="#94a3b8")),
+        plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
+        font_family="-apple-system, BlinkMacSystemFont, PingFang SC, sans-serif",
+        legend=dict(orientation="h", y=1.1, font=dict(size=11, color="#64748b")),
+    )
         st.plotly_chart(fig2, width="stretch")
