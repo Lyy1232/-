@@ -38,7 +38,7 @@ def render():
     avg_util = sum(s.get("utilization", 0) for s in sites) / max(len(sites), 1)
 
     # ═══════ ROW 1: Top-line KPIs ═══════
-    st.markdown('<p style="font-size:11px;color:var(--slate-400);text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;font-weight:600">核心指标</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;font-weight:600">核心指标</p>', unsafe_allow_html=True)
     c1, c2, c3, c4, c5 = st.columns(5)
     with c1:
         st.markdown(_metric_card("🏭", str(len(sites)), "制氢基地",
@@ -72,15 +72,15 @@ def render():
                      "工业副产氢": "#d97706"}.get(site.get("tech", ""), "#64748b")
             cost_range_pct = (site["cost_high"] - site["cost_low"]) / max(site["cost_avg"], 0.1) * 100
             st.markdown(f"""
-            <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--slate-100)">
-              <span style="font-weight:700;font-size:13px;width:48px;color:var(--slate-900)">{site['name']}</span>
+            <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #f1f5f9">
+              <span style="font-weight:700;font-size:13px;width:48px;color:#0f172a">{site['name']}</span>
               <div style="flex:1;height:6px;background:#f1f5f9;border-radius:3px;position:relative">
                 <div style="position:absolute;left:{ (site['cost_low']-10)/20*100 }%;width:{ (site['cost_high']-site['cost_low'])/20*100 }%;height:100%;background:{color};border-radius:3px;opacity:0.7"></div>
                 <div style="position:absolute;left:{ (site['cost_avg']-10)/20*100 }%;top:-3px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid {color}"></div>
               </div>
-              <span style="font-size:11px;color:var(--slate-500);width:100px;text-align:right">¥{site['cost_low']}–¥{site['cost_high']}</span>
+              <span style="font-size:11px;color:#64748b;width:100px;text-align:right">¥{site['cost_low']}–¥{site['cost_high']}</span>
             </div>""", unsafe_allow_html=True)
-        st.markdown('<div style="display:flex;justify-content:space-between;font-size:9px;color:var(--slate-400);margin-top:4px;padding:0 48px"><span>¥10</span><span>¥15</span><span>¥20</span><span>¥25</span><span>¥30</span></div>', unsafe_allow_html=True)
+        st.markdown('<div style="display:flex;justify-content:space-between;font-size:9px;color:#94a3b8;margin-top:4px;padding:0 48px"><span>¥10</span><span>¥15</span><span>¥20</span><span>¥25</span><span>¥30</span></div>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
     with r2r:
@@ -88,10 +88,10 @@ def render():
         for c in clusters[:6]:
             pct = c["throughput"] / max(stats["total_throughput"], 1) * 100
             st.markdown(f"""
-            <div style="padding:6px 0;border-bottom:1px solid var(--slate-100)">
+            <div style="padding:6px 0;border-bottom:1px solid #f1f5f9">
               <div style="display:flex;justify-content:space-between;margin-bottom:3px">
-                <span style="font-size:12px;font-weight:600;color:var(--slate-900)">{c['name']}</span>
-                <span style="font-size:11px;color:var(--slate-500)">{c['count']}站 · {c['throughput']:,} kg/天</span>
+                <span style="font-size:12px;font-weight:600;color:#0f172a">{c['name']}</span>
+                <span style="font-size:11px;color:#64748b">{c['count']}站 · {c['throughput']:,} kg/天</span>
               </div>
               <div style="height:5px;background:#f1f5f9;border-radius:3px">
                 <div style="width:{pct}%;height:100%;background:#2563eb;border-radius:3px;opacity:0.7"></div>
@@ -122,7 +122,7 @@ def render():
             s_color = "#10b981" if sufficiency == "充足" else "#ef4444"
             rows_html += f"""
             <tr>
-              <td style="font-weight:600;color:var(--slate-900)">{r['基地']}</td>
+              <td style="font-weight:600;color:#0f172a">{r['基地']}</td>
               <td>{r['覆盖站数']} 站</td>
               <td>{r['日需求(kg)']:,} kg</td>
               <td>{r['供给能力(t/天)']} t/天</td>
@@ -130,12 +130,12 @@ def render():
             </tr>"""
         st.markdown(f"""
         <table style="width:100%;font-size:12px;border-collapse:collapse">
-          <thead><tr style="color:var(--slate-500);font-size:10px;text-transform:uppercase;letter-spacing:0.5px">
-            <th style="text-align:left;padding:8px;border-bottom:2px solid var(--slate-200)">基地</th>
-            <th style="text-align:left;padding:8px;border-bottom:2px solid var(--slate-200)">覆盖</th>
-            <th style="text-align:left;padding:8px;border-bottom:2px solid var(--slate-200)">日需求</th>
-            <th style="text-align:left;padding:8px;border-bottom:2px solid var(--slate-200)">供给能力</th>
-            <th style="text-align:left;padding:8px;border-bottom:2px solid var(--slate-200)">状态</th>
+          <thead><tr style="color:#64748b;font-size:10px;text-transform:uppercase;letter-spacing:0.5px">
+            <th style="text-align:left;padding:8px;border-bottom:2px solid #e2e8f0">基地</th>
+            <th style="text-align:left;padding:8px;border-bottom:2px solid #e2e8f0">覆盖</th>
+            <th style="text-align:left;padding:8px;border-bottom:2px solid #e2e8f0">日需求</th>
+            <th style="text-align:left;padding:8px;border-bottom:2px solid #e2e8f0">供给能力</th>
+            <th style="text-align:left;padding:8px;border-bottom:2px solid #e2e8f0">状态</th>
           </tr></thead>
           <tbody>{rows_html}</tbody>
         </table>""", unsafe_allow_html=True)
@@ -150,12 +150,12 @@ def render():
         ]
         for icon, title, desc, target in nav_items:
             st.markdown(f"""
-            <div style="padding:10px 0;border-bottom:1px solid var(--slate-100);
+            <div style="padding:10px 0;border-bottom:1px solid #f1f5f9;
             display:flex;align-items:center;gap:12px;cursor:pointer"
             onclick="document.getElementById('dummy').click()">
               <span style="font-size:22px">{icon}</span>
-              <div style="flex:1"><div style="font-weight:600;font-size:13px;color:var(--slate-900)">{title}</div>
-              <div style="font-size:11px;color:var(--slate-500)">{desc}</div></div>
+              <div style="flex:1"><div style="font-weight:600;font-size:13px;color:#0f172a">{title}</div>
+              <div style="font-size:11px;color:#64748b">{desc}</div></div>
             </div>""", unsafe_allow_html=True)
             if st.button(f"进入 {title} →", key=f"qnav_{target}", width="stretch"):
                 st.session_state.page = target
@@ -167,7 +167,7 @@ def render():
     # ═══════ ROW 4: Site cards + Status ═══════
     r4l, r4r = st.columns([0.6, 0.4])
     with r4l:
-        st.markdown('<p style="font-size:11px;color:var(--slate-400);text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;font-weight:600">基地状态</p>', unsafe_allow_html=True)
+        st.markdown('<p style="font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;font-weight:600">基地状态</p>', unsafe_allow_html=True)
         site_cols = st.columns(len(sites))
         for col, site in zip(site_cols, sites):
             tech_color = {"风电+光伏电解": "#00a99d", "风电电解": "#00a99d",
@@ -177,7 +177,7 @@ def render():
             with col:
                 st.markdown(f"""
                 <div class="info-card" style="border-left-color:{tech_color}">
-                  <div class="ic-title">{site['name']} <span style="font-size:10px;color:var(--slate-400);font-weight:400">{site['province']}</span></div>
+                  <div class="ic-title">{site['name']} <span style="font-size:10px;color:#94a3b8;font-weight:400">{site['province']}</span></div>
                   <div class="ic-row">
                     <span>产能 <b>{site['capacity']:,}t</b></span>
                     <span>成本 <b>¥{site['cost_avg']}</b></span>
@@ -189,14 +189,14 @@ def render():
                 </div>""", unsafe_allow_html=True)
 
     with r4r:
-        st.markdown('<p style="font-size:11px;color:var(--slate-400);text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;font-weight:600">数据状态</p>', unsafe_allow_html=True)
+        st.markdown('<p style="font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;font-weight:600">数据状态</p>', unsafe_allow_html=True)
         st.markdown(f"""
         <div class="data-card">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
             <span style="width:8px;height:8px;border-radius:50%;background:#10b981"></span>
             <span style="font-weight:600;font-size:13px">平台运行中</span>
           </div>
-          <div style="font-size:12px;color:var(--slate-700);line-height:1.8">
+          <div style="font-size:12px;color:#334155;line-height:1.8">
             <div>🏭 基地数据: <b>{len(sites)} 个</b></div>
             <div>⛽ 加氢站: <b>{stats['count']} 座</b></div>
             <div>⚠️ 竞品项目: <b>7 个</b></div>
