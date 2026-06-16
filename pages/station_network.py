@@ -37,12 +37,19 @@ def _build_coverage_map_impl(sites, stations, selected_site=None):
     for site in sites:
         color = TECH_COLORS.get(site["tech"], "#64748b")
         is_sel = selected_site and selected_site["name"] == site["name"]
-        Circle(location=[site["lat"], site["lon"]], radius=ECONOMIC_RADIUS_KM * 1000,
-               color=color, fill=True, fill_color=color,
-               fill_opacity=0.06 if is_sel else 0.02,
-               weight=2 if is_sel else 0.7,
-               opacity=0.5 if is_sel else 0.12,
-               dash_array=None if is_sel else "8 6").add_to(m)
+        # Concentric rings: 50/100/150/200km
+        rings = [
+            (50,  0.14, 1.2, 0.65),
+            (100, 0.08, 0.9, 0.40),
+            (150, 0.05, 0.6, 0.22),
+            (200, 0.02, 0.4, 0.10),
+        ]
+        if is_sel:
+            rings = [(r, fo + 0.06, w + 0.6, op + 0.2) for r, fo, w, op in rings]
+        for radius_km, fill_op, weight, opacity in rings:
+            Circle(location=[site["lat"], site["lon"]], radius=radius_km * 1000,
+                   color=color, fill=True, fill_color=color,
+                   fill_opacity=fill_op, weight=weight, opacity=opacity).add_to(m)
         folium.Marker(location=[site["lat"], site["lon"]],
                       icon=folium.Icon(color="darkgreen", icon="industry", prefix="fa"),
                       popup=folium.Popup(f"<b>{site['name']}</b><br>{TECH_ZH.get(site['tech'], site['tech'])}<br>¥{site['cost_avg']}/kg", max_width=180)).add_to(m)

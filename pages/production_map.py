@@ -62,12 +62,32 @@ def _build_map_impl(sites, show_radius=True, selected_site=None, tile_key="高�
         is_sel = selected_site and selected_site["name"] == site["name"]
 
         if show_radius:
-            Circle(location=[lat, lon], radius=ECONOMIC_RADIUS_KM * 1000,
-                   color=color, fill=True, fill_color=color,
-                   fill_opacity=0.07 if is_sel else 0.03,
-                   weight=2.5 if is_sel else 0.8,
-                   opacity=0.55 if is_sel else 0.18,
-                   dash_array=None if is_sel else "8 6").add_to(m)
+            # Concentric rings at 50/100/150/200km — shows transport cost gradient
+            rings = [
+                (50,  0.16, 1.2, 0.70, "≤ ¥3/kg"),
+                (100, 0.10, 1.0, 0.45, "≤ ¥5/kg"),
+                (150, 0.06, 0.7, 0.28, "≤ ¥7/kg"),
+                (200, 0.03, 0.5, 0.14, "≤ ¥10/kg"),
+            ]
+            if is_sel:
+                rings = [(r, fo + 0.06, w + 0.6, op + 0.2, lbl) for r, fo, w, op, lbl in rings]
+
+            for radius_km, fill_op, weight, opacity, label in rings:
+                Circle(
+                    location=[lat, lon],
+                    radius=radius_km * 1000,
+                    color=color,
+                    fill=True,
+                    fill_color=color,
+                    fill_opacity=fill_op,
+                    weight=weight,
+                    opacity=opacity,
+                    dash_array=None,
+                    popup=folium.Popup(
+                        f"<b>{site['name']}</b><br>{radius_km}km 半径<br>运输成本 {label}",
+                        max_width=180,
+                    ),
+                ).add_to(m)
 
         ico = "darkgreen" if "电解" in tech else "blue" if "CCS" in tech else "orange"
         folium.Marker(
@@ -108,7 +128,11 @@ def _build_map_impl(sites, show_radius=True, selected_site=None, tile_key="高�
     legend_rows = "".join(f'<tr><td><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:{c}"></span></td><td style="font-size:10px;color:#334155">{TECH_ZH.get(t,t)}</td></tr>' for t, c in TECH_COLORS.items())
     legend_html = f"""<div style="position:fixed;bottom:18px;right:18px;z-index:9999;background:rgba(255,255,255,0.95);padding:8px 12px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.08);line-height:1.6">
       <b style="font-size:11px;color:#1e293b">图例</b><table style="margin-top:3px">{legend_rows}
-      <tr><td><span style="display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid #94a3b8"></span></td><td style="font-size:10px;color:#334155">{ECONOMIC_RADIUS_KM}km 辐射</td></tr></table></div>"""
+      <tr><td colspan="2" style="font-size:9px;color:#94a3b8;padding-top:3px">运输成本梯度</td></tr>
+      <tr><td><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:rgba(100,100,100,0.3)"></span></td><td style="font-size:10px;color:#334155">50km ¥3</td></tr>
+      <tr><td><span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:rgba(100,100,100,0.15)"></span></td><td style="font-size:10px;color:#334155">100km ¥5</td></tr>
+      <tr><td><span style="display:inline-block;width:22px;height:22px;border-radius:50%;background:rgba(100,100,100,0.08)"></span></td><td style="font-size:10px;color:#334155">150km ¥7</td></tr>
+      <tr><td><span style="display:inline-block;width:26px;height:26px;border-radius:50%;border:1px solid #94a3b8"></span></td><td style="font-size:10px;color:#334155">200km ¥10+</td></tr></table></div>"""
     m.get_root().html.add_child(folium.Element(legend_html))
     return m
 
@@ -158,7 +182,7 @@ def render():
 
     c1, c2, c3, c4, c5 = st.columns([1.4, 0.9, 1, 0.8, 1.2])
     with c1:
-        st.session_state.map_show_radius = st.checkbox(f"显示 {ECONOMIC_RADIUS_KM}km 辐射圈", value=st.session_state.map_show_radius)
+        st.session_state.map_show_radius = st.checkbox(f"显示 50/100/150/200km 运输成本圈", value=st.session_state.map_show_radius)
     with c2:
         show_comp = st.checkbox("显示竞品", value=st.session_state.get("map_show_competitors", False))
         st.session_state.map_show_competitors = show_comp
