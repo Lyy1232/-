@@ -63,11 +63,12 @@ def _build_map_impl(sites, show_radius=True, selected_site=None, tile_key="高�
 
         if show_radius:
             # Concentric rings at 50/100/150/200km — shows transport cost gradient
+            # Transport cost: ¥10 per 100km
             rings = [
-                (50,  0.16, 1.2, 0.70, "≤ ¥3/kg"),
-                (100, 0.10, 1.0, 0.45, "≤ ¥5/kg"),
-                (150, 0.06, 0.7, 0.28, "≤ ¥7/kg"),
-                (200, 0.03, 0.5, 0.14, "≤ ¥10/kg"),
+                (50,  0.16, 1.2, 0.70, "¥5/kg"),
+                (100, 0.10, 1.0, 0.45, "¥10/kg"),
+                (150, 0.06, 0.7, 0.28, "¥15/kg"),
+                (200, 0.03, 0.5, 0.14, "¥20/kg"),
             ]
             if is_sel:
                 rings = [(r, fo + 0.06, w + 0.6, op + 0.2, lbl) for r, fo, w, op, lbl in rings]
@@ -129,10 +130,10 @@ def _build_map_impl(sites, show_radius=True, selected_site=None, tile_key="高�
     legend_html = f"""<div style="position:fixed;bottom:18px;right:18px;z-index:9999;background:rgba(255,255,255,0.95);padding:8px 12px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.08);line-height:1.6">
       <b style="font-size:11px;color:#1e293b">图例</b><table style="margin-top:3px">{legend_rows}
       <tr><td colspan="2" style="font-size:9px;color:#94a3b8;padding-top:3px">运输成本梯度</td></tr>
-      <tr><td><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:rgba(100,100,100,0.3)"></span></td><td style="font-size:10px;color:#334155">50km ¥3</td></tr>
-      <tr><td><span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:rgba(100,100,100,0.15)"></span></td><td style="font-size:10px;color:#334155">100km ¥5</td></tr>
-      <tr><td><span style="display:inline-block;width:22px;height:22px;border-radius:50%;background:rgba(100,100,100,0.08)"></span></td><td style="font-size:10px;color:#334155">150km ¥7</td></tr>
-      <tr><td><span style="display:inline-block;width:26px;height:26px;border-radius:50%;border:1px solid #94a3b8"></span></td><td style="font-size:10px;color:#334155">200km ¥10+</td></tr></table></div>"""
+      <tr><td><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:rgba(100,100,100,0.3)"></span></td><td style="font-size:10px;color:#334155">50km ¥5</td></tr>
+      <tr><td><span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:rgba(100,100,100,0.15)"></span></td><td style="font-size:10px;color:#334155">100km ¥10</td></tr>
+      <tr><td><span style="display:inline-block;width:22px;height:22px;border-radius:50%;background:rgba(100,100,100,0.08)"></span></td><td style="font-size:10px;color:#334155">150km ¥15</td></tr>
+      <tr><td><span style="display:inline-block;width:26px;height:26px;border-radius:50%;border:1px solid #94a3b8"></span></td><td style="font-size:10px;color:#334155">200km ¥20</td></tr></table></div>"""
     m.get_root().html.add_child(folium.Element(legend_html))
     return m
 
