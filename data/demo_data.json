@@ -1,0 +1,985 @@
+{
+  "y3y4": {
+    "clusters": [
+      "京津冀",
+      "郑州",
+      "上海",
+      "广东"
+    ],
+    "y3_stations": [
+      20,
+      30,
+      27,
+      53
+    ],
+    "y4_stations": [
+      32,
+      39,
+      21,
+      50
+    ],
+    "y3_refuel_tons": [
+      3972,
+      1182,
+      906,
+      133
+    ],
+    "y4_refuel_tons": [
+      8062,
+      4379,
+      3021,
+      5102
+    ],
+    "y3_avg_price": [
+      33.1,
+      33.5,
+      40.1,
+      44.4
+    ],
+    "y4_avg_price": [
+      30.2,
+      32.9,
+      36.0,
+      27.0
+    ],
+    "y4_daily_cap": [
+      39265,
+      48671,
+      23900,
+      77100
+    ],
+    "y4_capacity_util": [
+      20.5,
+      9.0,
+      12.6,
+      6.6
+    ],
+    "y4_transport_km": [
+      117.9,
+      90.1,
+      39.5,
+      80.7
+    ]
+  },
+  "producers_capacity": [
+    {
+      "name": "天津新源氢能",
+      "capacity_tons": 6500,
+      "procurement_tons": 1247,
+      "utilization": 19.2,
+      "idle_tons": 5253,
+      "type": "工业副产氢（清洁氢认证）",
+      "region": "京津冀"
+    },
+    {
+      "name": "唐山中溶科技",
+      "capacity_tons": 7200,
+      "procurement_tons": 430,
+      "utilization": 6.0,
+      "idle_tons": 6770,
+      "type": "焦炉煤气制氢（~18元/kg）",
+      "region": "京津冀/河北"
+    },
+    {
+      "name": "定州旭阳氢能",
+      "capacity_tons": 5110,
+      "procurement_tons": 571,
+      "utilization": 11.2,
+      "idle_tons": 4539,
+      "type": "焦炉煤气制氢",
+      "region": "京津冀/河北"
+    },
+    {
+      "name": "河北欣国氢能",
+      "capacity_tons": 3150,
+      "procurement_tons": 1876,
+      "utilization": 59.6,
+      "idle_tons": 1274,
+      "type": "工业副产氢（提纯）",
+      "region": "京津冀"
+    },
+    {
+      "name": "国华赤城风电",
+      "capacity_tons": 1428,
+      "procurement_tons": 417,
+      "utilization": 29.2,
+      "idle_tons": 1011,
+      "type": "可再生能源制氢（绿氢 35元/kg）",
+      "region": "河北"
+    },
+    {
+      "name": "燕山石化",
+      "capacity_tons": 8000,
+      "procurement_tons": 1107,
+      "utilization": 13.8,
+      "idle_tons": 6893,
+      "type": "工业副产氢",
+      "region": "京津冀"
+    }
+  ],
+  "producers_top20": [
+    {
+      "name": "河北欣国氢能科技有限公司",
+      "total_kg": 1875997.709813019,
+      "stations": 8,
+      "avg_radius": 178.125
+    },
+    {
+      "name": "天津新源氢能发展有限公司",
+      "total_kg": 1246478.1797000032,
+      "stations": 6,
+      "avg_radius": 58.8
+    },
+    {
+      "name": "中国石油化工股份有限公司北京燕山分公司",
+      "total_kg": 1106628.2813881515,
+      "stations": 11,
+      "avg_radius": 68.45454545454545
+    },
+    {
+      "name": "中国石油天然气股份有限公司华北石化分公司",
+      "total_kg": 697671.48961697,
+      "stations": 5,
+      "avg_radius": 136.8
+    },
+    {
+      "name": "定州旭阳氢能有限公司",
+      "total_kg": 571125.7741357357,
+      "stations": 2,
+      "avg_radius": 212.5
+    },
+    {
+      "name": "肇庆钜晨化工有限公司",
+      "total_kg": 535946.442,
+      "stations": 5,
+      "avg_radius": 79.0
+    },
+    {
+      "name": "廊坊黎明气体有限公司",
+      "total_kg": 511565.98495817796,
+      "stations": 11,
+      "avg_radius": 129.9090909090909
+    },
+    {
+      "name": "焦作煤业（集团）开元化工有限责任公司",
+      "total_kg": 445686.25000000297,
+      "stations": 3,
+      "avg_radius": 99.2
+    },
+    {
+      "name": "唐山中溶科技有限公司",
+      "total_kg": 429876.09257405443,
+      "stations": 2,
+      "avg_radius": 100.0
+    },
+    {
+      "name": "国华（赤城）风电有限公司赤城制氢厂",
+      "total_kg": 417235.5254463901,
+      "stations": 4,
+      "avg_radius": 151.0
+    },
+    {
+      "name": "荣程制加氢一体站",
+      "total_kg": 283683.083888005,
+      "stations": 2,
+      "avg_radius": 0
+    },
+    {
+      "name": "上海浦江特种气体有限公司",
+      "total_kg": 226770.72,
+      "stations": 2,
+      "avg_radius": 32.5
+    },
+    {
+      "name": "北京佳森能源有限公司",
+      "total_kg": 182554.457426804,
+      "stations": 1,
+      "avg_radius": 228.0
+    },
+    {
+      "name": "迁安市九江煤炭储运有限公司",
+      "total_kg": 175196.3431370976,
+      "stations": 3,
+      "avg_radius": 112.33333333333333
+    },
+    {
+      "name": "河南硅烷科技发展股份有限公司",
+      "total_kg": 162250.02,
+      "stations": 1,
+      "avg_radius": 112.1
+    },
+    {
+      "name": "齐鲁氢能（山东）发展有限公司",
+      "total_kg": 162150.1410562087,
+      "stations": 2,
+      "avg_radius": 23.0
+    },
+    {
+      "name": "安徽省创联新能源有限公司",
+      "total_kg": 138321.95,
+      "stations": 1,
+      "avg_radius": 80.0
+    },
+    {
+      "name": "上海驿蓝能源科技有限公司",
+      "total_kg": 124209.543,
+      "stations": 3,
+      "avg_radius": 48.333333333333336
+    },
+    {
+      "name": "浙江嘉化能源化工股份有限公司",
+      "total_kg": 122080.64,
+      "stations": 2,
+      "avg_radius": 32.5
+    },
+    {
+      "name": "中国石油化工股份有限公司沧州分公司",
+      "total_kg": 103801.6944,
+      "stations": 1,
+      "avg_radius": 87.0
+    }
+  ],
+  "stations_sd": [
+    {
+      "cluster": "京津冀",
+      "name": "国际氢能示范区加氢站",
+      "city": "北京市大兴区",
+      "procurement": 1534879.9599999597,
+      "refuel": 1534879.95999996,
+      "surplus": -2.3283064365386963e-10,
+      "surplus_pct": -1.5169306377149895e-14,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "时顺苑加氢站",
+      "city": "",
+      "procurement": 627886.1799999974,
+      "refuel": 627886.179999998,
+      "surplus": -5.820766091346741e-10,
+      "surplus_pct": -9.270416003338001e-14,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "青云店油氢合建站",
+      "city": "",
+      "procurement": 225049.74999999715,
+      "refuel": 225049.749999997,
+      "surplus": 1.4551915228366852e-10,
+      "surplus_pct": 6.46608815533767e-14,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "安固油氢合建站",
+      "city": "",
+      "procurement": 194115.8199999986,
+      "refuel": 194115.819999999,
+      "surplus": -3.7834979593753815e-10,
+      "surplus_pct": -1.9490930514449614e-13,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "中石油鑫世恒通油氢合建站",
+      "city": "",
+      "procurement": 3084.0699999999997,
+      "refuel": 3084.07,
+      "surplus": -4.547473508864641e-13,
+      "surplus_pct": -1.4745039862469536e-14,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "福田中石油加氢站",
+      "city": "北京市昌平区",
+      "procurement": 321341.5799999987,
+      "refuel": 321341.579999999,
+      "surplus": -3.4924596548080444e-10,
+      "surplus_pct": -1.086837145323073e-13,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "中石化昌平西关环岛站",
+      "city": "",
+      "procurement": 115087.72,
+      "refuel": 115087.72,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "氢能产业园加氢站",
+      "city": "北京市房山区",
+      "procurement": 9056.61799999999,
+      "refuel": 9056.61799999999,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": null
+    },
+    {
+      "cluster": "京津冀",
+      "name": "房山储运站",
+      "city": "",
+      "procurement": 392.89,
+      "refuel": 392.89,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "庆园街加氢站",
+      "city": "北京市延庆区",
+      "procurement": 608367.79,
+      "refuel": 608367.79,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "王泉营加氢站",
+      "city": "",
+      "procurement": 302396.739999998,
+      "refuel": 302396.739999998,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "永丰加氢站",
+      "city": "北京市海淀区",
+      "procurement": 21691.520949714304,
+      "refuel": 153288.493,
+      "surplus": -131596.9720502857,
+      "surplus_pct": -606.6747110788418,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "王四营气氢合建示范站",
+      "city": "北京市朝阳区",
+      "procurement": 55485.55,
+      "refuel": 55485.55,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "首发马驹桥服务区加氢站",
+      "city": "北京市通州区",
+      "procurement": 84592.7400000003,
+      "refuel": 84592.7400000003,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "北京市通县腾达油氢站",
+      "city": "北京市通州区",
+      "procurement": 162020.69999999873,
+      "refuel": 162020.699999999,
+      "surplus": -2.6193447411060333e-10,
+      "surplus_pct": -1.6166728949486417e-13,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "荣程新能遵化（建明）加氢站",
+      "city": "河北省唐山市",
+      "procurement": 377.4,
+      "refuel": 377.4,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 29.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "河北燕山钢铁集团有限公司2#加氢站",
+      "city": "河北省唐山市",
+      "procurement": 538083.2999999981,
+      "refuel": 538083.299999998,
+      "surplus": 1.1641532182693481e-10,
+      "surplus_pct": 2.1635185821030914e-14,
+      "price": 25.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "华本燃气临淄闫家加氢站",
+      "city": "山东省淄博市",
+      "procurement": 128929.040000001,
+      "refuel": 128929.040000001,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 40.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "淄博新区公交加氢站",
+      "city": "",
+      "procurement": 35634.54999999999,
+      "refuel": 35634.55,
+      "surplus": -1.4551915228366852e-11,
+      "surplus_pct": -4.083653428587384e-14,
+      "price": 35.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "齐鲁物流加氢站",
+      "city": "",
+      "procurement": 40303.2600000001,
+      "refuel": 40303.2600000001,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 33.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "山东滨华氢能源有限公司加氢站",
+      "city": "山东省滨州市",
+      "procurement": 92521.6199999992,
+      "refuel": 92521.6199999992,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 24.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "荣程众和自用加氢站",
+      "city": "天津市",
+      "procurement": 345742.4300000061,
+      "refuel": 345742.430000006,
+      "surplus": 1.1641532182693481e-10,
+      "surplus_pct": 3.367111228637248e-14,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "荣程远程加氢站",
+      "city": "",
+      "procurement": 316326.643999996,
+      "refuel": 316326.643999996,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "荣程临港加氢站",
+      "city": "",
+      "procurement": 230936.003800005,
+      "refuel": 230936.003800005,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 26.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "天津众和能源管理有限公司荣程油氢站",
+      "city": "",
+      "procurement": 860466.759999998,
+      "refuel": 860466.759999998,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "中石化瑞达综合能源加氢站",
+      "city": "",
+      "procurement": 67039.9100000001,
+      "refuel": 67039.9100000001,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 36.8
+    },
+    {
+      "cluster": "京津冀",
+      "name": "荣程自用清洁运输撬站",
+      "city": "",
+      "procurement": 52814.8859,
+      "refuel": 52814.8859,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "荣程荣宝加氢站",
+      "city": "",
+      "procurement": 280545.12,
+      "refuel": 280545.12,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 27.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "荣程新能源（乘用车）加氢站",
+      "city": "",
+      "procurement": 726.213699999999,
+      "refuel": 726.213699999999,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "天津荣程装卸服务有限公司加氢站",
+      "city": "",
+      "procurement": 639339.152199968,
+      "refuel": 639339.152199968,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 30.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "荣程新能源（源泰）加氢站",
+      "city": "",
+      "procurement": 3386.73,
+      "refuel": 3386.73,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 29.0
+    },
+    {
+      "cluster": "京津冀",
+      "name": "天津市新天钢联合特钢有限公司撬装加氢站",
+      "city": "",
+      "procurement": 31833.89,
+      "refuel": 31833.89,
+      "surplus": 0.0,
+      "surplus_pct": 0.0,
+      "price": 32.0
+    },
+    {
+      "cluster": "郑州",
+      "name": "河南金马氢能有限公司化工路加氢站",
+      "city": "郑州市",
+      "procurement": 250401.71000000002,
+      "refuel": 130261.24,
+      "surplus": 120140.47000000002,
+      "surplus_pct": 47.979093273763986,
+      "price": 35.0
+    },
+    {
+      "cluster": "郑州",
+      "name": "郑州氢枫能源技术有限公司—巩义瑞达福加氢站",
+      "city": "郑州市",
+      "procurement": 269164.390000003,
+      "refuel": 1639.61,
+      "surplus": 267524.780000003,
+      "surplus_pct": 99.39085181364446,
+      "price": 32.0
+    },
+    {
+      "cluster": "郑州",
+      "name": "郑州航空港区吴村加氢站",
+      "city": "郑州市",
+      "procurement": 181394.08,
+      "refuel": 17989.87,
+      "surplus": 163404.21,
+      "surplus_pct": 90.0824381920292,
+      "price": 35.0
+    },
+    {
+      "cluster": "郑州",
+      "name": "中国石化洛阳红山加氢站",
+      "city": "洛阳市",
+      "procurement": 27229.92,
+      "refuel": 3519.04,
+      "surplus": 23710.879999999997,
+      "surplus_pct": 87.07656871558932,
+      "price": 25.0
+    },
+    {
+      "cluster": "郑州",
+      "name": "安阳洹科环保科技有限公司",
+      "city": "安阳市",
+      "procurement": 41391.72,
+      "refuel": 59189.0,
+      "surplus": -17797.28,
+      "surplus_pct": -42.99719847351112,
+      "price": 30.0
+    },
+    {
+      "cluster": "郑州",
+      "name": "安阳樽骆商贸有限公司",
+      "city": "安阳市",
+      "procurement": 19729.0,
+      "refuel": 18205.0,
+      "surplus": 1524.0,
+      "surplus_pct": 7.724669268589386,
+      "price": 35.0
+    },
+    {
+      "cluster": "郑州",
+      "name": "中裕能源综合加能站",
+      "city": "濮阳市",
+      "procurement": 3799.7,
+      "refuel": 6337.5,
+      "surplus": -2537.8,
+      "surplus_pct": -66.78948338026687,
+      "price": 35.0
+    },
+    {
+      "cluster": "广州",
+      "name": "中石化北方能源（大连）有限公司盛港综合加能站",
+      "city": "大连",
+      "procurement": 17721.36,
+      "refuel": 62294.36,
+      "surplus": -44573.0,
+      "surplus_pct": -251.52132793419918,
+      "price": 20.0
+    },
+    {
+      "cluster": "广州",
+      "name": "中石化北方能源（大连）有限公司海明综合加能站",
+      "city": "大连",
+      "procurement": 1628.95,
+      "refuel": 30801.95,
+      "surplus": -29173.0,
+      "surplus_pct": -1790.9082537831118,
+      "price": 20.0
+    },
+    {
+      "cluster": "广州",
+      "name": "金安明天加氢站",
+      "city": "六安市",
+      "procurement": 138321.95,
+      "refuel": 139777.36,
+      "surplus": -1455.4099999999744,
+      "surplus_pct": -1.0521901983018416,
+      "price": 35.0
+    },
+    {
+      "cluster": "广州",
+      "name": "良田加氢站",
+      "city": "广州市",
+      "procurement": 18601.52,
+      "refuel": 236402.71,
+      "surplus": -217801.19,
+      "surplus_pct": -1170.8784550939922,
+      "price": 27.5
+    },
+    {
+      "cluster": "广州",
+      "name": "石湖加氢站",
+      "city": "广州市",
+      "procurement": 426282.48,
+      "refuel": 414259.69,
+      "surplus": 12022.789999999979,
+      "surplus_pct": 2.8203809830514217,
+      "price": 27.5
+    },
+    {
+      "cluster": "广州",
+      "name": "石门加氢站（2个站）",
+      "city": "广州市",
+      "procurement": 19850.44,
+      "refuel": 19898.13,
+      "surplus": -47.69000000000233,
+      "surplus_pct": -0.240246563804139,
+      "price": 27.5
+    },
+    {
+      "cluster": "广州",
+      "name": "北太路加氢站",
+      "city": "广州市",
+      "procurement": 63371.33,
+      "refuel": 59782.74,
+      "surplus": 3588.590000000004,
+      "surplus_pct": 5.662797356470195,
+      "price": 27.5
+    },
+    {
+      "cluster": "广州",
+      "name": "番禺顺答加氢站",
+      "city": "广州市",
+      "procurement": 7840.672,
+      "refuel": 21274.08,
+      "surplus": -13433.408000000003,
+      "surplus_pct": -171.32980438411408,
+      "price": 28.0
+    },
+    {
+      "cluster": "广州",
+      "name": "现代汽车氢燃料电池系统（广州）有限公司加氢站",
+      "city": "广州市",
+      "procurement": 20938.44,
+      "refuel": 2315.01,
+      "surplus": 18623.43,
+      "surplus_pct": 88.94373219781417,
+      "price": null
+    },
+    {
+      "cluster": "广州",
+      "name": "广汽领程新能源商用车有限公司加氢站",
+      "city": "广州市",
+      "procurement": 2000.0,
+      "refuel": 9529.0,
+      "surplus": -7529.0,
+      "surplus_pct": -376.45,
+      "price": 28.0
+    },
+    {
+      "cluster": "上海",
+      "name": "上海贤力新能源第一分公司加氢站",
+      "city": "上海",
+      "procurement": 219393.23,
+      "refuel": 266304.0,
+      "surplus": -46910.76999999999,
+      "surplus_pct": -21.38204993836865,
+      "price": 35.0
+    },
+    {
+      "cluster": "上海",
+      "name": "安亭加氢站",
+      "city": "上海",
+      "procurement": 61887.2,
+      "refuel": 19728.08,
+      "surplus": 42159.119999999995,
+      "surplus_pct": 68.12251968096795,
+      "price": 35.0
+    },
+    {
+      "cluster": "上海",
+      "name": "嘉锦亭桥北综合供能服务站",
+      "city": "嘉兴",
+      "procurement": 110235.74,
+      "refuel": 168474.15,
+      "surplus": -58238.40999999999,
+      "surplus_pct": -52.83078790961986,
+      "price": 35.0
+    },
+    {
+      "cluster": "上海",
+      "name": "嘉善善通加氢站",
+      "city": "嘉兴",
+      "procurement": 30001.856,
+      "refuel": 70294.23,
+      "surplus": -40292.373999999996,
+      "surplus_pct": -134.29960466445806,
+      "price": 58.0
+    },
+    {
+      "cluster": "上海",
+      "name": "嘉善站前路加氢站",
+      "city": "嘉兴",
+      "procurement": 59480.268,
+      "refuel": 146602.12,
+      "surplus": -87121.852,
+      "surplus_pct": -146.47185517052478,
+      "price": 58.0
+    },
+    {
+      "cluster": "上海",
+      "name": "嘉兴市加油加气站有限公司岗山路站",
+      "city": "嘉兴",
+      "procurement": 139145.0,
+      "refuel": 190271.0,
+      "surplus": -51126.0,
+      "surplus_pct": -36.742965970749935,
+      "price": 35.0
+    }
+  ],
+  "arbitrage": [
+    {
+      "from": "唐山",
+      "to": "天津",
+      "distance_km": 80,
+      "transport_mode": "高压气态",
+      "transport_cost": 8,
+      "source_cost": 18,
+      "landed_cost": 26,
+      "target_price": 30,
+      "spread": 4,
+      "feasible": true
+    },
+    {
+      "from": "唐山",
+      "to": "北京东部",
+      "distance_km": 150,
+      "transport_mode": "高压气态",
+      "transport_cost": 15,
+      "source_cost": 18,
+      "landed_cost": 33,
+      "target_price": 30.2,
+      "spread": -2.8,
+      "feasible": false
+    },
+    {
+      "from": "天津新源",
+      "to": "京津冀（平均）",
+      "distance_km": 59,
+      "transport_mode": "高压气态",
+      "transport_cost": 5.9,
+      "source_cost": 20,
+      "landed_cost": 25.9,
+      "target_price": 30.2,
+      "spread": 4.3,
+      "feasible": true
+    },
+    {
+      "from": "定州旭阳",
+      "to": "北京（管道规划）",
+      "distance_km": 164,
+      "transport_mode": "管道输氢",
+      "transport_cost": 3,
+      "source_cost": 18,
+      "landed_cost": 21,
+      "target_price": 30.2,
+      "spread": 9.2,
+      "feasible": true
+    },
+    {
+      "from": "山西吕梁",
+      "to": "上海",
+      "distance_km": 1200,
+      "transport_mode": "液氢",
+      "transport_cost": 18,
+      "source_cost": 18,
+      "landed_cost": 36,
+      "target_price": 36,
+      "spread": 0,
+      "feasible": false
+    },
+    {
+      "from": "山西吕梁",
+      "to": "上海",
+      "distance_km": 1200,
+      "transport_mode": "液氢",
+      "transport_cost": 18,
+      "source_cost": 15,
+      "landed_cost": 33,
+      "target_price": 36,
+      "spread": 3,
+      "feasible": true
+    },
+    {
+      "from": "国华赤城（绿氢）",
+      "to": "北京",
+      "distance_km": 112,
+      "transport_mode": "高压气态",
+      "transport_cost": 11.2,
+      "source_cost": 35,
+      "landed_cost": 46.2,
+      "target_price": 30.2,
+      "spread": -16,
+      "feasible": false
+    }
+  ],
+  "prices": {
+    "clusters": [
+      "广东",
+      "河北",
+      "京津冀",
+      "上海",
+      "郑州"
+    ],
+    "y3_price": [
+      44.4,
+      31.7,
+      33.1,
+      40.1,
+      33.5
+    ],
+    "y4_price": [
+      27.0,
+      27.5,
+      30.2,
+      36.0,
+      32.9
+    ],
+    "y4_min": [
+      20,
+      25,
+      24,
+      25,
+      25
+    ],
+    "y4_max": [
+      65,
+      35,
+      40,
+      58,
+      35
+    ]
+  },
+  "transport": [
+    {
+      "cluster": "京津冀",
+      "avg_km": 117.9,
+      "transport_cost_per_kg": 11.8,
+      "retail_price": 30.2,
+      "transport_pct": 39
+    },
+    {
+      "cluster": "上海",
+      "avg_km": 39.5,
+      "transport_cost_per_kg": 4.0,
+      "retail_price": 36.0,
+      "transport_pct": 11
+    },
+    {
+      "cluster": "广东(广州)",
+      "avg_km": 80.7,
+      "transport_cost_per_kg": 8.1,
+      "retail_price": 27.0,
+      "transport_pct": 30
+    },
+    {
+      "cluster": "郑州",
+      "avg_km": 90.1,
+      "transport_cost_per_kg": 9.0,
+      "retail_price": 32.9,
+      "transport_pct": 27
+    }
+  ],
+  "insights": [
+    {
+      "category": "趋势",
+      "title": "氢价全面下行",
+      "body": "Y3→Y4五大城市群零售氢价平均下降约15%，广东降幅最大（-39.2%），从44.4元/kg降至27.0元/kg。",
+      "icon": "📉"
+    },
+    {
+      "category": "趋势",
+      "title": "加注量爆发增长",
+      "body": "京津冀+103%、郑州+271%、上海+233%。单站效率同步大幅提升，上海单站加注量+328%。",
+      "icon": "📈"
+    },
+    {
+      "category": "机会",
+      "title": "上游产能大量闲置",
+      "body": "6家头部制氢企业综合利用率仅18%，可交易闲置产能超1.5万吨/年，潜在市场规模5-7.5亿元/年。",
+      "icon": "🏭"
+    },
+    {
+      "category": "机会",
+      "title": "加氢站余缺并存",
+      "body": "12个站点有余量653吨可售，21个站点有缺口750吨需购。上海城市群缺口最集中（243吨）。",
+      "icon": "⚖️"
+    },
+    {
+      "category": "风险",
+      "title": "运输成本是核心约束",
+      "body": "高压气态运氢10元/100km·kg，京津冀运输成本占终端价39%。有效撮合半径仅约100km。",
+      "icon": "🚛"
+    },
+    {
+      "category": "风险",
+      "title": "绿氢经济性存疑",
+      "body": "绿氢到站成本46.2元/kg（35+11.2运输），高于灰氢零售价，需碳信用+ESG溢价弥补16元/kg价差。",
+      "icon": "🌿"
+    }
+  ]
+}

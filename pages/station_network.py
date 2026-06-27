@@ -1,4 +1,4 @@
-"""加氢站网络分析 — Platts风格"""
+"""加氢站网络分析 — Platts风格 · 数据源：SQLite/示范城市群真实运营数据"""
 import json
 import streamlit as st
 import folium
@@ -8,13 +8,15 @@ import pandas as pd
 from folium import Circle, Popup, Tooltip
 from folium.plugins import Fullscreen
 from streamlit_folium import st_folium
-from utils.data_loader import load_sites, load_stations, get_station_stats, get_cluster_stats
+from utils.data_loader import load_sites, load_stations, load_stations_from_db, get_station_stats, get_cluster_stats
 from utils.geo_utils import haversine_km
 from utils.ui import render_module_header
 from config.constants import TECH_COLORS, TECH_ZH, ECONOMIC_RADIUS_KM
 
-CLUSTER_COLORS = {"京津冀": "#00a99d", "长三角": "#2563eb", "珠三角": "#d97706",
-                  "山东半岛": "#7c3aed", "成渝": "#ef4444", "中原城市群": "#fb923c"}
+CLUSTER_COLORS = {
+    "京津冀": "#00a99d", "河北": "#f59e0b", "郑州": "#2563eb",
+    "广东": "#d97706", "上海": "#7c3aed",
+}
 
 
 @st.cache_resource(show_spinner=False)
@@ -126,12 +128,15 @@ def _demand_gap(sites_json: str, stations_json: str):
 
 
 def render():
-    render_module_header("加氢站网络", "200km 覆盖分析 · 城市群分布 · 市场机会识别", badge="STATIONS")
+    render_module_header("加氢站网络", "示范城市群真实运营数据 · SQLite 驱动 · 303座加氢站", badge="LIVE")
 
     sites = load_sites()
-    stations = load_stations()
+    # 优先使用 SQLite 真实数据，fallback 到 mock 数据
+    stations = load_stations_from_db(year=4)
     if not stations:
-        st.warning("⚠️ 未加载加氢站数据。")
+        stations = load_stations()
+    if not stations:
+        st.warning("⚠️ 未加载加氢站数据。请先运行 python utils/build_sqlite.py")
         return
 
     stats = get_station_stats(stations)
@@ -139,11 +144,11 @@ def render():
     # KPI row
     kpi_cols = st.columns(5)
     kpis = [
-        ("⛽", str(stats["count"]), "加氢站总数", ""),
-        ("⚡", f"{stats['total_capacity']:,}", "总加注能力 kg/天", ""),
-        ("📈", f"{stats['avg_load']}%", "平均负荷率", ""),
-        ("⭐", str(stats["guohua_count"]), "国华供氢站", f"占比 {stats['guohua_count']/max(stats['count'],1)*100:.0f}%"),
-        ("🏙️", str(len(get_cluster_stats(stations))), "城市群", ""),
+        ("⛽", str(stats["count"]), "Y4 加氢站", "示范城市群统计"),
+        ("⚡", f"{stats['total_capacity']:,}", "日供氢能力 kg", ""),
+        ("📈", f"{stats['avg_load']}%", "平均负荷率", f"年加注 {stats['total_throughput']:,.0f} kg"),
+        ("🏙️", str(len(get_cluster_stats(stations))), "城市群", "京津冀·河北·郑州·广东·上海"),
+        ("🛢️", "91", "制氢企业", "去重后"),
     ]
     for col, (icon, val, lbl, sub) in zip(kpi_cols, kpis):
         with col:
@@ -157,7 +162,7 @@ def render():
 
     st.markdown('<div style="margin:16px 0"></div>', unsafe_allow_html=True)
 
-    tab1, tab2, tab3, tab4 = st.tabs(["🗺️ 网络地图", "📊 覆盖分析", "🎯 市场机会", "🏙️ 城市群"])
+    tab1, tab2, tab3, tab4 = st.tabs(["🗺️ 网络地图", "📊 覆盖分析", "🏙️ 城市群", "📋 数据明细"])
 
     with tab1:
         c1, c2 = st.columns([2, 1])
@@ -175,7 +180,7 @@ def render():
             )
         st_folium(m, width="100%", height=540, returned_objects=[])
 
-    with tab2:
+    with tab1:
         st.subheader(f"各基地 {ECONOMIC_RADIUS_KM}km 覆盖分析")
         df_cov = _coverage_table(json.dumps(sites, ensure_ascii=False, sort_keys=True), json.dumps(stations, ensure_ascii=False, sort_keys=True))
         st.dataframe(df_cov, width="stretch", hide_index=True)
@@ -191,21 +196,7 @@ def render():
     )
         st.plotly_chart(fig, width="stretch")
 
-    with tab3:
-        st.subheader("🎯 潜在市场机会")
-        st.caption(f"辐射圈内 · 运营中 · 非国华供氢 · 可替代的加氢站")
-        df_opp = _demand_gap(json.dumps(sites, ensure_ascii=False, sort_keys=True), json.dumps(stations, ensure_ascii=False, sort_keys=True))
-        if df_opp.empty:
-            st.info("当前所有辐射圈内运营站已由国华供氢。")
-        else:
-            st.dataframe(df_opp, width="stretch", hide_index=True)
-            total_opp = sum(s.get("actual_throughput_kg", 0) for s in stations
-                            if s.get("status") == "运营中" and not s.get("is_guohua")
-                            and any(haversine_km(s["lat"], s["lon"], site["lat"], site["lon"]) <= ECONOMIC_RADIUS_KM for site in sites))
-            st.metric("可争取日需求量", f"{total_opp:,} kg/天", delta="潜在增量")
-            st.caption("💡 这些站点在辐射圈内但氢源来自竞品，是销售团队优先攻坚目标。")
-
-    with tab4:
+    with tab2:
         clusters = get_cluster_stats(stations)
         st.subheader("城市群统计")
         cc = st.columns(len(clusters))
@@ -215,16 +206,15 @@ def render():
                 st.markdown(f"""<div class="metric-card"><div class="mc-accent-bar" style="background:{color}"></div>
                   <div style="font-weight:800;font-size:14px;color:#1e293b;margin-bottom:4px">{c['name']}</div>
                   <div class="mc-value">{c['count']}<span style="font-size:11px;color:#64748b"> 站</span></div>
-                  <div class="mc-label">运营 {c['operational']} · 国华 {c['guohua']}</div>
-                  <div class="mc-sub">能力 {c['capacity']:,}kg · 实际 {c['throughput']:,}kg</div></div>""", unsafe_allow_html=True)
+                  <div class="mc-label">能力 {c['capacity']:,}kg · 实加 {c['throughput']:,}kg</div></div>""", unsafe_allow_html=True)
 
         df_cl = pd.DataFrame(clusters)
         fig = go.Figure()
         fig.add_trace(go.Bar(name="日能力(kg)", x=df_cl["name"], y=df_cl["capacity"], marker_color="#00a99d", marker_opacity=0.5))
-        fig.add_trace(go.Bar(name="实际加注(kg)", x=df_cl["name"], y=df_cl["throughput"], marker_color="#1e293b"))
+        fig.add_trace(go.Bar(name="年加注(kg)", x=df_cl["name"], y=df_cl["throughput"], marker_color="#1e293b"))
         fig.update_layout(
         barmode="group", height=300,
-        title=dict(text="各城市群加氢能力 vs 实际加注量", font=dict(size=15, color="#0f172a")),
+        title=dict(text="各城市群日加氢能力 vs 年加注量", font=dict(size=15, color="#0f172a")),
         plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
         font_family="-apple-system, BlinkMacSystemFont, PingFang SC, sans-serif",
         xaxis=dict(tickfont=dict(size=11, color="#64748b")), yaxis=dict(tickfont=dict(size=10, color="#64748b"), gridcolor="rgba(0,0,0,0.04)"),
@@ -232,14 +222,18 @@ def render():
     )
         st.plotly_chart(fig, width="stretch")
 
-        st.markdown("---")
-        st.subheader("加氢站明细")
+    with tab3:
+        st.subheader("加氢站明细（Y4 · 示范城市群真实数据）")
+        st.caption(f"共 {len(stations)} 座 · 数据来源：国家燃料电池汽车示范城市群氢能供应明细表")
         df_st = pd.DataFrame(stations)
         disp = ["name", "city_cluster", "province", "owner", "daily_capacity_kg",
-                "actual_throughput_kg", "purchase_price_low", "h2_source", "is_guohua", "status"]
-        df_st["负荷率"] = (df_st["actual_throughput_kg"] / df_st["daily_capacity_kg"] * 100).round(1)
+                "actual_throughput_kg", "purchase_price_low", "is_highway", "status"]
+        df_st["负荷率%"] = (df_st["actual_throughput_kg"] / df_st["daily_capacity_kg"] * 100).round(1)
         st.dataframe(df_st[disp].rename(columns={
-            "name": "站名", "city_cluster": "城市群", "province": "省份", "owner": "业主",
-            "daily_capacity_kg": "日能力(kg)", "actual_throughput_kg": "加注(kg)",
-            "purchase_price_low": "购氢低价", "h2_source": "氢源", "is_guohua": "国华", "status": "状态"
-        }), width="stretch", hide_index=True)
+            "name": "站名", "city_cluster": "城市群", "province": "城市", "owner": "运营企业",
+            "daily_capacity_kg": "日能力(kg)", "actual_throughput_kg": "日均加注(kg)",
+            "purchase_price_low": "零售价", "is_highway": "高速示范", "status": "状态"
+        }), width="stretch", hide_index=True,
+            column_config={
+                "高速示范": st.column_config.CheckboxColumn(),
+            })

@@ -1,0 +1,1122 @@
+[
+  {
+    "station_id": 1,
+    "station_name": "国际氢能示范区加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司北京燕山分公司",
+    "enterprise_address": "北京市房山区燕山岗南路1号",
+    "purchase_kg": 192851.570111463,
+    "transport_radius_km": 54.0
+  },
+  {
+    "station_id": 1,
+    "station_name": "国际氢能示范区加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "河北欣国氢能科技有限公司",
+    "enterprise_address": "河北省沧州市黄骅市沧州临港经济技术开发区东区化工一路北",
+    "purchase_kg": 677256.166029215,
+    "transport_radius_km": 220.0
+  },
+  {
+    "station_id": 1,
+    "station_name": "国际氢能示范区加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "廊坊黎明气体有限公司",
+    "enterprise_address": "河北省廊坊市经济技术开发区华祥路117号",
+    "purchase_kg": 12594.5010673786,
+    "transport_radius_km": 130.0
+  },
+  {
+    "station_id": 1,
+    "station_name": "国际氢能示范区加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "定州旭阳氢能有限公司",
+    "enterprise_address": "河北省定州市G337国道与胜利街交叉口",
+    "purchase_kg": 554314.672069375,
+    "transport_radius_km": 175.0
+  },
+  {
+    "station_id": 1,
+    "station_name": "国际氢能示范区加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "迁安市九江煤炭储运有限公司",
+    "enterprise_address": "迁安市上射雁庄镇平青大公路西侧",
+    "purchase_kg": 51059.7841370976,
+    "transport_radius_km": 260.0
+  },
+  {
+    "station_id": 1,
+    "station_name": "国际氢能示范区加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "唐山中溶科技有限公司",
+    "enterprise_address": "河北迁安经济开发区卑杨路西侧",
+    "purchase_kg": 15551.9515740564,
+    "transport_radius_km": 190.0
+  },
+  {
+    "station_id": 1,
+    "station_name": "国际氢能示范区加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油天然气股份有限公司东北销售冀中分公司",
+    "enterprise_address": "河北省任丘市北环东路华北石化公司",
+    "purchase_kg": 29887.755276208,
+    "transport_radius_km": 114.0
+  },
+  {
+    "station_id": 1,
+    "station_name": "国际氢能示范区加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "山东滨华氢能源有限公司",
+    "enterprise_address": "山东省滨州市滨城区黄河五路858号",
+    "purchase_kg": 1363.55973516609,
+    "transport_radius_km": 295.0
+  },
+  {
+    "station_id": 2,
+    "station_name": "时顺苑加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "廊坊黎明气体有限公司",
+    "enterprise_address": "河北省廊坊市经济技术开发区华祥路117号",
+    "purchase_kg": 588.008469563646,
+    "transport_radius_km": 122.0
+  },
+  {
+    "station_id": 2,
+    "station_name": "时顺苑加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司北京燕山分公司",
+    "enterprise_address": "北京市房山区燕山岗南路1号",
+    "purchase_kg": 28395.2628221198,
+    "transport_radius_km": 49.0
+  },
+  {
+    "station_id": 2,
+    "station_name": "时顺苑加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油天然气股份有限公司华北石化分公司",
+    "enterprise_address": "河北省沧州市任丘市北环路",
+    "purchase_kg": 598902.908708314,
+    "transport_radius_km": 120.0
+  },
+  {
+    "station_id": 3,
+    "station_name": "青云店油氢合建站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司北京燕山分公司",
+    "enterprise_address": "北京市房山区燕山岗南路1号",
+    "purchase_kg": 39986.6799959705,
+    "transport_radius_km": 54.0
+  },
+  {
+    "station_id": 3,
+    "station_name": "青云店油氢合建站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "北京佳森能源有限公司",
+    "enterprise_address": "河北省廊坊市广阳区东安路116号王寨新村36号楼1单元806室",
+    "purchase_kg": 182554.457426804,
+    "transport_radius_km": 228.0
+  },
+  {
+    "station_id": 3,
+    "station_name": "青云店油氢合建站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "廊坊黎明气体有限公司",
+    "enterprise_address": "河北省廊坊市经济技术开发区华祥路117号",
+    "purchase_kg": 2508.61257722264,
+    "transport_radius_km": 120.0
+  },
+  {
+    "station_id": 4,
+    "station_name": "安固油氢合建站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "廊坊黎明气体有限公司",
+    "enterprise_address": "河北省廊坊市经济技术开发区华祥路117号",
+    "purchase_kg": 116469.491999999,
+    "transport_radius_km": 100.0
+  },
+  {
+    "station_id": 4,
+    "station_name": "安固油氢合建站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油天然气股份有限公司华北石化分公司",
+    "enterprise_address": "河北省沧州市任丘市北环路",
+    "purchase_kg": 77646.3279999996,
+    "transport_radius_km": 54.0
+  },
+  {
+    "station_id": 5,
+    "station_name": "中石油鑫世恒通油氢合建站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "廊坊黎明气体有限公司",
+    "enterprise_address": "河北省廊坊市经济技术开发区华祥路117号",
+    "purchase_kg": 1510.00459940653,
+    "transport_radius_km": 114.0
+  },
+  {
+    "station_id": 5,
+    "station_name": "中石油鑫世恒通油氢合建站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油天然气股份有限公司华北石化分公司",
+    "enterprise_address": "河北省沧州市任丘市北环路",
+    "purchase_kg": 1574.06540059347,
+    "transport_radius_km": 112.0
+  },
+  {
+    "station_id": 6,
+    "station_name": "福田中石油加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "廊坊黎明气体有限公司",
+    "enterprise_address": "河北省廊坊市经济技术开发区华祥路117号",
+    "purchase_kg": 231365.937599999,
+    "transport_radius_km": 182.0
+  },
+  {
+    "station_id": 6,
+    "station_name": "福田中石油加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司北京燕山分公司",
+    "enterprise_address": "北京市房山区燕山岗南路1号",
+    "purchase_kg": 70695.1475999998,
+    "transport_radius_km": 75.0
+  },
+  {
+    "station_id": 6,
+    "station_name": "福田中石油加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油天然气股份有限公司华北石化分公司",
+    "enterprise_address": "河北省沧州市任丘市北环路",
+    "purchase_kg": 19280.4947999999,
+    "transport_radius_km": 198.0
+  },
+  {
+    "station_id": 7,
+    "station_name": "中石化昌平西关环岛站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司北京燕山分公司",
+    "enterprise_address": "北京市房山区燕山岗南路1号",
+    "purchase_kg": 81712.2812,
+    "transport_radius_km": 98.0
+  },
+  {
+    "station_id": 7,
+    "station_name": "中石化昌平西关环岛站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "国华（赤城）风电有限公司赤城制氢厂",
+    "enterprise_address": "河北省张家口市赤城县经济开发区国华制氢厂",
+    "purchase_kg": 33375.4388,
+    "transport_radius_km": 134.0
+  },
+  {
+    "station_id": 8,
+    "station_name": "氢能产业园加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司北京燕山分公司",
+    "enterprise_address": "北京市房山区燕山岗南路1号",
+    "purchase_kg": 9056.61799999999,
+    "transport_radius_km": 3.0
+  },
+  {
+    "station_id": 9,
+    "station_name": "房山储运站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司北京燕山分公司",
+    "enterprise_address": "北京市房山区燕山岗南路1号",
+    "purchase_kg": 392.89,
+    "transport_radius_km": 5.0
+  },
+  {
+    "station_id": 10,
+    "station_name": "庆园街加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司北京燕山分公司",
+    "enterprise_address": "北京市房山区燕山岗南路1号",
+    "purchase_kg": 358936.9961,
+    "transport_radius_km": 140.0
+  },
+  {
+    "station_id": 10,
+    "station_name": "庆园街加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "国华（赤城）风电有限公司赤城制氢厂",
+    "enterprise_address": "河北省张家口市赤城县经济开发区国华制氢厂",
+    "purchase_kg": 249430.7939,
+    "transport_radius_km": 138.0
+  },
+  {
+    "station_id": 11,
+    "station_name": "王泉营加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司北京燕山分公司",
+    "enterprise_address": "北京市房山区燕山岗南路1号",
+    "purchase_kg": 169342.174399999,
+    "transport_radius_km": 140.0
+  },
+  {
+    "station_id": 11,
+    "station_name": "王泉营加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "国华（赤城）风电有限公司赤城制氢厂",
+    "enterprise_address": "河北省张家口市赤城县经济开发区国华制氢厂",
+    "purchase_kg": 133054.565599999,
+    "transport_radius_km": 138.0
+  },
+  {
+    "station_id": 12,
+    "station_name": "永丰加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "河北欣国氢能科技有限公司",
+    "enterprise_address": "河北省沧州市黄骅市临港经济技术开发区东区路北",
+    "purchase_kg": 772.484671839138,
+    "transport_radius_km": 335.0
+  },
+  {
+    "station_id": 12,
+    "station_name": "永丰加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "廊坊黎明气体有限公司",
+    "enterprise_address": "河北省沧州市任丘市北海路",
+    "purchase_kg": 3610.02737730765,
+    "transport_radius_km": 200.0
+  },
+  {
+    "station_id": 12,
+    "station_name": "永丰加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油天然气股份有限公司华北石化分公司",
+    "enterprise_address": "河北省沧州市任丘市华烨科技东侧150米",
+    "purchase_kg": 267.692708063068,
+    "transport_radius_km": 200.0
+  },
+  {
+    "station_id": 12,
+    "station_name": "永丰加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "张家口海珀尔新能源科技有限公司",
+    "enterprise_address": "河北省张家口市桥东区望山循环经济示范园",
+    "purchase_kg": 2.13705385141657,
+    "transport_radius_km": 196.0
+  },
+  {
+    "station_id": 12,
+    "station_name": "永丰加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司北京燕山分公司",
+    "enterprise_address": "北京市房山区燕山岗南路1号",
+    "purchase_kg": 103.032708811421,
+    "transport_radius_km": 68.0
+  },
+  {
+    "station_id": 12,
+    "station_name": "永丰加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "廊坊黎明气体有限公司",
+    "enterprise_address": "河北省任丘市小门村北环路",
+    "purchase_kg": 125.044363481012,
+    "transport_radius_km": 200.0
+  },
+  {
+    "station_id": 12,
+    "station_name": "永丰加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "定州旭阳氢能有限公司",
+    "enterprise_address": "河北省定州市G337国道与胜利街交叉口",
+    "purchase_kg": 16811.1020663606,
+    "transport_radius_km": 250.0
+  },
+  {
+    "station_id": 13,
+    "station_name": "王四营气氢合建示范站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "廊坊黎明气体有限公司",
+    "enterprise_address": "河北省沧州市任丘市小北门村北环路",
+    "purchase_kg": 52711.2725,
+    "transport_radius_km": 162.0
+  },
+  {
+    "station_id": 13,
+    "station_name": "王四营气氢合建示范站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "河北欣国氢能科技有限公司",
+    "enterprise_address": "河北省沧州市临港经济技术开发区、化工一路北",
+    "purchase_kg": 2774.2775,
+    "transport_radius_km": 295.0
+  },
+  {
+    "station_id": 14,
+    "station_name": "首发马驹桥服务区加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "廊坊黎明气体有限公司",
+    "enterprise_address": "河北省沧州市任丘市小门村北环路",
+    "purchase_kg": 84592.7400000003,
+    "transport_radius_km": 52.0
+  },
+  {
+    "station_id": 15,
+    "station_name": "北京市通县腾达油氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司北京燕山分公司",
+    "enterprise_address": "北京市房山区燕山岗南路1号",
+    "purchase_kg": 155155.628449788,
+    "transport_radius_km": 67.0
+  },
+  {
+    "station_id": 15,
+    "station_name": "北京市通县腾达油氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "廊坊黎明气体有限公司",
+    "enterprise_address": "河北省廊坊市广阳区创业路608号",
+    "purchase_kg": 5490.34440381961,
+    "transport_radius_km": 47.0
+  },
+  {
+    "station_id": 15,
+    "station_name": "北京市通县腾达油氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "国华（赤城）风电有限公司赤城制氢厂",
+    "enterprise_address": "河北省张家口市赤城县经济开发区国华制氢厂",
+    "purchase_kg": 1374.72714639112,
+    "transport_radius_km": 194.0
+  },
+  {
+    "station_id": 16,
+    "station_name": "荣程新能遵化（建明）加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "迁安市九江煤炭储运有限公司",
+    "enterprise_address": "河北省唐山市迁安市上射雁庄镇平青大公路西侧",
+    "purchase_kg": 377.4,
+    "transport_radius_km": 68.0
+  },
+  {
+    "station_id": 17,
+    "station_name": "河北燕山钢铁集团有限公司2#加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "唐山中溶科技有限公司",
+    "enterprise_address": "河北迁安经济开发区卑杨路西侧",
+    "purchase_kg": 414324.140999998,
+    "transport_radius_km": 10.0
+  },
+  {
+    "station_id": 17,
+    "station_name": "河北燕山钢铁集团有限公司2#加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "迁安市九江煤炭储运有限公司",
+    "enterprise_address": "迁安市上射雁庄镇平青大公路西侧",
+    "purchase_kg": 123759.159,
+    "transport_radius_km": 9.0
+  },
+  {
+    "station_id": 18,
+    "station_name": "华本燃气临淄闫家加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "齐鲁氢能（山东）发展有限公司",
+    "enterprise_address": "山东省淄博市临淄区公泉路9号",
+    "purchase_kg": 128929.040000001,
+    "transport_radius_km": 16.0
+  },
+  {
+    "station_id": 19,
+    "station_name": "淄博新区公交加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "齐鲁氢能（山东）发展有限公司",
+    "enterprise_address": "山东省淄博市临淄区公泉路9号",
+    "purchase_kg": 33221.1010562077,
+    "transport_radius_km": 30.0
+  },
+  {
+    "station_id": 19,
+    "station_name": "淄博新区公交加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "山东滨华氢能源有限公司",
+    "enterprise_address": "山东省滨州市滨城区黄河五路858号",
+    "purchase_kg": 2413.44894379229,
+    "transport_radius_km": 70.0
+  },
+  {
+    "station_id": 20,
+    "station_name": "齐鲁物流加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石化齐鲁股份有限公司氯碱厂",
+    "enterprise_address": "山东省淄博市临淄区金烯路",
+    "purchase_kg": 40303.2600000001,
+    "transport_radius_km": 1.6
+  },
+  {
+    "station_id": 21,
+    "station_name": "山东滨华氢能源有限公司加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "山东滨华氢能源有限公司",
+    "enterprise_address": "滨州市滨城区黄河五路858号",
+    "purchase_kg": 92521.6199999992,
+    "transport_radius_km": 5.0
+  },
+  {
+    "station_id": 22,
+    "station_name": "荣程众和自用加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "荣程制加氢一体站",
+    "enterprise_address": "天津市津南区葛沽镇营房路29号",
+    "purchase_kg": 283508.792600005,
+    "transport_radius_km": 0.0
+  },
+  {
+    "station_id": 22,
+    "station_name": "荣程众和自用加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "河北欣国氢能科技有限公司",
+    "enterprise_address": "沧州临港经济技术开发区东区、化工一路北",
+    "purchase_kg": 62233.6374000011,
+    "transport_radius_km": 106.0
+  },
+  {
+    "station_id": 23,
+    "station_name": "荣程远程加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "河北欣国氢能科技有限公司",
+    "enterprise_address": "沧州临港经济技术开发区东区、化工一路北",
+    "purchase_kg": 316326.643999996,
+    "transport_radius_km": 135.0
+  },
+  {
+    "station_id": 24,
+    "station_name": "荣程临港加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "天津新源氢能发展有限公司",
+    "enterprise_address": "天津市滨海新区临港经济区渤海十路3369号",
+    "purchase_kg": 230936.003800005,
+    "transport_radius_km": 0.0
+  },
+  {
+    "station_id": 25,
+    "station_name": "天津众和能源管理有限公司荣程油氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "天津新源氢能发展有限公司",
+    "enterprise_address": "天津市滨海新区临港经济区渤海十路3369号",
+    "purchase_kg": 860466.759999998,
+    "transport_radius_km": 20.0
+  },
+  {
+    "station_id": 26,
+    "station_name": "中石化瑞达综合能源加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "天津新源氢能发展有限公司",
+    "enterprise_address": "天津市滨海新区临港经济区渤海十路3369号",
+    "purchase_kg": 67039.9100000001,
+    "transport_radius_km": 44.0
+  },
+  {
+    "station_id": 27,
+    "station_name": "荣程自用清洁运输撬站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "天津新源氢能发展有限公司",
+    "enterprise_address": "天津市滨海新区临港经济区渤海十路3369号",
+    "purchase_kg": 52814.8859,
+    "transport_radius_km": 20.0
+  },
+  {
+    "station_id": 28,
+    "station_name": "荣程荣宝加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "河北欣国氢能科技有限公司",
+    "enterprise_address": "河北省沧州市临港经济技术开发区、化工一路北",
+    "purchase_kg": 176743.4256,
+    "transport_radius_km": 122.0
+  },
+  {
+    "station_id": 28,
+    "station_name": "荣程荣宝加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司沧州分公司",
+    "enterprise_address": "河北省沧州市新华区建设北街街道",
+    "purchase_kg": 103801.6944,
+    "transport_radius_km": 87.0
+  },
+  {
+    "station_id": 29,
+    "station_name": "荣程新能源（乘用车）加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "荣程制加氢一体站",
+    "enterprise_address": "天津市津南区葛沽镇营房路29号",
+    "purchase_kg": 174.291288,
+    "transport_radius_km": 0.0
+  },
+  {
+    "station_id": 29,
+    "station_name": "荣程新能源（乘用车）加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "河北欣国氢能科技有限公司",
+    "enterprise_address": "沧州临港经济技术开发区东区、化工一路北",
+    "purchase_kg": 551.922411999999,
+    "transport_radius_km": 106.0
+  },
+  {
+    "station_id": 30,
+    "station_name": "天津荣程装卸服务有限公司加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "河北欣国氢能科技有限公司",
+    "enterprise_address": "沧州临港经济技术开发区东区、化工一路北",
+    "purchase_kg": 639339.152199968,
+    "transport_radius_km": 106.0
+  },
+  {
+    "station_id": 31,
+    "station_name": "荣程新能源（源泰）加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "天津新源氢能发展有限公司",
+    "enterprise_address": "天津市滨海新区临港经济区渤海十路3369号",
+    "purchase_kg": 3386.73,
+    "transport_radius_km": 135.0
+  },
+  {
+    "station_id": 32,
+    "station_name": "天津市新天钢联合特钢有限公司撬装加氢站",
+    "cluster": "京津冀",
+    "year": 4,
+    "enterprise_name": "天津新源氢能发展有限公司",
+    "enterprise_address": "天津市滨海新区临港经济区渤海十路3369号",
+    "purchase_kg": 31833.89,
+    "transport_radius_km": 75.0
+  },
+  {
+    "station_id": 34,
+    "station_name": "蚂蚁物流加氢站",
+    "cluster": "河北",
+    "year": 4,
+    "enterprise_name": "100",
+    "enterprise_address": "",
+    "purchase_kg": NaN,
+    "transport_radius_km": 135819.63
+  },
+  {
+    "station_id": 35,
+    "station_name": "保定环卫车辆加氢站",
+    "cluster": "河北",
+    "year": 4,
+    "enterprise_name": "90",
+    "enterprise_address": "",
+    "purchase_kg": NaN,
+    "transport_radius_km": 272000.0
+  },
+  {
+    "station_id": 36,
+    "station_name": "河北燕山钢铁集团有限公司1#加氢站",
+    "cluster": "河北",
+    "year": 4,
+    "enterprise_name": "40",
+    "enterprise_address": "",
+    "purchase_kg": NaN,
+    "transport_radius_km": 80520.82
+  },
+  {
+    "station_id": 39,
+    "station_name": "迁安陆驰新能1号、2号站",
+    "cluster": "河北",
+    "year": 4,
+    "enterprise_name": "50",
+    "enterprise_address": "",
+    "purchase_kg": NaN,
+    "transport_radius_km": 2221201.0
+  },
+  {
+    "station_id": 43,
+    "station_name": "黄骅港1号撬装站",
+    "cluster": "河北",
+    "year": 4,
+    "enterprise_name": "35",
+    "enterprise_address": "",
+    "purchase_kg": 99111.41,
+    "transport_radius_km": 99111.41
+  },
+  {
+    "station_id": 45,
+    "station_name": "创坝加氢站",
+    "cluster": "河北",
+    "year": 4,
+    "enterprise_name": "170",
+    "enterprise_address": "",
+    "purchase_kg": NaN,
+    "transport_radius_km": 63768.52
+  },
+  {
+    "station_id": 51,
+    "station_name": "河南金马氢能有限公司化工路加氢站",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "焦作煤业（集团）开元化工有限责任公司",
+    "enterprise_address": "河南省焦作市中站区纬二路西部工业集聚区",
+    "purchase_kg": 190782.35,
+    "transport_radius_km": 80.0
+  },
+  {
+    "station_id": 51,
+    "station_name": "河南金马氢能有限公司化工路加氢站",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "焦作市伟祺新洁能源有限公司",
+    "enterprise_address": "焦作市中站区产业聚集区经三路西纬二路南",
+    "purchase_kg": 20945.1,
+    "transport_radius_km": 80.0
+  },
+  {
+    "station_id": 51,
+    "station_name": "河南金马氢能有限公司化工路加氢站",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "宝丰县成业氢能科技有限公司",
+    "enterprise_address": "河南省平顶山市宝丰县商酒务镇商酒务村820号",
+    "purchase_kg": 38674.26,
+    "transport_radius_km": 145.0
+  },
+  {
+    "station_id": 54,
+    "station_name": "郑州氢枫能源技术有限公司—巩义瑞达福加氢站",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "河南心连心深冷能源股份有限公司",
+    "enterprise_address": "新乡市新乡县经一路与心连心大道交叉路口往西约190米",
+    "purchase_kg": 13706.0,
+    "transport_radius_km": 113.8
+  },
+  {
+    "station_id": 54,
+    "station_name": "郑州氢枫能源技术有限公司—巩义瑞达福加氢站",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "华久氢能源（河南）有限公司",
+    "enterprise_address": "河南省洛阳市孟津区吉利街道大港路6号",
+    "purchase_kg": 12797.91,
+    "transport_radius_km": 76.1
+  },
+  {
+    "station_id": 54,
+    "station_name": "郑州氢枫能源技术有限公司—巩义瑞达福加氢站",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "焦作煤业（集团）开元化工有限责任公司",
+    "enterprise_address": "河南省焦作市中站区纬二路西部工业集聚区",
+    "purchase_kg": 242660.480000003,
+    "transport_radius_km": 74.8
+  },
+  {
+    "station_id": 68,
+    "station_name": "郑州航空港区吴村加氢站",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "河南硅烷科技发展股份有限公司",
+    "enterprise_address": "河南省许昌市襄城县煤焦化循环经济产业园",
+    "purchase_kg": 162250.02,
+    "transport_radius_km": 112.1
+  },
+  {
+    "station_id": 68,
+    "station_name": "郑州航空港区吴村加氢站",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "焦作煤业（集团）开元化工有限责任公司",
+    "enterprise_address": "河南省焦作市中站区纬二路西部工业集聚区",
+    "purchase_kg": 12243.42,
+    "transport_radius_km": 142.8
+  },
+  {
+    "station_id": 68,
+    "station_name": "郑州航空港区吴村加氢站",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "宝丰县成业氢能科技有限公司",
+    "enterprise_address": "河南省平顶山市宝丰县商酒务镇商酒务村820号",
+    "purchase_kg": 6900.64,
+    "transport_radius_km": 150.3
+  },
+  {
+    "station_id": 74,
+    "station_name": "中国石化洛阳红山加氢站",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "河南金马氢能有限公司",
+    "enterprise_address": "济源市西一环路南",
+    "purchase_kg": 14963.79,
+    "transport_radius_km": 90.0
+  },
+  {
+    "station_id": 74,
+    "station_name": "中国石化洛阳红山加氢站",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "华久氢能源（河南）有限公司",
+    "enterprise_address": "洛阳市孟津区西峡院街道中原路1号",
+    "purchase_kg": 12266.13,
+    "transport_radius_km": 70.0
+  },
+  {
+    "station_id": 81,
+    "station_name": "安阳洹科环保科技有限公司",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "河南利源集团燃气有限公司",
+    "enterprise_address": "铜冶镇",
+    "purchase_kg": 2111.0,
+    "transport_radius_km": 22.0
+  },
+  {
+    "station_id": 81,
+    "station_name": "安阳洹科环保科技有限公司",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "宝舜科技股份有限公司",
+    "enterprise_address": "铜冶镇",
+    "purchase_kg": 21837.43,
+    "transport_radius_km": 26.0
+  },
+  {
+    "station_id": 81,
+    "station_name": "安阳洹科环保科技有限公司",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "河南心连心深冷能源股份有限公司",
+    "enterprise_address": "新乡开发区",
+    "purchase_kg": 10006.9,
+    "transport_radius_km": 139.0
+  },
+  {
+    "station_id": 81,
+    "station_name": "安阳洹科环保科技有限公司",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "磁县鑫盛煤化工有限公司",
+    "enterprise_address": "磁县磁峰工业园",
+    "purchase_kg": 7221.75,
+    "transport_radius_km": 26.0
+  },
+  {
+    "station_id": 81,
+    "station_name": "安阳洹科环保科技有限公司",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "德鑫氢能科技（河北）有限公司",
+    "enterprise_address": "涉县",
+    "purchase_kg": 214.64,
+    "transport_radius_km": 77.0
+  },
+  {
+    "station_id": 82,
+    "station_name": "安阳樽骆商贸有限公司",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "河南心连心深冷能源股份有限公司",
+    "enterprise_address": "河南新乡经济开发区（青龙路）",
+    "purchase_kg": 19729.0,
+    "transport_radius_km": 124.0
+  },
+  {
+    "station_id": 83,
+    "station_name": "中裕能源综合加能站",
+    "cluster": "郑州",
+    "year": 4,
+    "enterprise_name": "中原油田油气加工技术服务中心",
+    "enterprise_address": "濮阳市濮阳县209省道与黄河东路交叉口",
+    "purchase_kg": 3799.7,
+    "transport_radius_km": 15.0
+  },
+  {
+    "station_id": 88,
+    "station_name": "中石化北方能源（大连）有限公司盛港综合加能站",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "中石化北方能源（大连）有限公司",
+    "enterprise_address": "大连保税区盛港街12号",
+    "purchase_kg": 17721.36,
+    "transport_radius_km": 0.0
+  },
+  {
+    "station_id": 89,
+    "station_name": "中石化北方能源（大连）有限公司海明综合加能站",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "中石化北方能源（大连）有限公司",
+    "enterprise_address": "大连保税区盛港街12号",
+    "purchase_kg": 1628.95,
+    "transport_radius_km": 22.0
+  },
+  {
+    "station_id": 98,
+    "station_name": "金安明天加氢站",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "安徽省创联新能源有限公司",
+    "enterprise_address": "安徽省合肥市新站区奎河路与九顶山路交口西北角",
+    "purchase_kg": 138321.95,
+    "transport_radius_km": 80.0
+  },
+  {
+    "station_id": 111,
+    "station_name": "良田加氢站",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "肇庆钜晨化工有限公司",
+    "enterprise_address": "肇庆市高要区金利镇金淘工业园瀚和（高要）精细化工产业基地瀚和一路1号",
+    "purchase_kg": 18601.52,
+    "transport_radius_km": 70.0
+  },
+  {
+    "station_id": 112,
+    "station_name": "石湖加氢站",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "肇庆钜晨化工有限公司",
+    "enterprise_address": "肇庆市高要区金利镇金淘工业园瀚和（高要）精细化工产业基地瀚和一路1号",
+    "purchase_kg": 426282.48,
+    "transport_radius_km": 70.0
+  },
+  {
+    "station_id": 113,
+    "station_name": "石门加氢站（2个站）",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "肇庆钜晨化工有限公司",
+    "enterprise_address": "肇庆市高要区金利镇金淘工业园瀚和（高要）精细化工产业基地瀚和一路1号",
+    "purchase_kg": 19850.44,
+    "transport_radius_km": 73.0
+  },
+  {
+    "station_id": 114,
+    "station_name": "北太路加氢站",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "肇庆钜晨化工有限公司",
+    "enterprise_address": "肇庆市高要区金利镇金淘工业园瀚和（高要）精细化工产业基地瀚和一路1号",
+    "purchase_kg": 63371.33,
+    "transport_radius_km": 72.0
+  },
+  {
+    "station_id": 115,
+    "station_name": "番禺顺答加氢站",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "肇庆钜晨化工有限公司",
+    "enterprise_address": "肇庆市高要区金利镇金淘工业园瀚和(高要)精细化工产业基地瀚和一路1号",
+    "purchase_kg": 7840.672,
+    "transport_radius_km": 110.0
+  },
+  {
+    "station_id": 116,
+    "station_name": "现代汽车氢燃料电池系统（广州）有限公司加氢站",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "中国石油化工股份有限公司广州分公司",
+    "enterprise_address": "广州市黄埔区石化路239号",
+    "purchase_kg": 10967.0,
+    "transport_radius_km": 30.0
+  },
+  {
+    "station_id": 116,
+    "station_name": "现代汽车氢燃料电池系统（广州）有限公司加氢站",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "巨正源氢能科技有限公司",
+    "enterprise_address": "广东省东莞市沙田镇石化三路",
+    "purchase_kg": 8124.99,
+    "transport_radius_km": 50.0
+  },
+  {
+    "station_id": 116,
+    "station_name": "现代汽车氢燃料电池系统（广州）有限公司加氢站",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "广钢气体（广州）有限公司",
+    "enterprise_address": "广州市南沙区万顷沙镇红钢路5号",
+    "purchase_kg": 1846.45,
+    "transport_radius_km": 100.0
+  },
+  {
+    "station_id": 117,
+    "station_name": "广州联新氢能有限公司东晖加氢站",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "肇庆钜晨化工有限公司",
+    "enterprise_address": "肇庆市高要区金利镇瀚和高要精细化工产业基地",
+    "purchase_kg": 0.0,
+    "transport_radius_km": 130.0
+  },
+  {
+    "station_id": 118,
+    "station_name": "广汽领程新能源商用车有限公司加氢站",
+    "cluster": "广东",
+    "year": 4,
+    "enterprise_name": "肇庆市诚安物流有限公司",
+    "enterprise_address": "肇庆市端州区端州一路112号肇庆端砚文化园A、B、G幢A幢",
+    "purchase_kg": 2000.0,
+    "transport_radius_km": 160.0
+  },
+  {
+    "station_id": 141,
+    "station_name": "上海贤力新能源第一分公司加氢站",
+    "cluster": "上海",
+    "year": 4,
+    "enterprise_name": "上海浦江特种气体有限公司",
+    "enterprise_address": "上海化学工业区才华路12号",
+    "purchase_kg": 199180.23,
+    "transport_radius_km": 15.0
+  },
+  {
+    "station_id": 141,
+    "station_name": "上海贤力新能源第一分公司加氢站",
+    "cluster": "上海",
+    "year": 4,
+    "enterprise_name": "上海驿蓝能源科技有限公司",
+    "enterprise_address": "上海市奉贤区舜工路86号1幢",
+    "purchase_kg": 20213.0,
+    "transport_radius_km": 15.0
+  },
+  {
+    "station_id": 145,
+    "station_name": "安亭加氢站",
+    "cluster": "上海",
+    "year": 4,
+    "enterprise_name": "浙江华泓新材料有限公司",
+    "enterprise_address": "嘉兴市平湖市正海路8号",
+    "purchase_kg": 61887.2,
+    "transport_radius_km": 105.0
+  },
+  {
+    "station_id": 147,
+    "station_name": "嘉锦亭桥北综合供能服务站",
+    "cluster": "上海",
+    "year": 4,
+    "enterprise_name": "浙江嘉化能源化工股份有限公司",
+    "enterprise_address": "嘉兴乍浦滨海大道2288号",
+    "purchase_kg": 30163.64,
+    "transport_radius_km": 15.0
+  },
+  {
+    "station_id": 147,
+    "station_name": "嘉锦亭桥北综合供能服务站",
+    "cluster": "上海",
+    "year": 4,
+    "enterprise_name": "上海浦江特种气体有限公司",
+    "enterprise_address": "上海化学工业区才华路12号",
+    "purchase_kg": 27590.49,
+    "transport_radius_km": 50.0
+  },
+  {
+    "station_id": 147,
+    "station_name": "嘉锦亭桥北综合供能服务站",
+    "cluster": "上海",
+    "year": 4,
+    "enterprise_name": "上海驿蓝能源科技有限公司",
+    "enterprise_address": "上海化学工业区舜工路86号",
+    "purchase_kg": 52481.61,
+    "transport_radius_km": 50.0
+  },
+  {
+    "station_id": 150,
+    "station_name": "嘉善善通加氢站",
+    "cluster": "上海",
+    "year": 4,
+    "enterprise_name": "上海清崟能源科技有限公司",
+    "enterprise_address": "上海市嘉定区谢春路1168-1号",
+    "purchase_kg": 30001.856,
+    "transport_radius_km": 100.0
+  },
+  {
+    "station_id": 151,
+    "station_name": "嘉善站前路加氢站",
+    "cluster": "上海",
+    "year": 4,
+    "enterprise_name": "上海驿蓝能源科技有限公司",
+    "enterprise_address": "上海市嘉定区谢春路1168-1号",
+    "purchase_kg": 51514.933,
+    "transport_radius_km": 80.0
+  },
+  {
+    "station_id": 151,
+    "station_name": "嘉善站前路加氢站",
+    "cluster": "上海",
+    "year": 4,
+    "enterprise_name": "金宏气体股份有限公司股份有限公司",
+    "enterprise_address": "苏州市相城区东桥镇安民路6号",
+    "purchase_kg": 7965.335,
+    "transport_radius_km": 30.0
+  },
+  {
+    "station_id": 153,
+    "station_name": "嘉兴市加油加气站有限公司岗山路站",
+    "cluster": "上海",
+    "year": 4,
+    "enterprise_name": "金宏气体股份有限公司",
+    "enterprise_address": "江苏省苏州市相城区黄埭镇潘阳工业园安民路",
+    "purchase_kg": 47228.0,
+    "transport_radius_km": 100.0
+  },
+  {
+    "station_id": 153,
+    "station_name": "嘉兴市加油加气站有限公司岗山路站",
+    "cluster": "上海",
+    "year": 4,
+    "enterprise_name": "浙江嘉化能源化工股份有限公司",
+    "enterprise_address": "浙江省嘉兴市平湖市滨海大道2288号",
+    "purchase_kg": 91917.0,
+    "transport_radius_km": 50.0
+  }
+]

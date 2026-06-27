@@ -49,3 +49,8 @@ VALIDATION = {
 
 # ── Radius ──
 ECONOMIC_RADIUS_KM = 200
+
+# ── Trading ──
+TRANSPORT_COST_PER_100KM_KG = 10       # 高压气态运氢成本（元/100km·kg）
+FLAG_ABNORMAL_THRESHOLD = 0.90          # 余量/缺口占比>90%标记异常
+GREEN_H2_COST = 35                       # 绿氢制取成本（元/kg）

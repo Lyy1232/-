@@ -49,6 +49,7 @@ with st.sidebar:
         ("home", "🏠", "首页总览"),
         ("map", "🗺️", "基地地图"),
         ("stations", "⛽", "加氢站网络"),
+        ("trading", "💹", "交易撮合"),
         ("data", "⚙️", "数据管理"),
     ]
     current_page = st.session_state.page
@@ -83,6 +84,9 @@ if st.session_state.page == "map":
 elif st.session_state.page == "stations":
     from pages import station_network
     station_network.render()
+elif st.session_state.page == "trading":
+    from pages import trading_dashboard
+    trading_dashboard.render()
 elif st.session_state.page == "data":
     from pages import data_input
     data_input.render()

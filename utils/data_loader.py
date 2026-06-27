@@ -1,6 +1,7 @@
-"""Centralized data loading, saving, validation with caching."""
+"""Centralized data loading, saving, validation with caching — supports SQLite + JSON."""
 from pathlib import Path
 import json
+import sqlite3
 from datetime import datetime, timezone
 import streamlit as st
 from config.constants import VALIDATION, VALID_TECH_ROUTES
@@ -9,6 +10,9 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SITES_FILE = PROJECT_ROOT / "config" / "sites.json"
 COMPETITORS_FILE = PROJECT_ROOT / "config" / "competitors.json"
 STATIONS_FILE = PROJECT_ROOT / "config" / "stations.json"
+DB_FILE = PROJECT_ROOT / "data" / "city_cluster.db"
+STATIONS_DB_JSON = PROJECT_ROOT / "data" / "stations_from_db.json"
+TRADING_SNAPSHOT_JSON = PROJECT_ROOT / "data" / "trading_snapshot_from_db.json"
 
 
 @st.cache_data(ttl=300)
@@ -122,8 +126,8 @@ def get_station_stats(stations: list[dict]) -> dict:
     """Compute aggregate statistics for stations."""
     if not stations:
         return {"count": 0, "total_capacity": 0, "total_throughput": 0, "avg_load": 0, "guohua_count": 0}
-    total_cap = sum(s.get("daily_capacity_kg", 0) for s in stations)
-    total_through = sum(s.get("actual_throughput_kg", 0) for s in stations)
+    total_cap = sum(s.get("daily_capacity_kg") or 0 for s in stations)
+    total_through = sum(s.get("actual_throughput_kg") or 0 for s in stations)
     guohua = sum(1 for s in stations if s.get("is_guohua", False))
     avg_load = (total_through / total_cap * 100) if total_cap > 0 else 0
     return {
@@ -135,6 +139,58 @@ def get_station_stats(stations: list[dict]) -> dict:
     }
 
 
+@st.cache_data(ttl=300)
+def load_stations_from_db(year: int | None = 4) -> list[dict]:
+    """从 SQLite 导出的 JSON 加载加氢站数据（优先）"""
+    try:
+        with open(STATIONS_DB_JSON, "r", encoding="utf-8") as f:
+            stations = json.load(f)
+        if year:
+            stations = [s for s in stations if s.get("year") == year]
+        return stations
+    except Exception:
+        return []
+
+
+@st.cache_data(ttl=300)
+def load_trading_snapshots() -> list[dict]:
+    """加载交易快照数据"""
+    try:
+        with open(TRADING_SNAPSHOT_JSON, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return []
+
+
+@st.cache_data(ttl=300)
+def load_enterprise_capacity() -> list[dict]:
+    """从 SQLite 加载制氢企业产能数据"""
+    if not DB_FILE.exists():
+        return []
+    conn = sqlite3.connect(str(DB_FILE))
+    conn.row_factory = sqlite3.Row
+    rows = conn.execute("""
+        SELECT name, address, annual_capacity_tons, hydrogen_type, region
+        FROM enterprise
+        WHERE annual_capacity_tons IS NOT NULL
+        ORDER BY annual_capacity_tons DESC
+    """).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+@st.cache_data(ttl=300)
+def query_db(query: str, params: tuple = ()) -> list[dict]:
+    """通用 SQLite 查询"""
+    if not DB_FILE.exists():
+        return []
+    conn = sqlite3.connect(str(DB_FILE))
+    conn.row_factory = sqlite3.Row
+    rows = conn.execute(query, params).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
 def get_cluster_stats(stations: list[dict]) -> list[dict]:
     """Aggregate stations by city cluster."""
     clusters = {}
@@ -143,8 +199,8 @@ def get_cluster_stats(stations: list[dict]) -> list[dict]:
         if c not in clusters:
             clusters[c] = {"name": c, "count": 0, "capacity": 0, "throughput": 0, "guohua": 0, "operational": 0}
         clusters[c]["count"] += 1
-        clusters[c]["capacity"] += s.get("daily_capacity_kg", 0)
-        clusters[c]["throughput"] += s.get("actual_throughput_kg", 0)
+        clusters[c]["capacity"] += s.get("daily_capacity_kg") or 0
+        clusters[c]["throughput"] += s.get("actual_throughput_kg") or 0
         clusters[c]["guohua"] += 1 if s.get("is_guohua") else 0
         clusters[c]["operational"] += 1 if s.get("status") == "运营中" else 0
     return sorted(clusters.values(), key=lambda x: x["count"], reverse=True)
