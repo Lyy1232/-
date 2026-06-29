@@ -53,4 +53,12 @@ ECONOMIC_RADIUS_KM = 200
 # ── Trading ──
 TRANSPORT_COST_PER_100KM_KG = 10       # 高压气态运氢成本（元/100km·kg）
 FLAG_ABNORMAL_THRESHOLD = 0.90          # 余量/缺口占比>90%标记异常
-GREEN_H2_COST = 35                       # 绿氢制取成本（元/kg）
+
+# ── 制氢成本参数（来源：绿氨竞争力模型 model.xlsx）──
+ELECTROLYSIS_EFFICIENCY = 45            # 电解效率 kWh/kgH2（模型值，优于行业典型55）
+CHINA_GREEN_ELEC_PRICE = 0.20           # 中国绿电PPA电价 元/kWh（28$/MWh≈0.20元）
+MENGXI_GREEN_ELEC_PRICE = 0.14          # 蒙西低电价 元/kWh（20$/MWh≈0.14元）
+GREEN_H2_COST_CHINA = 15.2              # 沧州绿氢制取成本（元/kg，电价28$/MWh+电解45kWh+利用5000h）
+GREEN_H2_COST_MENGXI = 11.2             # 蒙西绿氢制取成本（元/kg，电价20$/MWh+电解45kWh+利用4500h）
+BLUE_H2_COST_CHINA = 9.6                # 中国蓝氨折氢成本（元/kg，天然气8.5$/MMBtu+CCS）
+GREEN_H2_COST = GREEN_H2_COST_CHINA      # 默认绿氢成本（保持向后兼容）

@@ -6,10 +6,11 @@ import pandas as pd
 from folium import Circle, Popup, Tooltip
 from folium.plugins import Fullscreen, MeasureControl
 from streamlit_folium import st_folium
-from utils.data_loader import load_sites, load_competitors
+from utils.data_loader import load_sites, load_competitors, load_stations_from_db
 from utils.geo_utils import haversine_km
 from utils.ui import render_module_header
-from config.constants import TECH_COLORS, TECH_ZH, TILE_OPTIONS, DEFAULT_COLOR, ECONOMIC_RADIUS_KM
+from utils.supply_demand_matcher import load_origins, load_destinations, match, match_best, get_summary_stats
+from config.constants import TECH_COLORS, TECH_ZH, TILE_OPTIONS, DEFAULT_COLOR, ECONOMIC_RADIUS_KM, TRANSPORT_COST_PER_100KM_KG
 
 COMPETITOR_STATUS_COLORS = {"已投产": "#ef4444", "在建": "#d97706", "规划": "#94a3b8"}
 
@@ -228,13 +229,53 @@ def render():
               <div class="ic-row"><span>产能 <b>{site['capacity']:,}t</b></span><span>成本 <b style="color:{color}">¥{site['cost_avg']}</b></span><span>利用率 <b>{util}%</b></span></div>
             </div>""", unsafe_allow_html=True)
 
-        st.markdown('<p style="font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;margin:12px 0 4px">距离测量</p>', unsafe_allow_html=True)
-        sn = [s["name"] for s in sites]
-        da = st.selectbox("起点", range(len(sites)), format_func=lambda i: sn[i], key="da")
-        db = st.selectbox("终点", range(len(sites)), format_func=lambda i: sn[i], index=min(1, len(sites)-1), key="db")
-        if da != db:
-            d = haversine_km(sites[da]["lat"], sites[da]["lon"], sites[db]["lat"], sites[db]["lon"])
-            st.info(f"{'✅' if d <= ECONOMIC_RADIUS_KM else '⚠️'} **{d:.0f} km** {'— 辐射半径内' if d <= ECONOMIC_RADIUS_KM else '— 超出辐射半径'}")
+        st.markdown('<p style="font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;margin:12px 0 4px">🔗 供需匹配</p>', unsafe_allow_html=True)
+
+        origins = load_origins()
+        destinations = load_destinations()
+        org_names = [f"{o['type_icon']} {o['name']}" for o in origins]
+
+        sel_origin_idx = st.selectbox(
+            "选择供给点（制氢厂）",
+            range(len(origins)),
+            format_func=lambda i: org_names[i],
+            key="sd_origin"
+        )
+        sel_origin = origins[sel_origin_idx]
+
+        max_radius = st.slider("最大匹配半径 (km)", 50, 500, 200, 50, key="sd_radius")
+
+        match_results = match(sel_origin, destinations, max_radius=max_radius)
+
+        if match_results:
+            stats = get_summary_stats(match_results)
+            c1, c2, c3 = st.columns(3)
+            with c1:
+                st.metric("圈内加氢站", f"{len(match_results)} 座")
+            with c2:
+                comp = [m for m in match_results if m.get("competitive")]
+                st.metric("成本优势站", f"{len(comp)} 座",
+                         delta=f"{len(comp)/max(len(match_results),1)*100:.0f}%")
+            with c3:
+                st.metric("平均到站成本", f"{stats['avg_landed_cost']:.1f} 元/kg",
+                         delta=f"vs 基地出厂 {sel_origin['cost_avg']}元")
+
+            # Quick table of top matches
+            st.caption(f"最近 {min(10, len(match_results))} 个加氢站")
+            top_matches = match_results[:10]
+            df_m = pd.DataFrame([{
+                "加氢站": m["name"][:22],
+                "城市群": m["city_cluster"],
+                "距离(km)": m["distance_km"],
+                "运输成本": f"¥{m['transport_cost']}/kg",
+                "到站成本": f"¥{m['landed_cost']}/kg",
+                "零售价": f"¥{m['retail_price']}" if m['retail_price'] else "—",
+                "价差": f"{m['price_gap']:+.1f}" if m['price_gap'] else "—",
+                "竞争力": "✅" if m.get("competitive") else "—",
+            } for m in top_matches])
+            st.dataframe(df_m, use_container_width=True, hide_index=True)
+        else:
+            st.info(f"在 {max_radius}km 范围内未找到加氢站，请扩大半径。")
 
     st.markdown("---")
     st.subheader("📊 成本对比分析")

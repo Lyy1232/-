@@ -50,6 +50,7 @@ with st.sidebar:
         ("map", "🗺️", "基地地图"),
         ("stations", "⛽", "加氢站网络"),
         ("trading", "💹", "交易撮合"),
+        ("cost", "📊", "成本分析"),
         ("data", "⚙️", "数据管理"),
     ]
     current_page = st.session_state.page
@@ -63,7 +64,7 @@ with st.sidebar:
     st.markdown('<p style="font-size:10px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">开发进度</p>', unsafe_allow_html=True)
 
     phases = [("P1 搭框架", True), ("P2 供需端搭建", True),
-              ("P3 成本计算", False), ("P4 优化补充", False)]
+              ("P3 成本计算+交易撮合", True), ("P4 数据深化+AI", False)]
     for phase, done in phases:
         icon = "✓" if done else "○"
         color = "rgba(16,185,129,0.9)" if done else "rgba(255,255,255,0.25)"
@@ -87,6 +88,9 @@ elif st.session_state.page == "stations":
 elif st.session_state.page == "trading":
     from pages import trading_dashboard
     trading_dashboard.render()
+elif st.session_state.page == "cost":
+    from pages import cost_analysis
+    cost_analysis.render()
 elif st.session_state.page == "data":
     from pages import data_input
     data_input.render()
