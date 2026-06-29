@@ -1,4 +1,4 @@
-"""H₂Trace 示范城市群深度分析 Demo · 交互式数据仪表盘"""
+"""陆上氢销售分析平台 示范城市群深度分析 Demo · 交互式数据仪表盘"""
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -8,7 +8,7 @@ from plotly.subplots import make_subplots
 import json
 from utils.ui import inject_global_css
 
-st.set_page_config(page_title="H₂Trace · 示范城市群深度分析", page_icon="●", layout="wide")
+st.set_page_config(page_title="陆上氢销售分析平台 · 示范城市群深度分析", page_icon="●", layout="wide")
 inject_global_css()
 
 # ── Load data ──
@@ -48,7 +48,7 @@ total_procurement = 10060  # from analysis
 st.markdown(f"""
 <div class="ticker-bar">
   <div class="ticker-brand">
-    <span class="tb-dot"></span>H₂Trace · 示范城市群深度分析
+    <span class="tb-dot"></span>陆上氢销售分析平台 · 示范城市群深度分析
   </div>
   <div class="ticker-item">
     <span class="ti-label">Y4加氢站</span>
@@ -83,7 +83,7 @@ st.markdown(f"""
 with st.sidebar:
     st.markdown("""
     <div style="padding:8px 0 18px">
-      <div style="font-weight:800;font-size:1.1rem;color:#fff">● H₂Trace Demo</div>
+      <div style="font-weight:800;font-size:1.1rem;color:#fff">● 陆上氢销售分析平台 Demo</div>
       <div style="font-size:0.68rem;color:rgba(255,255,255,0.45);margin-top:2px;letter-spacing:0.5px">示范城市群深度分析仪表盘</div>
     </div>
     """, unsafe_allow_html=True)
@@ -752,7 +752,7 @@ elif page == "💡 核心洞察":
 # Footer
 st.markdown("""
 <div style="text-align:center;padding:30px 0 10px;border-top:1px solid #e2e8f0;margin-top:30px">
-  <div style="font-size:10px;color:#94a3b8">H₂Trace 氢溯科技 · 国家能源集团 · Demo v0.1.0</div>
+  <div style="font-size:10px;color:#94a3b8">陆上氢销售分析平台 氢溯科技 · 国家能源集团 · Demo v0.1.0</div>
   <div style="font-size:9px;color:#cbd5e1;margin-top:4px">数据来源：国家燃料电池汽车示范应用城市群氢能供应明细表 · 参数：气态运氢10元/100km·kg · 绿氢35元/kg</div>
 </div>
 """, unsafe_allow_html=True)

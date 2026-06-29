@@ -338,7 +338,7 @@ def render_ticker(sites_count: int = 0, capacity: int = 0, stations_count: int =
     st.markdown(f"""
     <div class="ticker-bar">
       <div class="ticker-brand">
-        <span class="tb-dot"></span>H₂Trace 氢溯科技
+        <span class="tb-dot"></span>陆上氢销售分析平台
       </div>
       <div class="ticker-item">
         <span class="ti-label">制氢基地</span>

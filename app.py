@@ -3,7 +3,7 @@ import streamlit as st
 from utils.ui import inject_global_css, render_ticker
 from utils.data_loader import load_sites, load_stations
 
-st.set_page_config(page_title="H₂Trace · 陆上氢销售分析", page_icon="●", layout="wide")
+st.set_page_config(page_title="陆上氢销售分析平台", page_icon="●", layout="wide")
 
 inject_global_css()
 
@@ -33,7 +33,7 @@ render_ticker(
 with st.sidebar:
     st.markdown("""
     <div style="padding:8px 0 18px">
-      <div style="font-weight:800;font-size:1.1rem;color:#fff">● H₂Trace</div>
+      <div style="font-weight:800;font-size:1.1rem;color:#fff">● 陆上氢销售分析平台</div>
       <div style="font-size:0.68rem;color:rgba(255,255,255,0.45);margin-top:2px;letter-spacing:0.5px">陆上氢销售分析平台</div>
     </div>
     """, unsafe_allow_html=True)
