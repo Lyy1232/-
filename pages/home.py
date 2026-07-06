@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 from utils.data_loader import load_sites, load_stations, get_station_stats, get_cluster_stats, get_updated_time
 from utils.ui import render_module_header
-from config.constants import ECONOMIC_RADIUS_KM
+from config.constants import ECONOMIC_RADIUS_KM, GUOHUA_BASES_COST, REFERENCE_DATA
 
 
 def _metric_card(icon: str, value: str, label: str, sub: str = "", delta: str = "", delta_up: bool = True,
@@ -26,7 +26,7 @@ def _metric_card(icon: str, value: str, label: str, sub: str = "", delta: str = 
 
 def render():
     lang = st.session_state.get("lang", "zh")
-    render_module_header("仪表盘", "国内氢能供需匹配与定价决策 · 四大基地 → 200km 经济辐射圈", badge="LIVE")
+    render_module_header("业务总览", "四大基地 · 200km辐射圈 · 行业参考数据", badge="LIVE")
 
     sites = load_sites()
     stations = load_stations()
@@ -205,4 +205,11 @@ def render():
           </div>
         </div>""", unsafe_allow_html=True)
 
-    st.caption(f"P1 搭框架 ✅ · P2 供需端搭建 ✅ · 下一步 P3 成本计算+供需调控")
+    st.caption("P1 ✅ · P2 ✅ · P3 ✅ · P4 成本竞争力+聚焦 ✅")
+
+    # ── 行业参考数据 ──
+    with st.expander("📚 行业参考数据（Argus/BNEF/公开报告）", expanded=False):
+        ref_tbl = [{"指标": k, "数值": v["value"], "来源": v["source"]} for k, v in REFERENCE_DATA.items()]
+        st.dataframe(pd.DataFrame(ref_tbl), use_container_width=True, hide_index=True,
+                    column_config={"来源": st.column_config.TextColumn(width="large")})
+        st.caption("💡 数据来源：中国产业发展促进会氢能分会、全国碳市场、国家能源局、隆众资讯、ICE、IEA等。标注时间为公开值，实际以最新行情为准。")

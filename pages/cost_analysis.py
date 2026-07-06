@@ -9,7 +9,7 @@ from utils.geo_utils import haversine_km
 from utils.ui import render_module_header
 from config.constants import (
     TECH_ZH, ECONOMIC_RADIUS_KM,
-    TRANSPORT_MODES, SALES_SCENARIOS, CITY_SUBSIDIES, GUOHUA_BASES_COST,
+    TRANSPORT_MODES, SALES_SCENARIOS, CITY_SUBSIDIES, GUOHUA_BASES_COST, REFERENCE_DATA,
 )
 
 TEAL = "#0d9488"; RED = "#ef4444"; GREEN = "#10b981"; AMBER = "#f59e0b"; BLUE = "#2563eb"
@@ -187,16 +187,24 @@ def render():
     with tab3:
         st.subheader("国华基地 vs 市场零售价")
 
+        # PIN-aware cost display
+        pin_unlocked = st.session_state.get("show_exact_costs", False)
+
         # Bar chart comparing all bases
         fig = go.Figure()
         base_names_all = list(GUOHUA_BASES_COST.keys())
-        base_costs_all = [GUOHUA_BASES_COST[n] for n in base_names_all]
+        if pin_unlocked:
+            base_costs_all = [GUOHUA_BASES_COST[n] for n in base_names_all]
+            fig.add_trace(go.Bar(name="出厂成本(精确)", x=base_names_all, y=base_costs_all,
+                                marker_color=TEAL, text=[f"{c}元" for c in base_costs_all],
+                                textposition="outside", textfont_size=10))
+        else:
+            # Show ranges when locked
+            base_costs_mid = [GUOHUA_BASES_COST.get(n, 15) for n in base_names_all]
+            fig.add_trace(go.Bar(name="出厂成本(区间)", x=base_names_all, y=base_costs_mid,
+                                marker_color=TEAL, text=["~15元" if n != "沧州" else "~10元" for n in base_names_all],
+                                textposition="outside", textfont_size=10))
 
-        fig.add_trace(go.Bar(name="出厂成本", x=base_names_all, y=base_costs_all,
-                            marker_color=TEAL, text=[f"{c}元" for c in base_costs_all],
-                            textposition="outside", textfont_size=10))
-
-        # Add 200km landed cost
         landed_200 = []
         for name in base_names_all:
             cost = GUOHUA_BASES_COST.get(name, 15.2)
@@ -206,20 +214,26 @@ def render():
                             marker_color=BLUE, marker_opacity=0.5,
                             text=[f"{c}元" for c in landed_200], textposition="outside", textfont_size=9))
 
-        # Add market reference line
         fig.add_hline(y=30, line_dash="dash", line_color=RED, line_width=1.2,
                       annotation=dict(text="市场均价参考30元/kg", font_size=9, font_color=RED))
         fig.add_hline(y=25, line_dash="dot", line_color=GREEN, line_width=1,
                       annotation=dict(text="2030目标25元/kg", font_size=9, font_color=GREEN))
 
         fig.update_layout(
-            title="国华基地成本对标", height=400, yaxis_title="元/kg",
+            title="国华基地成本对标" + ("（精确值已解锁）" if pin_unlocked else "（锁定中，显示区间）"),
+            height=400, yaxis_title="元/kg",
             plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)",
         )
         st.plotly_chart(fig, use_container_width=True)
 
-        # City cluster price comparison
         st.markdown("### 城市群零售价与补贴")
         sub_tbl = [{"城市群": k, "补贴标准(元/kg)": v, "补贴后估算零售价": f"{30-v:.0f}元/kg（参考）"}
                    for k, v in CITY_SUBSIDIES.items()]
         st.dataframe(pd.DataFrame(sub_tbl), use_container_width=True, hide_index=True)
+
+        # ── 行业参考数据 ──
+        st.markdown("### 行业参考数据（Argus/BNEF/公开报告）")
+        ref_tbl = [{"指标": k, "数值": v["value"], "来源": v["source"]} for k, v in REFERENCE_DATA.items()]
+        st.dataframe(pd.DataFrame(ref_tbl), use_container_width=True, hide_index=True,
+                    column_config={"来源": st.column_config.TextColumn(width="large")})
+        st.caption("💡 数据来源包括中国产业发展促进会氢能分会、全国碳市场、国家能源局、隆众资讯、IEA、model.xlsx等。部分数据为2025-2026年公开值，实际以最新行情为准。")
