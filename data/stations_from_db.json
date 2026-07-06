@@ -14,7 +14,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "上海神力科技有限公司第一分公司",
@@ -31,7 +32,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "上海宝氢气体工业有限公司宝山分公司",
@@ -48,7 +50,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "博园路加氢站",
@@ -65,7 +68,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "上海江桥加氢站",
@@ -82,7 +86,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "上海中油申能氢能科技有限公司同汇路分公司",
@@ -99,7 +104,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "上海中油申能氢能科技有限公司平霄路站分公司",
@@ -116,7 +122,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "驿蓝加氢站",
@@ -133,7 +140,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "青卫油氢合建站",
@@ -150,7 +158,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "西上海油氢合建站",
@@ -167,7 +176,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "平海路公交保养场加氢站",
@@ -184,7 +194,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "嘉化氢能港城固定式加氢站",
@@ -201,7 +212,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "东华港城固定式加氢站",
@@ -218,7 +230,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "张家港朝阳综合加能站",
@@ -235,7 +248,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "中国石油天然气股份有限公司江苏苏州花桥开发区加油站",
@@ -252,7 +266,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "银河路加氢站",
@@ -269,7 +284,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "海盐经济技术开发区加氢站",
@@ -286,7 +302,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "氢源嘉创（东方氢港）加氢站",
@@ -303,7 +320,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "嘉锦亭桥北综合供能服务站",
@@ -320,7 +338,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "滨海大道加氢站",
@@ -337,7 +356,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "嘉善县中国石化经营有限公司善通加油加氢站",
@@ -354,7 +374,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "嘉善县中国石化经营有限公司站前路加气加氢站",
@@ -371,7 +392,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "嘉兴市加油加气站有限公司岗山路站",
@@ -388,7 +410,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "平湖樱花氢站",
@@ -405,7 +428,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "国能（宁夏宁东）绿氢能源有限公司永利加氢站",
@@ -422,7 +446,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "宝廷氢能新能源管理中心（宁夏）有限公司加氢站",
@@ -439,7 +464,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "内蒙古圣圆氢能源科技有限公司伊金霍洛旗制氢加氢氢能科技营业部",
@@ -456,7 +482,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "驿蓝加氢站",
@@ -473,7 +500,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "上海江桥加氢站",
@@ -490,7 +518,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "上海宝氢气体工业有限公司宝山分公司",
@@ -507,7 +536,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "上海神力科技有限公司第一分公司",
@@ -524,7 +554,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "上海贤力新能源第一分公司加氢站",
@@ -541,7 +572,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "平霄路站",
@@ -558,7 +590,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "同汇路站",
@@ -575,7 +608,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "上海氢驾能源科技有限公司",
@@ -592,7 +626,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "安亭加氢站",
@@ -609,7 +644,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "中国石油花桥综合能源站",
@@ -626,7 +662,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "嘉锦亭桥北综合供能服务站",
@@ -643,7 +680,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "滨海大道",
@@ -660,7 +698,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "东方氢港加氢站",
@@ -677,7 +716,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "嘉善善通加氢站",
@@ -694,7 +734,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "嘉善站前路加氢站",
@@ -711,7 +752,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "绿能加氢站",
@@ -728,7 +770,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "嘉兴市加油加气站有限公司岗山路站",
@@ -745,7 +788,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "海盐经济技术开发区商业加氢站",
@@ -762,7 +806,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "内蒙古圣圆氢能源科技有限公司伊金霍洛旗制氢加氢氢能科技营业部",
@@ -779,7 +824,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "永利加氢站",
@@ -796,7 +842,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "宁夏宝廷新材料科技股份有限公司",
@@ -813,7 +860,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "时顺苑加氢站",
@@ -830,7 +878,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "青云店油氢合建站",
@@ -847,7 +896,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "安固油氢合建站",
@@ -864,7 +914,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "福田中石油加氢站",
@@ -881,7 +932,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "氢能产业园加氢站",
@@ -898,7 +950,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "庆园街加氢站",
@@ -915,7 +968,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "王泉营加氢站",
@@ -932,7 +986,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "永丰加氢站",
@@ -949,7 +1004,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "长城公司大王店园区撬装式加氢站",
@@ -966,7 +1022,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "河北燕山钢铁集团有限公司2#加氢站",
@@ -983,7 +1040,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "荣程众和自用加氢站",
@@ -1000,7 +1058,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "天津钢铁石化加氢站（新天钢-德达站）",
@@ -1017,7 +1076,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "天津荣程装卸服务有限公司加氢站",
@@ -1034,7 +1094,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "天津众和能源管理有限公司荣程油氢站",
@@ -1051,7 +1112,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "天津市新天钢联合特钢有限公司撬装加氢站",
@@ -1068,7 +1130,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "华本燃气临淄闫家加氢站",
@@ -1085,7 +1148,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "淄博新区公交加氢站",
@@ -1102,7 +1166,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "齐鲁物流加氢站",
@@ -1119,7 +1184,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "山东滨华氢能源有限公司加氢站",
@@ -1136,7 +1202,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "国际氢能示范区加氢站",
@@ -1153,7 +1220,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "时顺苑加氢站",
@@ -1170,7 +1238,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "青云店油氢合建站",
@@ -1187,7 +1256,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "安固油氢合建站",
@@ -1204,7 +1274,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "中石油鑫世恒通油氢合建站",
@@ -1221,7 +1292,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "福田中石油加氢站",
@@ -1238,7 +1310,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "中石化昌平西关环岛站",
@@ -1255,7 +1328,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "氢能产业园加氢站",
@@ -1272,7 +1346,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "房山储运站",
@@ -1289,7 +1364,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "庆园街加氢站",
@@ -1306,7 +1382,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "王泉营加氢站",
@@ -1323,7 +1400,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "永丰加氢站",
@@ -1340,7 +1418,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "王四营气氢合建示范站",
@@ -1357,7 +1436,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "首发马驹桥服务区加氢站",
@@ -1374,7 +1454,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "北京市通县腾达油氢站",
@@ -1391,7 +1472,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "荣程新能遵化（建明）加氢站",
@@ -1408,7 +1490,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "河北燕山钢铁集团有限公司2#加氢站",
@@ -1425,7 +1508,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "华本燃气临淄闫家加氢站",
@@ -1442,7 +1526,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "淄博新区公交加氢站",
@@ -1459,7 +1544,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "齐鲁物流加氢站",
@@ -1476,7 +1562,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "山东滨华氢能源有限公司加氢站",
@@ -1493,7 +1580,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "荣程众和自用加氢站",
@@ -1510,7 +1598,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "荣程远程加氢站",
@@ -1527,7 +1616,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "荣程临港加氢站",
@@ -1544,7 +1634,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "天津众和能源管理有限公司荣程油氢站",
@@ -1561,7 +1652,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "中石化瑞达综合能源加氢站",
@@ -1578,7 +1670,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "荣程自用清洁运输撬站",
@@ -1595,7 +1688,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "荣程荣宝加氢站",
@@ -1612,7 +1706,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "荣程新能源（乘用车）加氢站",
@@ -1629,7 +1724,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "天津荣程装卸服务有限公司加氢站",
@@ -1646,7 +1742,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "荣程新能源（源泰）加氢站",
@@ -1663,7 +1760,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "天津市新天钢联合特钢有限公司撬装加氢站",
@@ -1680,7 +1778,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "北太路加氢站",
@@ -1697,7 +1796,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "石湖加氢站",
@@ -1714,7 +1814,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "广汽丰田南沙加氢站",
@@ -1731,7 +1832,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "广州联新氢能有限公司东晖加氢站",
@@ -1748,7 +1850,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "东明三路综合能源站",
@@ -1765,7 +1868,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "开泰北站",
@@ -1782,7 +1886,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "东区加氢站",
@@ -1799,7 +1904,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "新南35MP加氢站",
@@ -1816,7 +1922,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "新南70MP加氢站",
@@ -1833,7 +1940,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "力康加氢站",
@@ -1850,7 +1958,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "金坑加油加氢站",
@@ -1867,7 +1976,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "南岗加氢站",
@@ -1884,7 +1994,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "笔岗综合能源站",
@@ -1901,7 +2012,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "中石化龙珠源加氢站",
@@ -1918,7 +2030,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "妈湾电厂制氢加氢一体站",
@@ -1935,7 +2048,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "瀚蓝松岗禅炭路加氢充电合建站",
@@ -1952,7 +2066,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "瀚蓝狮山桃园加氢站",
@@ -1969,7 +2084,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "瀚蓝九江大道加站",
@@ -1986,7 +2102,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "瀚蓝桂城三龙湾大道加氢站",
@@ -2003,7 +2120,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "瀚蓝丹灶瑞晖加氢站(含扩建）",
@@ -2020,7 +2138,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "集络加氢站",
@@ -2037,7 +2156,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "途达加氢站",
@@ -2054,7 +2174,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "贝诺加氢站",
@@ -2071,7 +2192,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "安杰加氢站",
@@ -2088,7 +2210,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "海德利森（丹灶）加氢站",
@@ -2105,7 +2228,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "佛山巨沛加油加氢站",
@@ -2122,7 +2246,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "臻盛车生活广场岭南车城加油加氢站",
@@ -2139,7 +2264,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "佛山市南海虹岭润辉加油加氢站",
@@ -2156,7 +2282,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "樟坑加氢站",
@@ -2173,7 +2300,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "佛山市三水区国杰物资有限公司广海西加氢站",
@@ -2190,7 +2318,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "佛山市三水区国杰物资有限公司锦江路加氢站",
@@ -2207,7 +2336,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "佛山市高明氢盛氢能科技有限公司轨道加氢站",
@@ -2224,7 +2354,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "佛山市高明氢盛氢能科技有限公司更合加氢站",
@@ -2241,7 +2372,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "明城综合能源供应站",
@@ -2258,7 +2390,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "佛山市高明区氢裕公交客运有限公司高明大道加氢站",
@@ -2275,7 +2408,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "中国石化销售股份有限公司广东佛山高明群力加氢站",
@@ -2292,7 +2426,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "中海石油销售（江门）有限公司佛山沧江南路加油加氢站",
@@ -2309,7 +2444,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "佛山市汽车运输集团有限公司佛罗路加氢站",
@@ -2326,7 +2462,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "佛山市禅城区城北汽车加氢站",
@@ -2343,7 +2480,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "南庄制氢加氢加气一体化站",
@@ -2360,7 +2498,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "中石化佛山新能源有限公司佛西加氢站",
@@ -2377,7 +2516,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "中产投资发展有限公司河滘加油加氢站",
@@ -2394,7 +2534,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "佛山市中油盈达能源有限公司禅城罗格加油加氢合建站",
@@ -2411,7 +2552,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "佛山市禅城区国联氢能技术有限公司塱沙加氢站",
@@ -2428,7 +2570,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "明阳电气工业园区氢能制储加一体化设备示范项目",
@@ -2445,7 +2588,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "嘉氢大洋广丰加氢站",
@@ -2462,7 +2606,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "广东奔业新能源有限公司",
@@ -2479,7 +2624,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "国鸿加氢站",
@@ -2496,7 +2642,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "雪人股份加氢站",
@@ -2513,7 +2660,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "中石化南山综合能源站",
@@ -2530,7 +2678,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "明天金安加氢站",
@@ -2547,7 +2696,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "氢澜科技供氢基地",
@@ -2564,7 +2714,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "河西1站",
@@ -2581,7 +2732,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "中石化天元综合加能站",
@@ -2598,7 +2750,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "中石化北方能源（大连）有限公司盛港综合加能站",
@@ -2615,7 +2768,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "中石化北方能源（大连）有限公司海明综合加能站",
@@ -2632,7 +2786,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "北姚站",
@@ -2649,7 +2804,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "金港湾站",
@@ -2666,7 +2822,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "西王屯站",
@@ -2683,7 +2840,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "交城美锦盛锦路加氢站",
@@ -2700,7 +2858,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "交城段村综合能源站",
@@ -2717,7 +2876,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "下楼桥加氢站",
@@ -2734,7 +2894,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "吕梁经开区新材料园区撬装站",
@@ -2751,7 +2912,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "吕梁山水水泥撬装站",
@@ -2768,7 +2930,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "金安明天加氢站",
@@ -2785,7 +2948,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "中石化南山综合能源站",
@@ -2802,7 +2966,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "金寨华润燃气梅山湖路加氢站",
@@ -2819,7 +2984,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "宣力（新疆）氢能科技有限公司-纯氢工厂",
@@ -2836,7 +3002,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "新疆哈密市伊吾县伊宏淖毛湖镇综合能源站",
@@ -2853,7 +3020,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "瀚蓝狮山桃园加氢站",
@@ -2870,7 +3038,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "瀚蓝松岗禅炭路加氢充电合建站",
@@ -2887,7 +3056,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "瀚蓝九江大道加氢站",
@@ -2904,7 +3074,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "瀚蓝桂城三龙湾大道加氢站",
@@ -2921,7 +3092,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "佛山市瑞晖能源有限公司瀚蓝丹灶瑞晖加氢站（含扩建站）",
@@ -2938,7 +3110,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "中国石化销售股份有限公司广东广州金坑加油站",
@@ -2955,7 +3128,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "中国石化销售股份有限公司广东广州开泰北加油加气站",
@@ -2972,7 +3146,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "广东中恒石化能源发展有限公司东明三路综合能源站",
@@ -2989,7 +3164,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "良田加氢站",
@@ -3006,7 +3182,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "石湖加氢站",
@@ -3023,7 +3200,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "石门加氢站（2个站）",
@@ -3040,7 +3218,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "北太路加氢站",
@@ -3057,7 +3236,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "番禺顺答加氢站",
@@ -3074,7 +3254,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "现代汽车氢燃料电池系统（广州）有限公司加氢站",
@@ -3091,7 +3272,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "广州联新氢能有限公司东晖加氢站",
@@ -3108,7 +3290,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "广汽领程新能源商用车有限公司加氢站",
@@ -3125,7 +3308,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "南沙氢跑加氢站",
@@ -3142,7 +3326,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "南岗加氢站",
@@ -3159,7 +3344,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "新南加氢站",
@@ -3176,7 +3362,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "东区加氢站",
@@ -3193,7 +3380,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "力康加氢站",
@@ -3210,7 +3398,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "新南70Mpa加氢站",
@@ -3227,7 +3416,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "笔岗加氢站",
@@ -3244,7 +3434,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "沙亭岗综合能源站",
@@ -3261,7 +3452,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "海珠琶洲加氢站",
@@ -3278,7 +3470,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "龙泽1号加氢站",
@@ -3295,7 +3488,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "龙泽2号加氢站",
@@ -3312,7 +3506,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "东鹏大道加氢站",
@@ -3329,7 +3524,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "广石物流石化路加氢站",
@@ -3346,7 +3542,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "河西加氢站1",
@@ -3363,7 +3560,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "河西加氢站2",
@@ -3380,7 +3578,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "东华加氢站1",
@@ -3397,7 +3596,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "东华加氢站2",
@@ -3414,7 +3614,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "土右加氢站",
@@ -3431,7 +3632,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "张家口市交投氢能新能源科技有限公司创坝加氢站",
@@ -3448,7 +3650,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "国家能源集团万全综合能源站",
@@ -3465,7 +3668,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "海珀尔加氢站",
@@ -3482,7 +3686,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "华丰清洁能源有限公司加氢综合能源站",
@@ -3499,7 +3704,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "定州旭阳氢能有限公司",
@@ -3516,7 +3722,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "河北飞天综合能源站",
@@ -3533,7 +3740,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "河北燕山钢铁集团有限公司1#加氢站",
@@ -3550,7 +3758,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "河北昆仑大河新能源有限公司滦南马城加油加氢站",
@@ -3567,7 +3776,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "中油曹妃甸石油销售有限公司曹妃甸第十八加油站",
@@ -3584,7 +3794,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "氢扬加氢站",
@@ -3601,7 +3812,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "迁安市九江煤炭储运有限公司加氢站项目",
@@ -3618,7 +3830,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "蚂蚁物流园固定加氢站",
@@ -3635,7 +3848,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "保定徐水区马亮营撬装式加氢站",
@@ -3652,7 +3866,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "旭阳加氢能源站（大王店站）",
@@ -3669,7 +3884,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "保定市氢能源环卫车辆加氢站",
@@ -3686,7 +3902,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "中国石化销售股份有限公司内蒙古乌海石油分公司纬七街加氢站",
@@ -3703,7 +3920,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "乌海市双海新能源科技有限公司海南区西来峰加氢换氢综合站",
@@ -3720,7 +3938,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 1
   },
   {
     "name": "旭阳加氢能源站（大王店站）",
@@ -3737,7 +3956,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "蚂蚁物流加氢站",
@@ -3754,7 +3974,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "保定环卫车辆加氢站",
@@ -3771,7 +3992,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "河北燕山钢铁集团有限公司1#加氢站",
@@ -3788,7 +4010,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "唐山氢扬新能源科技有限公司氢扬加氢站",
@@ -3805,7 +4028,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "中油曹妃甸石油销售有限公司曹妃甸第十八加油站",
@@ -3822,7 +4046,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "迁安陆驰新能1号、2号站",
@@ -3839,7 +4064,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "华丰清洁能源综合加氢服务区",
@@ -3856,7 +4082,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "河北飞天新氢能源有限公司",
@@ -3873,7 +4100,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "荣程港联氢能科技（泊头）有限公司",
@@ -3890,7 +4118,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "黄骅港1号撬装站",
@@ -3907,7 +4136,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "国氢中极氢能源(河北)有限公司",
@@ -3924,7 +4154,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "创坝加氢站",
@@ -3941,7 +4172,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "定州旭阳氢能有限公司",
@@ -3958,7 +4190,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "定州旭阳富民氢能有限公司",
@@ -3975,7 +4208,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 1
   },
   {
     "name": "郑州氢枫能源技术有限公司—巩义瑞达福加氢站",
@@ -3992,7 +4226,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "中原淄翎站",
@@ -4009,7 +4244,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "郑州重塑氢能科技有限公司二七正创站",
@@ -4026,7 +4262,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "河南金马氢能有限公司化工路加氢站",
@@ -4043,7 +4280,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "河南金马氢能有限公司登封市郭家洼加氢站",
@@ -4060,7 +4298,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "河南金马氢能有限公司巩义市河洛加氢站",
@@ -4077,7 +4316,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "河南丈一建筑工程有限公司",
@@ -4094,7 +4334,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "隆瑞东三环站",
@@ -4111,7 +4352,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "花溪加氢站",
@@ -4128,7 +4370,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "郑州华润燃气股份有限公司航海东路车用能源站",
@@ -4145,7 +4388,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "森思达新能源陇海西路加氢站",
@@ -4162,7 +4406,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "森思达新能源东三环加氢站",
@@ -4179,7 +4424,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "宝丰成业毛庄加氢站",
@@ -4196,7 +4442,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "宇通帝丰站",
@@ -4213,7 +4460,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "宇通融佳站",
@@ -4230,7 +4478,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "宇通加氢站",
@@ -4247,7 +4496,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "宇通新密德润站",
@@ -4264,7 +4514,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "焦作伟祺杲村加氢站",
@@ -4281,7 +4532,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "河南大河四季能源科技有限公司-四季物流港加氢站",
@@ -4298,7 +4550,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "郑州氢枫能源技术有限公司",
@@ -4315,7 +4568,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "宝舜科技加氢充装站",
@@ -4332,7 +4586,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "河南利源物流有限公司加氢站",
@@ -4349,7 +4604,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "洹科加氢站",
@@ -4366,7 +4622,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "安阳樽骆商贸有限公司（龙安区加氢站）",
@@ -4383,7 +4640,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "洛阳国苑运输加氢站",
@@ -4400,7 +4658,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "华久新能源综合能源站",
@@ -4417,7 +4676,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "中国石化洛阳红山加氢站",
@@ -4434,7 +4694,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "焦作市东部加氢站",
@@ -4451,7 +4712,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "南二环加氢站",
@@ -4468,7 +4730,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "",
@@ -4485,7 +4748,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 3
+    "year": 3,
+    "priority": 2
   },
   {
     "name": "郑州华润燃气股份有限公司航海东路车用能源站",
@@ -4502,7 +4766,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "花溪加氢站",
@@ -4519,7 +4784,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "明惠路综合加能站",
@@ -4536,7 +4802,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "河南金马氢能有限公司化工路加氢站",
@@ -4553,7 +4820,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "河南金马氢能有限公司巩义市河洛加氢站",
@@ -4570,7 +4838,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "河南金马氢能有限公司登封市郭家洼加氢站",
@@ -4587,7 +4856,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "郑州氢枫能源技术有限公司—巩义瑞达福加氢站",
@@ -4604,7 +4874,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "河南大河四季能源科技有限公司-四季物流港加氢站",
@@ -4621,7 +4892,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "森思达新能源东三环加氢站",
@@ -4638,7 +4910,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "森思达新能源陇海西路加氢站",
@@ -4655,7 +4928,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "中原淄翎站",
@@ -4672,7 +4946,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "隆瑞东三环站",
@@ -4689,7 +4964,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "宇通帝丰站",
@@ -4706,7 +4982,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "郑州重塑氢能科技有限公司二七正创站",
@@ -4723,7 +5000,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "焦作伟祺杲村加氢站",
@@ -4740,7 +5018,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "河南丈一建筑工程有限公司",
@@ -4757,7 +5036,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "宇通加氢站",
@@ -4774,7 +5054,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "中原环卫加氢站",
@@ -4791,7 +5072,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "亿桓氢能源科技航空港区加氢站",
@@ -4808,7 +5090,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "亿桓氢能源科技兴筑加氢站",
@@ -4825,7 +5108,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "郑州航空港区吴村加氢站",
@@ -4842,7 +5126,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "郑州德润燃气有限公司",
@@ -4859,7 +5144,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "巩义市鼎昌汽车运输有限公司",
@@ -4876,7 +5162,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "郑州氢枫能源技术有限公司",
@@ -4893,7 +5180,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "华久新能源综合能源站",
@@ -4910,7 +5198,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "国苑运输加氢站",
@@ -4927,7 +5216,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "中国石化洛阳红山加氢站",
@@ -4944,7 +5234,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": true,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "河南金瑞燃气有限公司南二环加氢站",
@@ -4961,7 +5252,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "河南金瑞燃气有限公司济源虎岭一号线油气综合站",
@@ -4978,7 +5270,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "河南焦煤能源有限公司演马庄矿(东部加氢站）",
@@ -4995,7 +5288,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "宝舜科技股份有限公司铜冶加氢站",
@@ -5012,7 +5306,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "河南利源物流有限公司加氢站",
@@ -5029,7 +5324,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "河南顺利醇氢能源科技有限公司顺成集团加氢站",
@@ -5046,7 +5342,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "安阳洹科环保科技有限公司",
@@ -5063,7 +5360,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "安阳樽骆商贸有限公司",
@@ -5080,7 +5378,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "中裕能源综合加能站",
@@ -5097,7 +5396,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "濮阳综合加能站",
@@ -5114,7 +5414,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "中国石化新乡市区南二环油氢合建站",
@@ -5131,7 +5432,8 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
   },
   {
     "name": "郑州氢枫能源技术有限公司",
@@ -5148,6 +5450,58 @@
     "is_guohua": false,
     "status": "运营中",
     "is_highway": false,
-    "year": 4
+    "year": 4,
+    "priority": 2
+  },
+  {
+    "name": "无锡加氢站（待核实）",
+    "city_cluster": "上海",
+    "province": "无锡",
+    "lat": 31.49,
+    "lon": 120.31,
+    "owner": "待调研",
+    "daily_capacity_kg": 500,
+    "actual_throughput_kg": 150,
+    "purchase_price_low": 35,
+    "is_highway": false,
+    "status": "运营中",
+    "year": 4,
+    "h2_source": "待调研",
+    "priority": 1,
+    "is_guohua": false
+  },
+  {
+    "name": "盐城加氢站（待核实）",
+    "city_cluster": "上海",
+    "province": "盐城",
+    "lat": 33.35,
+    "lon": 120.13,
+    "owner": "待调研",
+    "daily_capacity_kg": 500,
+    "actual_throughput_kg": 120,
+    "purchase_price_low": 35,
+    "is_highway": false,
+    "status": "运营中",
+    "year": 4,
+    "h2_source": "待调研",
+    "priority": 1,
+    "is_guohua": false
+  },
+  {
+    "name": "南通加氢站（待核实）",
+    "city_cluster": "上海",
+    "province": "南通/如东",
+    "lat": 32.08,
+    "lon": 121.05,
+    "owner": "待调研",
+    "daily_capacity_kg": 1000,
+    "actual_throughput_kg": 300,
+    "purchase_price_low": 34,
+    "is_highway": false,
+    "status": "运营中",
+    "year": 4,
+    "h2_source": "待调研",
+    "priority": 1,
+    "is_guohua": false
   }
 ]

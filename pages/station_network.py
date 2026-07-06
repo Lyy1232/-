@@ -11,7 +11,7 @@ from streamlit_folium import st_folium
 from utils.data_loader import load_sites, load_stations, load_stations_from_db, get_station_stats, get_cluster_stats
 from utils.geo_utils import haversine_km
 from utils.ui import render_module_header
-from config.constants import TECH_COLORS, TECH_ZH, ECONOMIC_RADIUS_KM
+from config.constants import TECH_COLORS, TECH_ZH, ECONOMIC_RADIUS_KM, GUOHUA_BASES_COST, TRANSPORT_MODES
 
 CLUSTER_COLORS = {
     "京津冀": "#00a99d", "河北": "#f59e0b", "郑州": "#2563eb",
@@ -81,7 +81,7 @@ def _build_coverage_map_impl(sites, stations, selected_site=None):
                       tooltip=Tooltip(f"{s['name']} · {cov_label}")).add_to(m)
 
     # Legend
-    clusters_in = list(dict.fromkeys(s.get("city_cluster", "") for s in stations))
+    clusters_in = list(dict.fromkeys(s.get("city_cluster", "") for s in filtered))
     lr = "".join(f'<tr><td><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:{CLUSTER_COLORS.get(c,"#94a3b8")}"></span></td><td style="font-size:10px;color:#334155">{c}</td></tr>' for c in clusters_in)
     legend_html = f"""<div style="position:fixed;bottom:18px;right:18px;z-index:9999;background:rgba(255,255,255,0.95);padding:8px 12px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.08);line-height:1.6">
       <b style="font-size:11px;color:#1e293b">图例</b><table style="margin-top:3px">{lr}
@@ -128,10 +128,9 @@ def _demand_gap(sites_json: str, stations_json: str):
 
 
 def render():
-    render_module_header("加氢站网络", "示范城市群真实运营数据 · SQLite 驱动 · 303座加氢站", badge="LIVE")
+    render_module_header("加氢站网络", "第一阶段城市群（京津冀+河北+长三角）· 第二阶段折叠", badge="LIVE")
 
     sites = load_sites()
-    # 优先使用 SQLite 真实数据，fallback 到 mock 数据
     stations = load_stations_from_db(year=4)
     if not stations:
         stations = load_stations()
@@ -139,15 +138,30 @@ def render():
         st.warning("⚠️ 未加载加氢站数据。请先运行 python utils/build_sqlite.py")
         return
 
-    stats = get_station_stats(stations)
+    # ── 城市群分级筛选 ──
+    c1, c2 = st.columns([2, 1])
+    with c1:
+        tier = st.radio("城市群范围", ["第一阶段：京津冀+河北+长三角（核心）", "第二阶段：郑州+广东（扩展）", "全部"],
+                        horizontal=True, index=0)
+    with c2:
+        base_focus = st.selectbox("制氢厂圆心", ["无"] + list(GUOHUA_BASES_COST.keys()), index=0)
 
-    # KPI row
+    if "全部" in tier:
+        filtered = stations
+    elif "第二阶段" in tier:
+        filtered = [s for s in stations if s.get('city_cluster') in ('郑州', '广东')]
+    else:
+        filtered = [s for s in stations if s.get('city_cluster') in ('京津冀', '河北', '上海')]
+
+    stats = get_station_stats(filtered)
+    st.caption(f"当前显示: {len(filtered)} 座加氢站")
+
     kpi_cols = st.columns(5)
     kpis = [
         ("⛽", str(stats["count"]), "Y4 加氢站", "示范城市群统计"),
         ("⚡", f"{stats['total_capacity']:,}", "日供氢能力 kg", ""),
         ("📈", f"{stats['avg_load']}%", "平均负荷率", f"年加注 {stats['total_throughput']:,.0f} kg"),
-        ("🏙️", str(len(get_cluster_stats(stations))), "城市群", "京津冀·河北·郑州·广东·上海"),
+        ("🏙️", str(len(get_cluster_stats(filtered))), "城市群", "京津冀·河北·郑州·广东·上海"),
         ("🛢️", "91", "制氢企业", "去重后"),
     ]
     for col, (icon, val, lbl, sub) in zip(kpi_cols, kpis):
@@ -197,7 +211,7 @@ def render():
         st.plotly_chart(fig, width="stretch")
 
     with tab2:
-        clusters = get_cluster_stats(stations)
+        clusters = get_cluster_stats(filtered)
         st.subheader("城市群统计")
         cc = st.columns(len(clusters))
         for col, c in zip(cc, clusters):
@@ -224,8 +238,8 @@ def render():
 
     with tab3:
         st.subheader("加氢站明细（Y4 · 示范城市群真实数据）")
-        st.caption(f"共 {len(stations)} 座 · 数据来源：国家燃料电池汽车示范城市群氢能供应明细表")
-        df_st = pd.DataFrame(stations)
+        st.caption(f"共 {len(filtered)} 座 · 数据来源：国家燃料电池汽车示范城市群氢能供应明细表")
+        df_st = pd.DataFrame(filtered)
         disp = ["name", "city_cluster", "province", "owner", "daily_capacity_kg",
                 "actual_throughput_kg", "purchase_price_low", "is_highway", "status"]
         df_st["负荷率%"] = (df_st["actual_throughput_kg"] / df_st["daily_capacity_kg"] * 100).round(1)
