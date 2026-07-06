@@ -88,6 +88,8 @@ def inject_global_css():
       background: linear-gradient(180deg, var(--navy-900) 0%, var(--navy-800) 100%);
       border-right: none;
     }
+    /* 隐藏 Streamlit 默认页面导航（与自定义中文导航重复） */
+    section[data-testid="stSidebar"] [data-testid="stSidebarNav"] { display: none !important; }
     section[data-testid="stSidebar"] * { color: rgba(255,255,255,0.85) !important; }
     section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.06); }
     section[data-testid="stSidebar"] .stRadio > div {
