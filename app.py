@@ -8,12 +8,8 @@ st.set_page_config(page_title="陆上氢基能源销售平台", page_icon="●",
 inject_global_css()
 
 # ── Session ──
-if "lang" not in st.session_state:
-    st.session_state.lang = "zh"
 if "page" not in st.session_state:
     st.session_state.page = "home"
-
-lang = st.session_state.lang
 
 # ── Load data for ticker ──
 try:
@@ -37,10 +33,6 @@ with st.sidebar:
       <div style="font-size:0.68rem;color:rgba(255,255,255,0.45);margin-top:2px;letter-spacing:0.5px">氢链 · 前端营销工具</div>
     </div>
     """, unsafe_allow_html=True)
-
-    lang_label = st.radio("语言", ["中文", "English"], horizontal=True,
-                          index=0 if lang == "zh" else 1, label_visibility="collapsed")
-    st.session_state.lang = "zh" if lang_label == "中文" else "en"
 
     st.markdown('<div style="margin:8px 0;border-top:1px solid rgba(255,255,255,0.08)"></div>', unsafe_allow_html=True)
     st.markdown('<p style="font-size:10px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px">导航</p>', unsafe_allow_html=True)
