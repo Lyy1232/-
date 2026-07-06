@@ -81,7 +81,7 @@ def _build_coverage_map_impl(sites, stations, selected_site=None):
                       tooltip=Tooltip(f"{s['name']} · {cov_label}")).add_to(m)
 
     # Legend
-    clusters_in = list(dict.fromkeys(s.get("city_cluster", "") for s in filtered))
+    clusters_in = list(dict.fromkeys(s.get("city_cluster", "") for s in stations))
     lr = "".join(f'<tr><td><span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:{CLUSTER_COLORS.get(c,"#94a3b8")}"></span></td><td style="font-size:10px;color:#334155">{c}</td></tr>' for c in clusters_in)
     legend_html = f"""<div style="position:fixed;bottom:18px;right:18px;z-index:9999;background:rgba(255,255,255,0.95);padding:8px 12px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.08);line-height:1.6">
       <b style="font-size:11px;color:#1e293b">图例</b><table style="margin-top:3px">{lr}
