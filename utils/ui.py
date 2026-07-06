@@ -13,48 +13,41 @@ def inject_global_css():
       --navy-900: #060e1a;
       --navy-800: #0b1a2e;
       --navy-700: #0f2240;
-      --teal-600: #089b8c;
-      --teal-500: #0ab8a5;
-      --teal-50: #f0fdfa;
-      --blue-600: #1d4ed8;
-      --blue-50: #eff6ff;
-      --amber-600: #b45309;
-      --amber-50: #fffbeb;
-      --red-500: #ef4444;
-      --red-50: #fef2f2;
-      --purple-600: #7c3aed;
-      --slate-900: #0f172a;
-      --slate-700: #334155;
-      --slate-500: #64748b;
-      --slate-400: #94a3b8;
-      --slate-300: #cbd5e1;
-      --slate-200: #e2e8f0;
-      --slate-100: #f1f5f9;
-      --slate-50: #f6f7f9;
-      --white: #ffffff;
+      --brand: #0d9488;
+      --brand-light: #14b8a6;
+      --brand-50: #f0fdfa;
+      --accent: #2563eb;
+      --accent-50: #eff6ff;
+      --warning: #f59e0b;
+      --warning-50: #fffbeb;
+      --danger: #ef4444;
+      --danger-50: #fef2f2;
+      --success: #10b981;
       --shadow-xs: 0 1px 2px rgba(0,0,0,0.03);
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.03);
       --shadow-md: 0 4px 14px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.03);
       --shadow-lg: 0 8px 28px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.03);
-      --shadow-xl: 0 16px 48px rgba(0,0,0,0.07), 0 6px 16px rgba(0,0,0,0.04);
       --radius-sm: 6px;
       --radius: 10px;
       --radius-lg: 14px;
       --radius-xl: 18px;
+      --spacing-xs: 6px;
+      --spacing-sm: 12px;
+      --spacing: 18px;
+      --spacing-lg: 24px;
       --transition: 0.18s cubic-bezier(0.4,0,0.2,1);
     }
-
     /* ── Global ── */
-    .stApp { background: var(--slate-50); }
+    .stApp { background: #f8fafc; }
     .block-container { padding-top: 0.6rem; padding-bottom: 2.5rem; max-width: 1340px; }
-    h1, h2, h3, h4, h5 { color: var(--slate-900); font-weight: 700; letter-spacing: -0.015em; }
+    h1, h2, h3, h4, h5 { color: var(--navy-900); font-weight: 700; letter-spacing: -0.015em; }
     h1 { font-size: 1.45rem; line-height: 1.25; }
     h2 { font-size: 1.2rem; line-height: 1.3; }
     h3 { font-size: 1.05rem; line-height: 1.35; }
-    p, li { color: var(--slate-700); font-size: 0.875rem; }
-    a { color: var(--teal-600); text-decoration: none; transition: var(--transition); }
-    a:hover { color: var(--teal-500); }
-    hr { border-color: var(--slate-200); margin: 20px 0; }
+    p, li { color: #334155; font-size: 0.875rem; }
+    a { color: var(--brand); text-decoration: none; transition: var(--transition); }
+    a:hover { color: var(--brand-light); }
+    hr { border-color: #e2e8f0; margin: 20px 0; }
 
     /* ── Top Ticker ── */
     .ticker-bar {
@@ -72,7 +65,7 @@ def inject_global_css():
       padding-right: 20px; border-right: 1px solid rgba(255,255,255,0.1);
       display: flex; align-items: center; gap: 7px;
     }
-    .ticker-brand .tb-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal-500); }
+    .ticker-brand .tb-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand-light); }
     .ticker-item {
       display: flex; align-items: baseline; gap: 8px;
       font-size: 11px; white-space: nowrap; color: rgba(255,255,255,0.55);
@@ -110,18 +103,18 @@ def inject_global_css():
       color: #fff !important;
     }
     section[data-testid="stSidebar"] button[kind="primary"] {
-      background: var(--teal-600) !important;
-      border-color: var(--teal-600) !important;
+      background: var(--brand) !important;
+      border-color: var(--brand) !important;
       color: #fff !important; font-weight: 600 !important;
     }
     section[data-testid="stSidebar"] button[kind="primary"]:hover {
-      background: var(--teal-500) !important;
+      background: var(--brand-light) !important;
     }
 
     /* ── Professional Metric Card ── */
     .metric-card {
-      background: var(--white);
-      border: 1px solid var(--slate-200);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       border-radius: var(--radius-lg);
       padding: 20px 22px;
       box-shadow: var(--shadow-sm);
@@ -131,7 +124,7 @@ def inject_global_css():
     .metric-card:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-lg);
-      border-color: var(--slate-300);
+      border-color: #cbd5e1;
     }
     .metric-card .mc-accent-bar {
       position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -139,22 +132,22 @@ def inject_global_css():
     }
     .metric-card .mc-icon { font-size: 20px; margin-bottom: 8px; opacity: 0.85; }
     .metric-card .mc-value {
-      font-size: 27px; font-weight: 800; color: var(--slate-900);
+      font-size: 27px; font-weight: 800; color: var(--navy-900);
       line-height: 1.15; font-variant-numeric: tabular-nums; letter-spacing: -0.8px;
     }
     .metric-card .mc-label {
-      font-size: 10.5px; color: var(--slate-500); margin-top: 4px;
+      font-size: 10.5px; color: #64748b; margin-top: 4px;
       text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600;
     }
-    .metric-card .mc-sub { font-size: 10px; color: var(--slate-400); margin-top: 5px; }
+    .metric-card .mc-sub { font-size: 10px; color: #94a3b8; margin-top: 5px; }
     .metric-card .mc-delta { font-size: 11px; font-weight: 600; margin-top: 6px; }
     .mc-delta.up { color: #059669; }
     .mc-delta.down { color: #dc2626; }
 
     /* ── Data Container Card ── */
     .data-card {
-      background: var(--white);
-      border: 1px solid var(--slate-200);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       border-radius: var(--radius-lg);
       padding: 22px 24px;
       box-shadow: var(--shadow-xs);
@@ -164,10 +157,10 @@ def inject_global_css():
     .data-card .dc-header {
       display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 16px; padding-bottom: 12px;
-      border-bottom: 1px solid var(--slate-100);
+      border-bottom: 1px solid #f1f5f9;
     }
     .data-card .dc-title {
-      font-size: 11px; font-weight: 700; color: var(--slate-500);
+      font-size: 11px; font-weight: 700; color: #64748b;
       text-transform: uppercase; letter-spacing: 0.8px;
     }
     .data-card .dc-badge {
@@ -175,13 +168,13 @@ def inject_global_css():
       font-weight: 600; letter-spacing: 0.4px;
     }
     .dc-badge.live { background: #ecfdf5; color: #065f46; }
-    .dc-badge.updated { background: var(--blue-50); color: #1e40af; }
+    .dc-badge.updated { background: var(--accent-50); color: #1e40af; }
 
     /* ── Info Card (left-border accent) ── */
     .info-card {
-      background: var(--white);
-      border: 1px solid var(--slate-200);
-      border-left: 3px solid var(--teal-600);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-left: 3px solid var(--brand);
       border-radius: 0 var(--radius) var(--radius) 0;
       padding: 15px 18px; margin-bottom: 8px;
       box-shadow: var(--shadow-xs);
@@ -191,40 +184,40 @@ def inject_global_css():
       transform: translateX(2px);
       box-shadow: var(--shadow-md);
     }
-    .info-card.warning { border-left-color: var(--amber-600); }
-    .info-card.danger { border-left-color: var(--red-500); }
-    .info-card .ic-title { font-size: 13px; font-weight: 700; color: var(--slate-900); margin-bottom: 5px; }
-    .info-card .ic-row { display: flex; gap: 16px; font-size: 11px; color: var(--slate-500); flex-wrap: wrap; }
-    .info-card .ic-row b { color: var(--slate-700); font-weight: 600; }
+    .info-card.warning { border-left-color: var(--warning); }
+    .info-card.danger { border-left-color: var(--danger); }
+    .info-card .ic-title { font-size: 13px; font-weight: 700; color: var(--navy-900); margin-bottom: 5px; }
+    .info-card .ic-row { display: flex; gap: 16px; font-size: 11px; color: #64748b; flex-wrap: wrap; }
+    .info-card .ic-row b { color: #334155; font-weight: 600; }
 
     /* ── Buttons ── */
     div[data-testid="stButton"] > button {
       border-radius: var(--radius-sm) !important;
       font-weight: 600 !important; font-size: 12.5px !important;
       transition: var(--transition) !important;
-      border: 1px solid var(--slate-200) !important;
-      background: var(--white) !important;
-      color: var(--slate-700) !important;
+      border: 1px solid #e2e8f0 !important;
+      background: #ffffff !important;
+      color: #334155 !important;
       padding: 7px 14px !important;
     }
     div[data-testid="stButton"] > button:hover {
       transform: translateY(-1px);
       box-shadow: var(--shadow-md);
-      border-color: var(--teal-500) !important;
-      color: var(--teal-600) !important;
+      border-color: var(--brand-light) !important;
+      color: var(--brand) !important;
     }
     div[data-testid="stButton"] > button[kind="primary"] {
-      background: var(--teal-600) !important;
-      color: #fff !important; border-color: var(--teal-600) !important;
+      background: var(--brand) !important;
+      color: #fff !important; border-color: var(--brand) !important;
     }
     div[data-testid="stButton"] > button[kind="primary"]:hover {
-      background: var(--teal-500) !important;
+      background: var(--brand-light) !important;
       box-shadow: 0 4px 16px rgba(8,155,140,0.2);
     }
 
     /* ── Data Editor ── */
     div[data-testid="stDataEditor"] {
-      border: 1px solid var(--slate-200) !important;
+      border: 1px solid #e2e8f0 !important;
       border-radius: var(--radius-lg) !important;
       overflow: hidden;
       box-shadow: var(--shadow-xs);
@@ -232,85 +225,85 @@ def inject_global_css():
 
     /* ── Dataframe / Table ── */
     [data-testid="stDataFrame"] {
-      border: 1px solid var(--slate-200) !important;
+      border: 1px solid #e2e8f0 !important;
       border-radius: var(--radius-lg) !important;
       overflow: hidden;
       box-shadow: var(--shadow-xs);
     }
     [data-testid="stDataFrame"] th {
-      background: var(--slate-50) !important;
-      color: var(--slate-500) !important;
+      background: #f8fafc !important;
+      color: #64748b !important;
       font-size: 10.5px !important; font-weight: 700 !important;
       text-transform: uppercase !important; letter-spacing: 0.6px !important;
       padding: 10px 14px !important;
-      border-bottom: 2px solid var(--slate-200) !important;
+      border-bottom: 2px solid #e2e8f0 !important;
     }
     [data-testid="stDataFrame"] td {
       padding: 10px 14px !important; font-size: 12.5px !important;
-      border-bottom: 1px solid var(--slate-100) !important;
-      color: var(--slate-700) !important;
+      border-bottom: 1px solid #f1f5f9 !important;
+      color: #334155 !important;
     }
     [data-testid="stDataFrame"] tbody tr:hover td {
-      background: var(--teal-50) !important;
+      background: var(--brand-50) !important;
     }
 
     /* ── Tabs ── */
     .stTabs [data-baseweb="tab-list"] {
       gap: 2px; background: transparent;
-      border-bottom: 2px solid var(--slate-200); padding-bottom: 0;
+      border-bottom: 2px solid #e2e8f0; padding-bottom: 0;
     }
     .stTabs [data-baseweb="tab"] {
       border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important;
       padding: 9px 18px !important; font-weight: 600 !important;
-      font-size: 12.5px !important; color: var(--slate-500) !important;
+      font-size: 12.5px !important; color: #64748b !important;
       background: transparent !important; border: none !important;
       margin-bottom: -2px; transition: var(--transition) !important;
     }
-    .stTabs [data-baseweb="tab"]:hover { color: var(--slate-700) !important; }
+    .stTabs [data-baseweb="tab"]:hover { color: #334155 !important; }
     .stTabs [data-baseweb="tab"][aria-selected="true"] {
-      color: var(--teal-600) !important;
-      border-bottom: 2px solid var(--teal-600) !important;
+      color: var(--brand) !important;
+      border-bottom: 2px solid var(--brand) !important;
     }
 
     /* ── Expanders ── */
     details[data-testid="stExpander"] {
-      border: 1px solid var(--slate-200) !important;
+      border: 1px solid #e2e8f0 !important;
       border-radius: var(--radius-lg) !important;
-      box-shadow: var(--shadow-xs); background: var(--white);
+      box-shadow: var(--shadow-xs); background: #ffffff;
       transition: box-shadow var(--transition);
     }
     details[data-testid="stExpander"]:hover { box-shadow: var(--shadow-sm); }
 
     /* ── Native Metric ── */
     [data-testid="stMetric"] {
-      background: var(--white); border: 1px solid var(--slate-200);
+      background: #ffffff; border: 1px solid #e2e8f0;
       border-radius: var(--radius-lg); padding: 16px 18px;
       box-shadow: var(--shadow-xs);
     }
     [data-testid="stMetric"] label {
-      color: var(--slate-500) !important; font-size: 10.5px !important;
+      color: #64748b !important; font-size: 10.5px !important;
       font-weight: 600 !important; text-transform: uppercase; letter-spacing: 0.6px;
     }
     [data-testid="stMetric"] [data-testid="stMetricValue"] {
-      font-size: 22px !important; font-weight: 800 !important; color: var(--slate-900) !important;
+      font-size: 22px !important; font-weight: 800 !important; color: var(--navy-900) !important;
     }
 
     /* ── Checkbox / Radio ── */
-    .stCheckbox label, .stRadio label { color: var(--slate-700) !important; font-size: 13px !important; }
+    .stCheckbox label, .stRadio label { color: #334155 !important; font-size: 13px !important; }
 
     /* ── Toast ── */
     [data-testid="stToast"] { border-radius: var(--radius) !important; font-weight: 500 !important; }
 
     /* ── Spinner ── */
-    .stSpinner > div { border-top-color: var(--teal-600) !important; }
+    .stSpinner > div { border-top-color: var(--brand) !important; }
 
     /* ── Select box ── */
     .stSelectbox [data-baseweb="select"] > div {
-      border-radius: var(--radius-sm) !important; border-color: var(--slate-200) !important;
+      border-radius: var(--radius-sm) !important; border-color: #e2e8f0 !important;
     }
 
     /* ── Caption ── */
-    .stCaption { color: var(--slate-400) !important; font-size: 10.5px !important; }
+    .stCaption { color: #94a3b8 !important; font-size: 10.5px !important; }
 
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 5px; height: 5px; }
@@ -321,7 +314,7 @@ def inject_global_css():
     /* ── Section header ── */
     .section-kicker {
       font-size: 10px; font-weight: 700; letter-spacing: 1.2px;
-      text-transform: uppercase; color: var(--teal-600);
+      text-transform: uppercase; color: var(--brand);
       margin-bottom: 4px;
     }
 
@@ -374,6 +367,6 @@ def render_module_header(title: str, subtitle: str = "", badge: str = ""):
         <h1 style="font-size:1.35rem;margin:0;font-weight:800;letter-spacing:-0.3px">{title}</h1>
         {badge_html}
       </div>
-      {f'<p style="color:var(--slate-500);font-size:0.8rem;margin:2px 0 0">{subtitle}</p>' if subtitle else ''}
+      {f'<p style="color:#64748b;font-size:0.8rem;margin:2px 0 0">{subtitle}</p>' if subtitle else ''}
     </div>
     """, unsafe_allow_html=True)

@@ -25,7 +25,6 @@ def _metric_card(icon: str, value: str, label: str, sub: str = "", delta: str = 
 
 
 def render():
-    lang = st.session_state.get("lang", "zh")
     render_module_header("业务总览", "四大基地 · 200km辐射圈 · 行业参考数据", badge="LIVE")
 
     sites = load_sites()
@@ -37,9 +36,12 @@ def render():
     avg_cost = sum(s.get("cost_avg", 0) for s in sites) / max(len(sites), 1)
     avg_util = sum(s.get("utilization", 0) for s in sites) / max(len(sites), 1)
 
+    # ── 数据时效标签 ──
+    st.caption(f"📅 数据更新于 {updated[:10]} | 数据来源：示范城市群氢能供应明细表 + model.xlsx | PIN 2026 解锁精确成本")
+
     # ═══════ ROW 1: Top-line KPIs ═══════
     st.markdown('<p style="font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;font-weight:600">核心指标</p>', unsafe_allow_html=True)
-    c1, c2, c3, c4, c5 = st.columns(5)
+    c1, c2, c3, c4, c5, c6 = st.columns(6)
     with c1:
         st.markdown(_metric_card("🏭", str(len(sites)), "制氢基地",
                                  f"总产能 {total_cap:,} t/y", accent="#00a99d"), unsafe_allow_html=True)
@@ -58,6 +60,9 @@ def render():
         gh_pct = stats["guohua_count"] / max(stats["count"], 1) * 100
         st.markdown(_metric_card("⭐", f"{stats['guohua_count']}/{stats['count']}", "国华供氢站",
                                  f"占比 {gh_pct:.0f}%", accent="#10b981"), unsafe_allow_html=True)
+    with c6:
+        st.markdown(_metric_card("📅", f"{updated[:10]}", "数据更新日期",
+                                 "示范城市群Y4", accent="#64748b"), unsafe_allow_html=True)
 
     st.markdown('<div style="margin:20px 0"></div>', unsafe_allow_html=True)
 

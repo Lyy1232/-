@@ -71,11 +71,12 @@ with st.sidebar:
 
     pin_input = st.text_input("🔒 解锁精确成本", type="password", placeholder="输入PIN查看精确成本",
                               key="pin_field", label_visibility="collapsed")
-    if pin_input == "2026" and not st.session_state.pin_verified:
+    PIN_CODE = "2026"  # 可修改为任意PIN
+    if pin_input == PIN_CODE and not st.session_state.pin_verified:
         st.session_state.pin_verified = True
         st.session_state.show_exact_costs = True
         st.rerun()
-    elif pin_input and pin_input != "2026":
+    elif pin_input and pin_input != PIN_CODE:
         st.caption("PIN错误")
 
     if st.session_state.pin_verified:

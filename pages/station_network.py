@@ -6,7 +6,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 from folium import Circle, Popup, Tooltip
-from folium.plugins import Fullscreen
+from folium.plugins import Fullscreen, MarkerCluster
 from streamlit_folium import st_folium
 from utils.data_loader import load_sites, load_stations, load_stations_from_db, get_station_stats, get_cluster_stats
 from utils.geo_utils import haversine_km

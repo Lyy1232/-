@@ -202,7 +202,7 @@ def render():
 
     sel = sites[st.session_state.map_selected_idx - 1] if st.session_state.map_selected_idx > 0 else None
 
-    map_col, info_col = st.columns([0.64, 0.36])
+    map_col, info_col = st.columns([0.72, 0.28])
     with map_col:
         with st.spinner("加载地图..."):
             m = _cached_build_map(
