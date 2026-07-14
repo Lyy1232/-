@@ -23,9 +23,9 @@ COL_MAP = {
     "序号": "序号", "企业名称": "企业名称", "所属集团": "所属集团",
     "省份": "省份", "城市": "城市", "行业": "行业", "子行业": "子行业",
     "用氢场景": "用氢场景", "氢气形态需求": "氢气形态需求",
-    "当前用氢量\n(吨H2/年)": "当前用氢量(t/y)", "绿氢替代潜力\n(吨H2/年)": "绿氢替代潜力(t/y)",
-    "需求等级": "需求等级", "需求确定性\n(1-5)": "需求确定性",
-    "匹配集团基地": "匹配集团基地", "距最近基地\n预估距离(km)": "预估距离(km)",
+    "当前用氢量(吨H2/年)": "当前用氢量(t/y)", "绿氢替代潜力(吨H2/年)": "绿氢替代潜力(t/y)",
+    "需求等级": "需求等级", "需求确定性(1-5)": "需求确定性",
+    "匹配集团基地": "匹配集团基地", "距最近基地预估距离(km)": "预估距离(km)",
     "关键政策驱动": "关键政策驱动", "备注/关键项目": "备注",
     "数据类型": "数据类型", "需求坐标-经度": "经度", "需求坐标-纬度": "纬度",
     "坐标描述": "坐标描述", "需求点数量": "需求点数量",
@@ -56,8 +56,8 @@ def _read_excel() -> pd.DataFrame:
     df = pd.DataFrame(data, columns=headers)
     # 清理列名中的换行
     df.columns = [c.replace('\n', '') if isinstance(c, str) else c for c in df.columns]
-    # 强制转换数值列
-    for col in ["当前用氢量\n(吨H2/年)", "绿氢替代潜力\n(吨H2/年)", "需求坐标-经度", "需求坐标-纬度", "需求点数量"]:
+    # 强制转换数值列（列名已去\n）
+    for col in ["当前用氢量(吨H2/年)", "绿氢替代潜力(吨H2/年)", "需求坐标-经度", "需求坐标-纬度", "需求点数量"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors='coerce')
     return df
@@ -169,7 +169,7 @@ def render():
     gov_count = type_counts.get("政府/区域", 0)
     has_coords = df["需求坐标-经度"].notna() & df["需求坐标-纬度"].notna()
     coord_count = has_coords.sum()
-    total_demand = df["当前用氢量\n(吨H2/年)"].sum() if "当前用氢量\n(吨H2/年)" in df.columns else 0
+    total_demand = df["当前用氢量(吨H2/年)"].sum() if "当前用氢量(吨H2/年)" in df.columns else 0
 
     # ── KPI 行 ──
     st.markdown('<p style="font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:0.8px;margin:0 0 8px;font-weight:600">数据总览</p>', unsafe_allow_html=True)
@@ -222,8 +222,8 @@ def render():
 
         # ── 选取展示列 ──
         show_cols = ["序号", "企业名称", "所属集团", "省份", "城市", "行业", "子行业",
-                     "用氢场景", "氢气形态需求", "当前用氢量\n(吨H2/年)", "绿氢替代潜力\n(吨H2/年)",
-                     "需求等级", "需求确定性\n(1-5)", "匹配集团基地", "距最近基地\n预估距离(km)",
+                     "用氢场景", "氢气形态需求", "当前用氢量(吨H2/年)", "绿氢替代潜力(吨H2/年)",
+                     "需求等级", "需求确定性(1-5)", "匹配集团基地", "距最近基地预估距离(km)",
                      "关键政策驱动", "数据类型", "需求坐标-经度", "需求坐标-纬度", "坐标描述", "需求点数量"]
         show_cols = [c for c in show_cols if c in disp.columns]
 
@@ -274,7 +274,7 @@ def render():
                                    default=["需求企业", "加氢站"], key="mt")
         demand_for_map = []
         for _, row in df.iterrows():
-            lat = row.get("需求坐标-经度"); lon = row.get("需求坐标-纬度")
+            lon = row.get("需求坐标-经度"); lat = row.get("需求坐标-纬度")
             try:
                 lat = float(lat) if lat is not None and not (isinstance(lat, float) and pd.isna(lat)) else None
                 lon = float(lon) if lon is not None and not (isinstance(lon, float) and pd.isna(lon)) else None
@@ -293,7 +293,7 @@ def render():
                 "city": str(row.get("城市", "")),
                 "group": str(row.get("所属集团", "")),
                 "industry": str(row.get("行业", "")),
-                "demand": str(row.get("当前用氢量\n(吨H2/年)", "")),
+                "demand": str(row.get("当前用氢量(吨H2/年)", "")),
                 "grade": str(row.get("需求等级", "")),
             })
 
@@ -365,8 +365,8 @@ def render():
 
         with c2:
             st.subheader("用氢量 Top 10 企业")
-            if "当前用氢量\n(吨H2/年)" in df.columns:
-                top10 = df.nlargest(10, "当前用氢量\n(吨H2/年)")[["企业名称", "当前用氢量\n(吨H2/年)", "省份"]]
+            if "当前用氢量(吨H2/年)" in df.columns:
+                top10 = df.nlargest(10, "当前用氢量(吨H2/年)")[["企业名称", "当前用氢量(吨H2/年)", "省份"]]
                 for _, r in top10.iterrows():
                     st.markdown(f"""
                     <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f1f5f9">
