@@ -318,12 +318,88 @@ def inject_global_css():
       margin-bottom: 4px;
     }
 
+    /* ═══════════════════════════════════════
+       HOME 2.0 — Hero + Cost Bar + Cards
+       ═══════════════════════════════════════ */
+    /* ── Hero Section ── */
+    .hero-container {
+      position: relative; width: 100%; min-height: 340px; max-height: 420px;
+      border-radius: var(--radius-xl); overflow: hidden;
+      margin: -0.6rem -2rem 18px -2rem;  /* 挤掉 ticker 的负 margin */
+    }
+    .hero-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* ── Hero overlay: cost infobar ── */
+    .hero-costbar {
+      position: absolute; bottom: 16px; left: 24px; right: 24px;
+      background: rgba(6, 14, 26, 0.78);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 14px 20px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    }
+    .hero-cost-item { text-align: center; }
+    .hero-cost-item .hci-icon { font-size: 18px; margin-bottom: 2px; }
+    .hero-cost-item .hci-value {
+      font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums;
+      color: var(--brand-light); line-height: 1.25;
+    }
+    .hero-cost-item .hci-label { font-size: 10px; color: rgba(255,255,255,0.55); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .hero-cost-item .hci-sub { font-size: 9px; color: rgba(255,255,255,0.28); margin-top: 1px; }
+
+    /* ── Slim KPI row (home 2.0) ── */
+    .kpi-row {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      margin-bottom: 18px;
+    }
+    .kpi-badge {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: var(--radius);
+      padding: 14px 16px; text-align: center; box-shadow: var(--shadow-xs);
+    }
+    .kpi-badge .kb-value { font-size: 26px; font-weight: 800; color: var(--navy-900); letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
+    .kpi-badge .kb-label { font-size: 10px; color: #64748b; text-transform: uppercase; letter-spacing: 0.7px; font-weight: 600; margin-top: 2px; }
+    .kpi-badge .kb-sub { font-size: 9.5px; color: #94a3b8; margin-top: 2px; }
+
+    /* ── Three info cards row ── */
+    .triple-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 18px; }
+    .triple-card {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: var(--radius-lg);
+      padding: 18px 20px; box-shadow: var(--shadow-xs); transition: var(--transition);
+    }
+    .triple-card:hover { box-shadow: var(--shadow-md); }
+    .triple-card .tc-title { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 12px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; }
+
+    /* ── Quick-nav cards (home 2.0) ── */
+    .qnav-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 18px; }
+    .qnav-card {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: var(--radius-lg);
+      padding: 20px 22px; box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      text-align: center;
+    }
+    .qnav-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--brand-light); }
+    .qnav-card .qnav-icon { font-size: 28px; margin-bottom: 8px; }
+    .qnav-card .qnav-title { font-size: 14px; font-weight: 700; color: var(--navy-900); }
+    .qnav-card .qnav-desc { font-size: 11px; color: #94a3b8; margin-top: 4px; }
+
+    /* ── Cost advantage card ── */
+    .advantage-card { text-align: center; padding: 10px 0; }
+    .advantage-card .av-big { font-size: 42px; font-weight: 800; color: var(--brand); letter-spacing: -1px; }
+    .advantage-card .av-pct { font-size: 16px; color: var(--brand); font-weight: 700; }
+    .advantage-card .av-label { font-size: 11px; color: #64748b; margin-top: 4px; }
+
     /* ── Responsive ── */
     @media (max-width: 900px) {
       .ticker-bar { flex-wrap: wrap; gap: 10px; padding: 8px 16px; }
       .ticker-status { margin-left: 0; width: 100%; }
       .metric-card .mc-value { font-size: 22px; }
       .block-container { padding: 0.4rem; }
+      .hero-container { min-height: 220px; max-height: 300px; margin-left: -1rem; margin-right: -1rem; }
+      .hero-costbar { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 10px 14px; left: 12px; right: 12px; bottom: 8px; }
+      .hero-cost-item .hci-value { font-size: 16px; }
+      .kpi-row { grid-template-columns: repeat(2, 1fr); }
+      .triple-row { grid-template-columns: 1fr; }
+      .qnav-row { grid-template-columns: 1fr; }
     }
     </style>
     """, unsafe_allow_html=True)
