@@ -24,18 +24,22 @@ VALID_TECH_ROUTES = list(TECH_COLORS.keys())
 
 # ── Map tiles ──
 TILE_OPTIONS = {
-    "高德地图（推荐）": {
-        "url": "https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}",
-        "attr": "高德地图",
-        "subdomains": "1234",
-    },
-    "CartoDB 浅色": {
+    "CartoDB 浅色（推荐）": {
         "url": "CartoDB positron",
         "attr": "CartoDB",
     },
-    "OpenStreetMap": {
+    "OpenStreetMap 标准": {
         "url": "OpenStreetMap",
         "attr": "OSM",
+    },
+    "CartoDB 深色": {
+        "url": "CartoDB dark_matter",
+        "attr": "CartoDB",
+    },
+    "高德地图（仅本地可用）": {
+        "url": "https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}",
+        "attr": "高德地图",
+        "subdomains": "1234",
     },
 }
 

@@ -107,8 +107,8 @@ def _write_excel(df: pd.DataFrame):
 def _build_map_html(sites, demand_rows):
     """非缓存版地图构建，接收 demand_rows list of dict。"""
     m = folium.Map(location=[37.5, 113.0], zoom_start=5,
-                   tiles="https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}",
-                   attr="高德地图", control_scale=True)
+                   tiles="CartoDB positron",
+                   attr="CartoDB", control_scale=True)
     Fullscreen().add_to(m)
 
     # 基地 + 辐射圈

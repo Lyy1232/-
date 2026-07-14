@@ -45,9 +45,9 @@ def _cached_build_map(sites_json: str, show_radius: bool, selected_name: str,
     return _build_map_impl(sites, show_radius, selected_site, tile_key, show_competitors, competitors)
 
 
-def _build_map_impl(sites, show_radius=True, selected_site=None, tile_key="高德地图（推荐）",
+def _build_map_impl(sites, show_radius=True, selected_site=None, tile_key="CartoDB 浅色（推荐）",
                     show_competitors=False, competitors=None):
-    tile_cfg = TILE_OPTIONS.get(tile_key, TILE_OPTIONS["高德地图（推荐）"])
+    tile_cfg = TILE_OPTIONS.get(tile_key, TILE_OPTIONS["CartoDB 浅色（推荐）"])
     tiles, attr = tile_cfg["url"], tile_cfg.get("attr", "")
     clat = selected_site["lat"] if selected_site else 37.5
     clon = selected_site["lon"] if selected_site else 110.0
@@ -180,7 +180,7 @@ def render():
         return
 
     for k in ["map_selected_idx", "map_show_radius", "map_tile_key"]:
-        if k not in st.session_state: st.session_state[k] = 0 if k == "map_selected_idx" else True if k == "map_show_radius" else "高德地图（推荐）"
+        if k not in st.session_state: st.session_state[k] = 0 if k == "map_selected_idx" else True if k == "map_show_radius" else "CartoDB 浅色（推荐）"
 
     c1, c2, c3, c4, c5 = st.columns([1.4, 0.9, 1, 0.8, 1.2])
     with c1:
