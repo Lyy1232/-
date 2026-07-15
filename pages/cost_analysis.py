@@ -34,7 +34,7 @@ def build_match_dataframe(matches):
     } for m in matches])
 
 def render():
-    render_module_header("成本竞争力", "三基地200km辐射分析 · 运输方式比选 · 销售场景 · 导出Excel", badge="COST")
+    render_module_header("成本竞争力", "四基地200km辐射分析 · 运输比选 · 城市群补贴 · 销售场景", badge="COST")
 
     stations = load_stations_from_db(year=4)
     if not stations:
@@ -66,7 +66,7 @@ def render():
             if selected_bases:
                 all_matches = []
                 for base_name in selected_bases:
-                    base_cost = GUOHUA_BASES_COST.get(base_name, 15.2)
+                    base_cost = GUOHUA_BASES_COST.get(base_name, 27.0)
                     blat, blon = BASE_COORDS.get(base_name, (40.91, 115.83))
                     for s in stations:
                         lat, lon = s.get("lat"), s.get("lon")
@@ -98,12 +98,12 @@ def render():
             sel_base = "赤城"
             for i, (col, name) in enumerate(zip(cols, base_names)):
                 with col:
-                    cost = GUOHUA_BASES_COST.get(name, 15.2)
+                    cost = GUOHUA_BASES_COST.get(name, 27.0)
                     if st.button(f"🏭 {name}\n{cost}元/kg", key=f"base_{name}", use_container_width=True,
                                  type="primary" if i == 0 else "secondary"):
                         sel_base = name
 
-            base_cost = GUOHUA_BASES_COST.get(sel_base, 15.2)
+            base_cost = GUOHUA_BASES_COST.get(sel_base, 27.0)
             blat, blon = BASE_COORDS.get(sel_base, (40.91, 115.83))
 
             matches = []
@@ -205,7 +205,7 @@ def render():
         st.subheader("预置销售场景")
         for i, sc in enumerate(SALES_SCENARIOS):
             with st.expander(f"📐 场景{i+1}: {sc['name']} — {sc['note']}"):
-                base_cost = GUOHUA_BASES_COST.get(sc["base"], 15.2)
+                base_cost = GUOHUA_BASES_COST.get(sc["base"], 27.0)
                 landed, trans_fee = compute_landed(base_cost, sc["distance"], sc["mode"])
                 gap = sc["retail"] - landed
                 c1, c2, c3, c4 = st.columns(4)
@@ -227,7 +227,7 @@ def render():
         with cc4:
             cust_retail = st.number_input("目标零售价(元/kg)", 10, 80, 30, 1, key="cust_retail")
 
-        cust_cost = GUOHUA_BASES_COST.get(cust_base, 15.2)
+        cust_cost = GUOHUA_BASES_COST.get(cust_base, 27.0)
         cust_landed, cust_trans = compute_landed(cust_cost, cust_dist, cust_mode)
         cust_gap = cust_retail - cust_landed
         st.metric("到站成本", f"{cust_landed} 元/kg", delta=f"vs零售 {cust_gap:+.1f} 元/kg")
@@ -249,33 +249,43 @@ def render():
                                 marker_color=BRAND, text=[f"{c}元" for c in base_costs_all],
                                 textposition="outside", textfont_size=10))
         else:
-            base_costs_mid = [GUOHUA_BASES_COST.get(n, 15) for n in base_names_all]
+            base_costs_mid = [GUOHUA_BASES_COST.get(n, 27) for n in base_names_all]
             fig.add_trace(go.Bar(name="出厂成本(区间)", x=base_names_all, y=base_costs_mid,
-                                marker_color=BRAND, text=["~15元" if n != "沧州" else "~10元" for n in base_names_all],
+                                marker_color=BRAND, text=["~{:.0f}元".format(GUOHUA_BASES_COST.get(n,27)) for n in base_names_all],
                                 textposition="outside", textfont_size=10))
 
         landed_200 = []
         for name in base_names_all:
-            cost = GUOHUA_BASES_COST.get(name, 15.2)
+            cost = GUOHUA_BASES_COST.get(name, 27.0)
             l200 = cost + 200 * TRANSPORT_MODES["长管拖车30MPa"]["cost_per_100km"] / 100
             landed_200.append(round(l200, 1))
         fig.add_trace(go.Bar(name="200km到站(30MPa)", x=base_names_all, y=landed_200,
                             marker_color=BLUE, marker_opacity=0.5,
                             text=[f"{c}元" for c in landed_200], textposition="outside", textfont_size=9))
+        # 添加补贴后到站线
+        sub_landed = []
+        for name in base_names_all:
+            cost = GUOHUA_BASES_COST.get(name, 27.0)
+            l200 = cost + 200 * TRANSPORT_MODES["长管拖车30MPa"]["cost_per_100km"] / 100
+            sub_landed.append(round(l200 - 15, 1))  # 城市群补贴15元/kg
+        fig.add_trace(go.Bar(name="补贴后到站(−15元)", x=base_names_all, y=sub_landed,
+                            marker_color=GREEN, marker_opacity=0.4,
+                            text=[f"{c}元" for c in sub_landed], textposition="outside", textfont_size=9))
         fig.add_hline(y=30, line_dash="dash", line_color=RED, line_width=1.2,
-                      annotation=dict(text="市场参考30元/kg", font_size=9))
+                      annotation=dict(text="市场零售~30元/kg", font_size=9))
         fig.add_hline(y=25, line_dash="dot", line_color=GREEN, line_width=1,
                       annotation=dict(text="2030目标25元/kg", font_size=9))
-        fig.update_layout(title="国华基地成本对标" + ("（精确值）" if pin_unlocked else "（锁定中）"),
-                         height=400, yaxis_title="元/kg",
+        fig.update_layout(title="国华基地成本对标" + ("（精确值）" if pin_unlocked else ""),
+                         height=420, yaxis_title="元/kg",
                          plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)")
         st.plotly_chart(fig, use_container_width=True)
 
-        st.info("💡 **关键洞察**：沧州副产氢出厂成本最低(9.6元/kg)，但产量有限(6500t/y)。绿氢基地(赤城/如东/宁东)成本一致(15.2元/kg)，200km到站约30元/kg，已接近市场均价，具备规模化竞争力。")
+        st.info("💡 **关键洞察**：当前绿氢出厂成本 25-34 元/kg，200km到站未补贴时多高于零售价。但叠加氢能综合应用试点城市群补贴（14-18元/kg）后，到站成本降至15-25元/kg，竞争力显著提升。**补贴是现阶段绿氢商业化落地的核心驱动力**。")
 
-        st.markdown("### 城市群零售价与补贴")
-        sub_tbl = [{"城市群": k, "补贴标准(元/kg)": v} for k, v in CITY_SUBSIDIES.items()]
+        st.markdown("### 氢能综合应用试点 · 城市群补贴标准")
+        sub_tbl = [{"城市群": k, "补贴标准(元/kg)": v, "来源":"工信部联节〔2026〕59号"} for k, v in CITY_SUBSIDIES.items()]
         st.dataframe(pd.DataFrame(sub_tbl), use_container_width=True, hide_index=True)
+        st.caption("💡 中央财政「以奖代补」1积分=8万元，地方≥1:1配套。合计补贴折合约14-18元/kg。补贴后绿氢在多数场景具备价格竞争力。")
 
         st.markdown("### 行业参考数据")
         ref_tbl = [{"指标": k, "数值": v["value"], "来源": v["source"]} for k, v in REFERENCE_DATA.items()]
