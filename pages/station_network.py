@@ -94,8 +94,8 @@ def _write_excel(df: pd.DataFrame):
 def _build_map(sites, demand_rows, route_polylines=None, highlight_point=None):
     """构建地图。可选参数：route_polylines=[[[lat,lon],...],...], highlight_point=(lat,lon,name)"""
     m = folium.Map(location=[37.5, 113.0], zoom_start=5,
-                   tiles="OpenStreetMap",
-                   attr="OSM", control_scale=True)
+                   tiles="CartoDB positron",
+                   attr="CartoDB", control_scale=True)
     Fullscreen().add_to(m)
 
     # 基地 + 200km 辐射圈
@@ -253,51 +253,43 @@ def render():
                              group=str(r.get("所属集团","")),industry=str(r.get("行业","")),
                              demand=str(r.get("当前用氢量(吨H2/年)","")),grade=str(r.get("需求等级",""))))
 
-        # ── 路线查询面板 ──
-        st.markdown("---")
-        st.subheader("🚛 公路路线查询")
-        st.caption("选择一个需求点，计算国华基地到该点的**公路实际距离**（非直线）及到站成本。底图为 OpenStreetMap 路网。")
+        # ── 路线查询 ──
+        route_search = st.text_input("🔍 搜索需求点查询公路路线", "", placeholder="输入企业名称关键词 → 筛选后选择 → 自动显示公路路线及到站成本", key="route_search")
+        filtered_rows = [r for r in rows if route_search in r["name"]] if route_search else []
+        route_data = None; highlight_info = None; map_rows = rows  # 默认显示全部
 
-        route_search = st.text_input("🔍 搜索需求点", "", placeholder="输入企业名称关键词筛选...", key="route_search")
-        name_list = ["— 不查询路线 —"] + [r["name"] for r in rows]
-        if route_search:
-            name_list = [n for n in name_list if route_search in n or n == "— 不查询路线 —"]
-        sel_name = st.selectbox("选择需求点", name_list, key="route_sel")
-        route_data = None; highlight_info = None
-        if sel_name and sel_name != "— 不查询路线 —":
-            target = next((r for r in rows if r["name"] == sel_name), None)
+        if filtered_rows:
+            sel_name = st.selectbox("匹配的需求点", [r["name"] for r in filtered_rows], key="route_sel")
+            target = next((r for r in filtered_rows if r["name"] == sel_name), None)
             if target:
                 with st.spinner(f"正在计算公路路线到 {target['name']}..."):
                     base_list = [{"name":s["name"],"lon":s["lon"],"lat":s["lat"],"cost_avg":GUOHUA_BASES_COST.get(s["name"],27.0)} for s in sites]
                     route_data = road_route_from_bases(base_list, target["lon"], target["lat"])
                 if route_data:
-                    polylines = [r["polyline"] for r in route_data]
                     highlight_info = (target["lat"], target["lon"], target["name"])
-                    # 路线结果表
-                    st.success(f"✅ 已计算 {target['name']} → {len(route_data)} 个基地的公路路线")
+                    st.success(f"✅ {target['name']} → {len(route_data)} 个基地公路路线已计算")
                     rt_rows = []
                     for rd in route_data:
-                        transport_mode = "长管拖车30MPa"
-                        tm = TRANSPORT_MODES[transport_mode]
+                        tm = TRANSPORT_MODES["长管拖车30MPa"]
                         transport_fee = round(rd["road_km"] * tm["cost_per_100km"] / 100, 1)
                         landed = round(rd["base_cost"] + transport_fee, 1)
                         straight = round(math.sqrt((rd["base_lon"]-target["lon"])**2+(rd["base_lat"]-target["lat"])**2)*111, 0)
                         rt_rows.append({
                             "基地": rd["base_name"], "出厂成本(元/kg)": rd["base_cost"],
                             "公路距离(km)": rd["road_km"], "直线距离(km)": straight,
-                            "差距(km)": round(rd["road_km"]-straight, 1),
+                            "差(km)": round(rd["road_km"]-straight, 1),
                             "运输费(元/kg)": transport_fee, "到站价(元/kg)": landed,
                             "耗时(min)": rd["duration_min"],
                         })
                     st.dataframe(pd.DataFrame(rt_rows), use_container_width=True, hide_index=True)
                     best = min(rt_rows, key=lambda x: x["到站价(元/kg)"])
-                    st.info(f"💡 **最优路线**：{best['基地']} → {target['name']}，公路 {best['公路距离(km)']}km（直线 {best['直线距离(km)']}km），运输费 {best['运输费(元/kg)']} 元/kg，到站价 **{best['到站价(元/kg)']} 元/kg**")
+                    st.info(f"💡 **最优路线**：{best['基地']} → {target['name']}，公路 {best['公路距离(km)']}km，运输费 {best['运输费(元/kg)']} 元/kg，到站价 **{best['到站价(元/kg)']} 元/kg**")
                 else:
-                    st.warning("⚠️ OSRM 路线计算失败，请重试")
+                    st.warning("⚠️ OSRM 计算失败，请重试")
 
         # ── 地图 ──
-        st.caption(f"地图显示 {len(rows)} 个需求点（OSM底图显示路网 · 红色⭐为查询目标）")
-        m = _build_map(sites, rows,
+        st.caption(f"地图显示 {len(map_rows)} 个需求点" + (f" · 🚛 公路路线已叠加" if route_data else ""))
+        m = _build_map(sites, map_rows,
                        route_polylines=[r["polyline"] for r in route_data] if route_data else None,
                        highlight_point=highlight_info)
         st_folium(m, width="100%", height=580, returned_objects=[])
