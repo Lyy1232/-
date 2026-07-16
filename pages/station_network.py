@@ -94,7 +94,7 @@ def _write_excel(df: pd.DataFrame):
 def _build_map(sites, demand_rows, route_polylines=None, highlight_point=None):
     """构建地图。可选参数：route_polylines=[[[lat,lon],...],...], highlight_point=(lat,lon,name)"""
     m = folium.Map(location=[37.5, 113.0], zoom_start=5,
-                   tiles="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                   tiles="OpenStreetMap",
                    attr="OSM", control_scale=True)
     Fullscreen().add_to(m)
 
@@ -256,9 +256,13 @@ def render():
         # ── 路线查询面板 ──
         st.markdown("---")
         st.subheader("🚛 公路路线查询")
-        st.caption("选择一个需求点，计算国华基地到该点的**公路实际距离**（非直线）及到站成本。底图已改为 OpenStreetMap（显示路网）。")
+        st.caption("选择一个需求点，计算国华基地到该点的**公路实际距离**（非直线）及到站成本。底图为 OpenStreetMap 路网。")
 
-        sel_name = st.selectbox("选择需求点", ["— 不查询路线 —"] + [r["name"] for r in rows], key="route_sel")
+        route_search = st.text_input("🔍 搜索需求点", "", placeholder="输入企业名称关键词筛选...", key="route_search")
+        name_list = ["— 不查询路线 —"] + [r["name"] for r in rows]
+        if route_search:
+            name_list = [n for n in name_list if route_search in n or n == "— 不查询路线 —"]
+        sel_name = st.selectbox("选择需求点", name_list, key="route_sel")
         route_data = None; highlight_info = None
         if sel_name and sel_name != "— 不查询路线 —":
             target = next((r for r in rows if r["name"] == sel_name), None)
