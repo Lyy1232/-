@@ -1,4 +1,4 @@
-"""成本竞争力分析 — 三基地视角 · 200km辐射圈 · 运输比选 · 销售场景 · 导出"""
+"""成本竞争力分析 — 四基地视角 · 公路经济半径 · 运输比选 · 销售场景 · 导出"""
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
@@ -6,6 +6,7 @@ import numpy as np
 import io
 from utils.data_loader import load_sites, load_stations_from_db
 from utils.geo_utils import haversine_km
+from utils.road_router import road_distance_with_fallback
 from utils.ui import render_module_header
 from config.constants import (
     TECH_ZH, ECONOMIC_RADIUS_KM,
@@ -51,7 +52,7 @@ def render():
         with c2:
             sel_radius = st.slider("分析半径 (km)", 50, 500, 200, 50)
         with c3:
-            show_subsidy = st.checkbox("叠加城市群补贴", value=False)
+            use_road = st.checkbox("🛣️ 公路距离", value=True, help="使用OSRM公路距离；取消使用直线距离")
         with c4:
             compare_mode = st.checkbox("多基地对比模式", value=False)
 
@@ -71,7 +72,11 @@ def render():
                     for s in stations:
                         lat, lon = s.get("lat"), s.get("lon")
                         if not lat or not lon: continue
-                        dist = haversine_km(blat, blon, lat, lon)
+                        straight = haversine_km(blat, blon, lat, lon)
+                        if use_road:
+                            dist, _ = road_distance_with_fallback(blon, blat, lon, lat)
+                        else:
+                            dist = straight
                         if dist > sel_radius: continue
                         landed, trans_fee = compute_landed(base_cost, dist, sel_mode)
                         retail = s.get("purchase_price_low") or s.get("retail_price")
@@ -110,7 +115,11 @@ def render():
             for s in stations:
                 lat, lon = s.get("lat"), s.get("lon")
                 if not lat or not lon: continue
-                dist = haversine_km(blat, blon, lat, lon)
+                straight = haversine_km(blat, blon, lat, lon)
+                if use_road:
+                    dist, _ = road_distance_with_fallback(blon, blat, lon, lat)
+                else:
+                    dist = straight
                 if dist > sel_radius: continue
                 landed, trans_fee = compute_landed(base_cost, dist, sel_mode)
                 retail = s.get("purchase_price_low") or s.get("retail_price")

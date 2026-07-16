@@ -12,7 +12,7 @@ from folium.plugins import Fullscreen, MarkerCluster
 from streamlit_folium import st_folium
 from utils.data_loader import load_sites
 from utils.ui import render_module_header
-from utils.road_router import road_route_from_bases
+from utils.road_router import road_route_from_bases, road_spider_routes
 from config.constants import TECH_COLORS, TECH_ZH, ECONOMIC_RADIUS_KM, TRANSPORT_MODES, GUOHUA_BASES_COST
 
 EXCEL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "国内氢需求企业数据库.xlsx"))
@@ -98,16 +98,31 @@ def _build_map(sites, demand_rows, route_polylines=None, highlight_point=None):
                    attr="CartoDB", control_scale=True)
     Fullscreen().add_to(m)
 
-    # 基地 + 200km 辐射圈
-    for site in sites:
+    # 基地 + 公路半径蜘蛛网
+    spider_group = folium.FeatureGroup(name="公路经济半径")
+    spider_colors = ["#ef4444","#f59e0b","#2563eb","#10b981","#8b5cf6"]
+    for si, site in enumerate(sites):
         color = TECH_COLORS.get(site.get("tech",""), "#64748b")
+        # 细虚线参考圈（直线200km）
         Circle([site["lat"],site["lon"]], radius=ECONOMIC_RADIUS_KM*1000,
-               color=color, fill=True, fill_color=color, fill_opacity=0.06, weight=1.5, opacity=0.35).add_to(m)
+               color="#94a3b8", fill=False, weight=0.8, opacity=0.25,
+               dash_array="5,8").add_to(spider_group)
+        # 基地标记
         folium.Marker([site["lat"],site["lon"]],
                       icon=folium.Icon(color="darkgreen", icon="industry", prefix="fa"),
                       popup=Popup(f"<b>{site['name']}</b><br>{TECH_ZH.get(site.get('tech',''),site.get('tech',''))}<br>¥{site.get('cost_avg','')}/kg", max_width=180)).add_to(m)
         folium.map.Marker([site["lat"]+0.04, site["lon"]],
                           icon=folium.DivIcon(html=f'<div style="font-size:9px;font-weight:700;color:#1e293b;background:rgba(255,255,255,0.9);padding:1px 4px;border-radius:2px">🏭 {site["name"]}</div>')).add_to(m)
+        # 公路蜘蛛线（缓存读取）
+        spider = road_spider_routes(
+            {"name": site["name"], "lat": site["lat"], "lon": site["lon"]},
+            [{"name": d["name"], "lat": d["lat"], "lon": d["lon"]} for d in demand_rows],
+            ECONOMIC_RADIUS_KM,
+        )
+        for sp in spider:
+            PolyLine(sp["polyline"], color=spider_colors[si % len(spider_colors)],
+                     weight=2.2, opacity=0.55, dash_array="4,4").add_to(spider_group)
+    spider_group.add_to(m)
 
     # 需求点
     cluster = MarkerCluster(name="需求点").add_to(m)
@@ -151,7 +166,8 @@ def _build_map(sites, demand_rows, route_polylines=None, highlight_point=None):
 
     # Legend
     lr = "".join(f'<tr><td><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:{c}"></span></td><td style="font-size:10px;color:#334155">{t}</td></tr>' for t,c in TYPE_COLORS.items())
-    lr += '<tr><td><span style="display:inline-block;width:12px;height:3px;background:#ef4444;border-radius:1px"></span></td><td style="font-size:10px;color:#334155">公路路线</td></tr>'
+    lr += '<tr><td><span style="display:inline-block;width:14px;height:2px;background:#94a3b8;border-radius:1px;border:0.5px dashed #94a3b8"></span></td><td style="font-size:10px;color:#334155">直线200km参考</td></tr>'
+    lr += '<tr><td><span style="display:inline-block;width:14px;height:2px;background:repeating-linear-gradient(90deg,#888 0 4px,transparent 4px 8px)"></span></td><td style="font-size:10px;color:#334155">公路路线</td></tr>'
     m.get_root().html.add_child(folium.Element(f"""<div style="position:fixed;bottom:18px;right:18px;z-index:9999;background:rgba(255,255,255,0.95);padding:8px 13px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.08);line-height:1.6">
       <b style="font-size:11px;color:#1e293b">图例</b><table style="margin-top:3px">{lr}</table></div>"""))
     folium.LayerControl().add_to(m)
