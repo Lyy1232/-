@@ -55,6 +55,8 @@ def render():
             use_road = st.checkbox("🛣️ 公路距离", value=True, help="使用OSRM公路距离；取消使用直线距离")
         with c4:
             compare_mode = st.checkbox("多基地对比模式", value=False)
+        show_subsidy = st.checkbox("💴 考虑城市群补贴", value=True,
+                                   help="命中城市群补贴时，从零售价中扣除补贴计算有效价差")
 
     tab1, tab2, tab3 = st.tabs(["📍 基地成本竞争力", "🚛 运输比选与场景", "📊 对标分析"])
 
